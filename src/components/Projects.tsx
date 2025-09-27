@@ -1,31 +1,7 @@
-const Projects = () => {
-  const projects = [
-    {
-      name: "[Ponha seu nome aqui]",
-      type: "Aplicação Web",
-      impact: "[Frase de impacto aqui]",
-      repo: "[Ponha o repositório aqui]",
-      tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-      gradient: "from-blue-500 to-purple-600"
-    },
-    {
-      name: "[Ponha seu nome aqui]",
-      type: "Aplicação Web",
-      impact: "[Frase de impacto aqui]",
-      repo: "[Ponha o repositório aqui]",
-      tech: ["Python", "Django", "AI/ML", "PostgreSQL"],
-      gradient: "from-green-500 to-blue-500"
-    },
-    {
-      name: "[Ponha seu nome aqui]",
-      type: "Aplicação Web",
-      impact: "[Frase de impacto aqui]",
-      repo: "[Ponha o repositório aqui]",
-      tech: ["React", "Express", "MongoDB", "Socket.io"],
-      gradient: "from-purple-500 to-pink-500"
-    }
-  ];
+import { projects } from '@/data/projects';
+import project1 from '@/assets/project1.png';
 
+const Projects = () => {
   return (
     <section id="projects" className="section-padding bg-secondary/30">
       <div className="container-max">
@@ -42,7 +18,8 @@ const Projects = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="card-project hover-lift fade-in group">
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+              <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
+                style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
@@ -50,7 +27,7 @@ const Projects = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors">
                   {project.name}
@@ -58,7 +35,7 @@ const Projects = () => {
                 <p className="text-muted-foreground mb-4 line-clamp-3">
                   {project.impact}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, techIndex) => (
                     <span key={techIndex} className="skill-badge text-xs">
@@ -66,8 +43,8 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
-                <a 
+
+                <a
                   href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"

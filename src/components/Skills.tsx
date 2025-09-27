@@ -1,19 +1,6 @@
-const Skills = () => {
-  const skills = [
-    { name: "React", level: "Avançado", proficiency: 95 },
-    { name: "Engenharia de Prompt", level: "Avançado", proficiency: 90 },
-    { name: "Inteligência Artificial", level: "Avançado", proficiency: 88 },
-    { name: "Inglês", level: "Avançado", proficiency: 85 },
-    { name: "Python", level: "Intermediário", proficiency: 75 },
-    { name: "Java", level: "Intermediário", proficiency: 70 },
-    { name: "Django", level: "Intermediário", proficiency: 72 },
-    { name: "Excel", level: "Intermediário", proficiency: 68 },
-    { name: "PostgreSQL", level: "Intermediário", proficiency: 75 },
-    { name: "Versionamento (Git)", level: "Intermediário", proficiency: 80 },
-    { name: "Android (Kotlin)", level: "Básico", proficiency: 45 },
-    { name: "Dashboard Development", level: "Básico", proficiency: 50 }
-  ];
+import { skills } from "@/data/skills";
 
+const Skills = () => {
   const getSkillColor = (level: string) => {
     switch (level) {
       case "Avançado": return "from-green-500 to-emerald-600";
@@ -45,14 +32,14 @@ const Skills = () => {
                   {skill.level}
                 </span>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="flex justify-between text-sm text-muted-foreground">
                   <span>Proficiência</span>
                   <span>{skill.proficiency}%</span>
                 </div>
                 <div className="w-full bg-border rounded-full h-2">
-                  <div 
+                  <div
                     className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
                     style={{ width: `${skill.proficiency}%` }}
                   ></div>
@@ -66,9 +53,9 @@ const Skills = () => {
           <div className="card-elevated max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Proposta de Valor</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-primary">Empresas de tecnologia e startups</span> que buscam 
-              inovar e expandir negócios através de <span className="font-semibold text-accent">soluções digitais 
-              seguras e escaláveis</span>. Especialização em integração de IA e desenvolvimento full-stack 
+              <span className="font-semibold text-primary">Empresas de tecnologia e startups</span> que buscam
+              inovar e expandir negócios através de <span className="font-semibold text-accent">soluções digitais
+                seguras e escaláveis</span>. Especialização em integração de IA e desenvolvimento full-stack
               para maximizar eficiência operacional e resultados.
             </p>
           </div>

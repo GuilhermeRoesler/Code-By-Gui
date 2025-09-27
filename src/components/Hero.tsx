@@ -1,4 +1,4 @@
-import heroProfile from '@/assets/hero-profile.png';
+import heroProfile from '@/assets/hero-profile.jpg';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -74,14 +74,14 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end fade-in">
-            <div className="relative">
+          <div className="relative flex justify-center fade-in">
+            <div className="relative bounce">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl transform rotate-6"></div>
-              <div className="relative bg-card rounded-3xl p-4 shadow-large">
+              <div className="relative bg-card rounded-[9999px] p-4 shadow-large lg:scale-[1.2]">
                 <img
                   src={heroProfile}
                   alt="Guilherme Roesler - Desenvolvedor Full-Stack"
-                  className="w-80 h-80 object-cover rounded-2xl"
+                  className="w-80 h-80 object-cover rounded-[9999px]"
                 />
               </div>
             </div>

@@ -9,12 +9,12 @@
 @layer base {
   :root {
     /* Base Colors */
-    --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
+    --background: 0 0% 7%;
+    --foreground: 192 5% 89%;
 
     /* Card System */
-    --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
+    --card: 0 0% 10%;
+    --card-foreground: 222 5% 80%;
 
     /* Primary Brand */
     --primary: 214 84% 56%;
@@ -22,7 +22,7 @@
     --primary-glow: 214 84% 70%;
 
     /* Secondary */
-    --secondary: 210 40% 96%;
+    --secondary: 210 40% 9%;
     --secondary-foreground: 222 47% 11%;
 
     /* Accent Colors */
@@ -32,10 +32,10 @@
 
     /* Muted */
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 5% 60%;
 
     /* Borders & Inputs */
-    --border: 214 32% 91%;
+    --border: 214 3% 36%;
     --input: 214 32% 91%;
     --ring: 214 84% 56%;
 
@@ -128,13 +128,14 @@
 }
 
 @layer components {
+
   /* Hero Button Variants */
   .btn-hero {
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-large hover:shadow-glow transition-all duration-300 hover:scale-105;
   }
 
   .btn-secondary {
-    @apply bg-card border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    @apply bg-transparent border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300;
   }
 
   /* Card Variants */
