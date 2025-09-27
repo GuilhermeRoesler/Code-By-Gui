@@ -9,9 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" 
-    style={{"background: url(data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="1" fill="%23e2e8f0" opacity="0.3"/><circle cx="80" cy="80" r="1" fill="%232563eb" opacity="0.2"/><circle cx="40" cy="60" r="1" fill="%2310b981" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>)"}}
-    className="min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-secondary/30 to-background">
+    <section id="home" className="min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-secondary/30 to-background">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
