@@ -1,0 +1,127 @@
+const Experience = () => {
+  const experiences = [
+    {
+      role: "Lead Developer Full-Stack",
+      company: "TechStart Solutions",
+      period: "2023–2024",
+      achievement: "Aumentou a eficiência do sistema em 45% através de refatoração de arquitetura",
+      description: "Liderança técnica em projetos de grande escala, implementação de microsserviços e otimização de performance."
+    },
+    {
+      role: "Desenvolvedor Python & AI",
+      company: "InnovaCorp",
+      period: "2022–2023",
+      achievement: "Implementou chatbot inteligente que reduziu tickets de suporte em 70%",
+      description: "Desenvolvimento de soluções de IA, automação de processos e integração de sistemas inteligentes."
+    },
+    {
+      role: "Full-Stack Developer",
+      company: "DigitalFlow",
+      period: "2021–2022",
+      achievement: "Desenvolveu plataforma e-commerce que aumentou conversões em 35%",
+      description: "Criação de aplicações web responsivas, integração de APIs e otimização de UX/UI."
+    },
+    {
+      role: "Desenvolvedor Junior",
+      company: "CodeLab",
+      period: "2020–2021",
+      achievement: "Otimizou queries de banco de dados reduzindo tempo de resposta em 50%",
+      description: "Desenvolvimento backend, manutenção de banco de dados e implementação de testes automatizados."
+    },
+    {
+      role: "Estagiário de Desenvolvimento",
+      company: "StartupHub",
+      period: "2019–2020",
+      achievement: "Contribuiu para 3 projetos MVP com deploy automatizado",
+      description: "Aprendizado de tecnologias modernas, desenvolvimento de funcionalidades e participação em metodologias ágeis."
+    }
+  ];
+
+  const goals = [
+    {
+      term: "Curto Prazo (6-12m)",
+      goal: "Especializar-me em arquiteturas de microsserviços e liderar projetos de IA generativa"
+    },
+    {
+      term: "Médio Prazo (1-3a)",
+      goal: "Assumir posição de Tech Lead em empresa de médio porte focada em soluções AI-driven"
+    },
+    {
+      term: "Longo Prazo (3-5a)",
+      goal: "Empreender com startup própria de soluções inteligentes para automatização empresarial"
+    }
+  ];
+
+  return (
+    <section id="experience" className="section-padding bg-secondary/30">
+      <div className="container-max">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="gradient-text">Experiência</span> Profissional
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Trajetória de crescimento contínuo com resultados mensuráveis e impacto real
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Experience Timeline */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Histórico Profissional</h3>
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <div key={index} className="timeline-item fade-in">
+                  <div className="card-elevated">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                      <h4 className="text-lg font-bold text-primary">{exp.role}</h4>
+                      <span className="text-sm text-muted-foreground font-medium">{exp.period}</span>
+                    </div>
+                    <h5 className="text-md font-semibold text-card-foreground mb-3">{exp.company}</h5>
+                    <div className="bg-accent/10 border-l-4 border-accent p-3 rounded mb-3">
+                      <p className="text-sm font-medium text-accent">{exp.achievement}</p>
+                    </div>
+                    <p className="text-muted-foreground text-sm">{exp.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Goals */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Metas Profissionais</h3>
+            <div className="space-y-6">
+              {goals.map((goal, index) => (
+                <div key={index} className="card-elevated hover-lift fade-in">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-primary mb-2">{goal.term}</h4>
+                      <p className="text-muted-foreground">{goal.goal}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 card-elevated">
+              <h4 className="text-lg font-bold mb-4 gradient-text">Visão de Futuro</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                Comprometido com a evolução contínua da tecnologia, busco sempre estar na vanguarda 
+                das inovações em IA e desenvolvimento web, contribuindo para projetos que geram 
+                impacto positivo real na sociedade e nos negócios.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
