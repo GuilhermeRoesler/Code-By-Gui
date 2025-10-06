@@ -6,6 +6,7 @@ export const projects = [
         type: "Aplicação Web",
         impact: "E-commerce de farmácia de manipulados",
         repo: "https://github.com/GuilhermeRoesler/Life-Simple",
+        link: "https://lifesimple.fwh.is",
         tech: ["React", "TypeScript", "Tailwind", "Firebase"],
         gradient: "from-blue-500 to-purple-600",
         image: project1

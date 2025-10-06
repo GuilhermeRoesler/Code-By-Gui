@@ -29,7 +29,9 @@ const Experience = () => {
                     </div>
                     <h5 className="text-md font-semibold text-card-foreground mb-3">{exp.company}</h5>
                     <div className="bg-accent/10 border-l-4 border-accent p-3 rounded mb-3">
-                      <p className="text-sm font-medium text-accent">{exp.achievement}</p>
+                      {exp.achievements.map((achievement, index) => (
+                        <p className="text-sm font-medium text-accent">• {achievement}</p>
+                      ))}
                     </div>
                     <p className="text-muted-foreground text-sm">{exp.description}</p>
                   </div>
@@ -62,9 +64,7 @@ const Experience = () => {
             <div className="mt-8 card-elevated">
               <h4 className="text-lg font-bold mb-4 gradient-text">Visão de Futuro</h4>
               <p className="text-muted-foreground leading-relaxed">
-                Comprometido com a evolução contínua da tecnologia, busco sempre estar na vanguarda
-                das inovações em IA e desenvolvimento web, contribuindo para projetos que geram
-                impacto positivo real na sociedade e nos negócios.
+                Comprometido com a excelência técnica e o impacto social da tecnologia, tenho como propósito desenvolver soluções que melhorem a eficiência das organizações e ampliem o alcance da inovação no Brasil.
               </p>
             </div>
           </div>

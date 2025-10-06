@@ -20,14 +20,13 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-soft' : 'bg-transparent'
-    }`}>
-      <nav className="container-max py-4 flex items-center justify-between">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-soft' : 'bg-transparent'
+      }`}>
+      <nav className="container-max p-4 flex items-center justify-between">
         <div className="text-2xl font-bold gradient-text">
           Guilherme Roesler
         </div>
-        
+
         <div className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('home')} className="nav-link">
             Início
@@ -49,7 +48,7 @@ const Header = () => {
           </button>
         </div>
 
-        <a 
+        <a
           href="mailto:guiroesler2@gmail.com"
           className="btn-secondary py-2 px-6 text-sm"
         >

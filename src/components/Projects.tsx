@@ -29,7 +29,8 @@ const Projects = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors cursor-pointer"
+                  onClick={() => window.open(project.link, '_blank')}>
                   {project.name}
                 </h3>
                 <p className="text-muted-foreground mb-4 line-clamp-3">
