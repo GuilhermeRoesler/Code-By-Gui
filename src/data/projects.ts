@@ -1,30 +1,23 @@
 import project1 from '@/assets/project1.png';
+import project2 from '@/assets/project2.png';
 
 export const projects = [
     {
         name: "Life Simple",
         type: "Aplicação Web",
-        impact: "E-commerce de farmácia de manipulados",
+        impact: "Plataforma de e-commerce farmacêutico de manipulados com chatbot inteligente, conectando tecnologia e saúde ao comércio local",
         repo: "https://github.com/GuilhermeRoesler/Life-Simple",
         link: "https://lifesimple.fwh.is",
-        tech: ["React", "TypeScript", "Tailwind", "Firebase"],
-        gradient: "from-blue-500 to-purple-600",
+        tech: ["Vibe Coding", "IA", "Chatbot", "React", "TypeScript", "Tailwind", "Firebase"],
         image: project1
     },
     {
-        name: "[Ponha seu nome aqui]",
+        name: "Timeline",
         type: "Aplicação Web",
-        impact: "[Frase de impacto aqui]",
-        repo: "[Ponha o repositório aqui]",
-        tech: ["Python", "Django", "AI/ML", "PostgreSQL"],
-        gradient: "from-green-500 to-blue-500"
-    },
-    {
-        name: "[Ponha seu nome aqui]",
-        type: "Aplicação Web",
-        impact: "[Frase de impacto aqui]",
-        repo: "[Ponha o repositório aqui]",
-        tech: ["React", "Express", "MongoDB", "Socket.io"],
-        gradient: "from-purple-500 to-pink-500"
+        impact: "Ferramenta educacional interativa que facilita a compreensão de eventos e períodos históricos por meio de visualizações claras e acessíveis",
+        repo: "https://github.com/GuilhermeRoesler/Timeline",
+        link: "https://timeline.fwh.is",
+        tech: ["PHP", "MySQL", "React", "TypeScript", "Tailwind"],
+        image: project2
     }
 ];

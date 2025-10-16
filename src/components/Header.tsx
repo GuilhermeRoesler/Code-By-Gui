@@ -40,9 +40,9 @@ const Header = () => {
           <button onClick={() => scrollToSection('experience')} className="nav-link">
             Experiência
           </button>
-          <button onClick={() => scrollToSection('testimonials')} className="nav-link">
+          {/* <button onClick={() => scrollToSection('testimonials')} className="nav-link">
             Depoimentos
-          </button>
+          </button> */}
           <button onClick={() => scrollToSection('contact')} className="nav-link">
             Contato
           </button>

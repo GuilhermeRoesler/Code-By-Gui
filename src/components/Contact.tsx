@@ -12,7 +12,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validação básica
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
@@ -34,9 +34,9 @@ const Contact = () => {
 ${formData.message}`;
 
     const whatsappUrl = `https://wa.me/5551989354834?text=${encodeURIComponent(whatsappMessage)}`;
-    
+
     window.open(whatsappUrl, '_blank');
-    
+
     toast({
       title: "Redirecionando para WhatsApp",
       description: "Você será redirecionado para enviar sua mensagem via WhatsApp.",
@@ -81,7 +81,7 @@ ${formData.message}`;
   ];
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
+    <section id="contact" className="section-padding">
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -128,7 +128,7 @@ ${formData.message}`;
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-card-foreground mb-2">
                   Assunto
@@ -142,7 +142,7 @@ ${formData.message}`;
                   placeholder="Assunto da mensagem"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-card-foreground mb-2">
                   Mensagem *
@@ -157,7 +157,7 @@ ${formData.message}`;
                   placeholder="Descreva seu projeto ou como posso ajudá-lo..."
                 />
               </div>
-              
+
               <button type="submit" className="btn-hero w-full">
                 Enviar via WhatsApp
               </button>
