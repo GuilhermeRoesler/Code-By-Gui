@@ -1,7 +1,9 @@
 import { projects } from '@/data/projects';
-import project1 from '@/assets/project1.png';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <section id="projects" className="section-padding bg-secondary/30">
       <div className="container-max">
@@ -15,8 +17,8 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredProjects.map((project, index) => (
             <div key={index} className="card-project hover-lift fade-in group">
               <div className={`h-48 relative overflow-hidden cursor-pointer`}
                 style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -60,6 +62,12 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link to="/projects" className="btn-hero">
+            Ver Todos os Projetos
+          </Link>
         </div>
       </div>
     </section>
