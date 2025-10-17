@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
-import { Home, Code, Wrench, Briefcase, Mail } from 'lucide-react';
+import { Home, User, Code, Wrench, Briefcase, Mail } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +16,7 @@ const Header = () => {
 
   const navLinks = [
     { id: 'home', label: 'Início', icon: <Home className="w-4 h-4" /> },
+    { id: 'about', label: 'Sobre', icon: <User className="w-4 h-4" /> },
     { id: 'projects', label: 'Projetos', icon: <Code className="w-4 h-4" /> },
     { id: 'skills', label: 'Competências', icon: <Wrench className="w-4 h-4" /> },
     { id: 'experience', label: 'Experiência', icon: <Briefcase className="w-4 h-4" /> },
