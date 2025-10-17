@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { Home, Code, Wrench, Briefcase, Mail } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +13,14 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navLinks = [
+    { id: 'home', label: 'Início', icon: <Home className="w-4 h-4" /> },
+    { id: 'projects', label: 'Projetos', icon: <Code className="w-4 h-4" /> },
+    { id: 'skills', label: 'Competências', icon: <Wrench className="w-4 h-4" /> },
+    { id: 'experience', label: 'Experiência', icon: <Briefcase className="w-4 h-4" /> },
+    { id: 'contact', label: 'Contato', icon: <Mail className="w-4 h-4" /> },
+  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -29,24 +38,12 @@ const Header = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-8">
-          <button onClick={() => scrollToSection('home')} className="nav-link">
-            Início
-          </button>
-          <button onClick={() => scrollToSection('projects')} className="nav-link">
-            Projetos
-          </button>
-          <button onClick={() => scrollToSection('skills')} className="nav-link">
-            Competências
-          </button>
-          <button onClick={() => scrollToSection('experience')} className="nav-link">
-            Experiência
-          </button>
-          {/* <button onClick={() => scrollToSection('testimonials')} className="nav-link">
-            Depoimentos
-          </button> */}
-          <button onClick={() => scrollToSection('contact')} className="nav-link">
-            Contato
-          </button>
+          {navLinks.map((link) => (
+            <button key={link.id} onClick={() => scrollToSection(link.id)} className="nav-link flex items-center gap-2">
+              {link.icon}
+              <span>{link.label}</span>
+            </button>
+          ))}
         </div>
 
         <div className="flex items-center gap-2">

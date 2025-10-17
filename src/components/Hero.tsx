@@ -84,6 +84,25 @@ const Hero = () => {
                   className="w-80 h-80 object-cover rounded-[9999px]"
                 />
               </div>
+              {/* Bouncing Tech Badges */}
+              <div
+                className="absolute top-10 -right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
+                style={{ animationDelay: '0s' }}
+              >
+                React
+              </div>
+              <div
+                className="absolute top-1/2 -left-8 bg-purple-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
+                style={{ animationDelay: '0.5s' }}
+              >
+                Py
+              </div>
+              <div
+                className="absolute bottom-12 -left-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
+                style={{ animationDelay: '1s' }}
+              >
+                AI
+              </div>
             </div>
           </div>
         </div>
