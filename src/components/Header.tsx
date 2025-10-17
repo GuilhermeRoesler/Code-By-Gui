@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,12 +49,15 @@ const Header = () => {
           </button>
         </div>
 
-        <a
-          href="mailto:guiroesler2@gmail.com"
-          className="btn-secondary py-2 px-6 text-sm"
-        >
-          Fale Comigo
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeSwitcher />
+          <a
+            href="mailto:guiroesler2@gmail.com"
+            className="btn-secondary py-2 px-6 text-sm"
+          >
+            Fale Comigo
+          </a>
+        </div>
       </nav>
     </header>
   );
