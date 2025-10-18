@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Home, User, Code, Wrench, Briefcase, Mail } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,11 +31,7 @@ const Header = () => {
   };
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-soft' : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-soft' : 'bg-transparent'
       }`}>
       <nav className="container-max p-4 flex items-center justify-between">
         <div className="text-2xl font-bold gradient-text">
@@ -62,7 +57,7 @@ const Header = () => {
           </a>
         </div>
       </nav>
-    </motion.header>
+    </header>
   );
 };
 

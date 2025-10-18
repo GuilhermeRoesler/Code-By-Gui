@@ -182,10 +182,6 @@
   .card-project {
     @apply bg-card rounded-2xl overflow-hidden shadow-medium hover:shadow-large transition-all duration-300 border border-border/50 hover:border-primary/30;
   }
-  
-  .card-elevated:hover, .card-project:hover {
-    @apply shadow-glow border-primary/50;
-  }
 
   /* Skill Badge */
   .skill-badge {
@@ -202,6 +198,14 @@
   }
 
   /* Animation Classes */
+  .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
   .hover-lift {
     @apply transition-transform duration-300 hover:-translate-y-2;
   }

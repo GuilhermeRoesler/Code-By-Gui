@@ -2,31 +2,8 @@ import { Link } from 'react-router-dom';
 import { projects } from '@/data/projects';
 import { ArrowLeft } from 'lucide-react';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
 
 const AllProjects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <main className="section-padding">
@@ -47,14 +24,9 @@ const AllProjects = () => {
             </div>
           </div>
 
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <motion.div key={index} variants={cardVariants} className="card-project hover-lift group">
+              <div key={index} className="card-project hover-lift fade-in visible group">
                 <div className={`h-48 relative overflow-hidden cursor-pointer`}
                   onClick={() => window.open(project.link, '_blank')}>
                   <div className="absolute inset-0 bg-primary/5 overflow-hidden transform-gpu">
@@ -96,9 +68,9 @@ const AllProjects = () => {
                     </svg>
                   </a>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </main>
       <Footer />

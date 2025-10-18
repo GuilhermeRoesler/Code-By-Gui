@@ -1,44 +1,11 @@
 import { projects } from '@/data/projects';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  }
-};
 
 const Projects = () => {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <motion.section
-      id="projects"
-      className="section-padding bg-secondary/30"
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <section id="projects" className="section-padding bg-secondary/30">
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -52,11 +19,11 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
-            <motion.div key={index} variants={cardVariants} className="card-project overflow-hidden transition duration-300 hover-lift group">
+            <div key={index} className="card-project overflow-hidden transition duration-300 hover-lift fade-in group">
               <div className={`h-48 relative overflow-hidden cursor-pointer`}
                 onClick={() => window.open(project.link, '_blank')}>
                 <div className="absolute inset-0 bg-primary/5 overflow-hidden transform-gpu">
-                  <img src={project.image} alt={project.name} className='group-hover:scale-110 transition-transform duration-300 ease-in-out object-cover w-full h-full object-center' />
+                  <img src={project.image} alt={project.name} className='group-hover:scale-110 transition-transform duration-300 ease-in-out object-cover w-full h-full object-top' />
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
@@ -94,17 +61,17 @@ const Projects = () => {
                   </svg>
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div variants={cardVariants} className="mt-16 text-center">
+        <div className="mt-16 text-center">
           <Link to="/projects" className="btn-hero">
             Ver Todos os Projetos
           </Link>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

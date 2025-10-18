@@ -1,37 +1,11 @@
 import heroProfile from '@/assets/hero-profile.jpg';
 import { aboutData } from '@/data/about';
-import { motion } from 'framer-motion';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 const About = () => {
   return (
-    <motion.section
-      id="about"
-      className="section-padding"
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <section id="about" className="section-padding">
       <div className="container-max">
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             <span className="gradient-text">{aboutData.title}</span>
           </h2>
@@ -39,11 +13,11 @@ const About = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {aboutData.subtitle}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           {/* Image Section */}
-          <motion.div variants={itemVariants} className="lg:col-span-2 flex justify-center">
+          <div className="lg:col-span-2 flex justify-center fade-in">
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
               <img
@@ -52,10 +26,10 @@ const About = () => {
                 className="relative w-full max-w-sm h-auto object-cover rounded-2xl shadow-large"
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Text Section */}
-          <motion.div variants={itemVariants} className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-3 space-y-6 fade-in">
             {aboutData.paragraphs.map((paragraph, index) => (
               <p key={index} className="text-muted-foreground leading-relaxed">
                 {paragraph}
@@ -70,10 +44,10 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
