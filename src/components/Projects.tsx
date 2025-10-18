@@ -19,12 +19,11 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
-            <div key={index} className="card-project fade-in group">
+            <div key={index} className="card-project overflow-hidden transition duration-300 hover-lift fade-in group">
               <div className={`h-48 relative overflow-hidden cursor-pointer`}
-                // style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                 onClick={() => window.open(project.link, '_blank')}>
-                <div className="absolute inset-0 bg-primary/5 overflow-hidden">
-                  <img src={project.image} alt="project image" className='hover:scale-110 transition-transform duration-300 object-cover w-full h-full object-center' />
+                <div className="absolute inset-0 bg-primary/5 overflow-hidden transform-gpu">
+                  <img src={project.image} alt={project.name} className='group-hover:scale-110 transition-transform duration-300 ease-in-out object-cover w-full h-full object-top' />
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
