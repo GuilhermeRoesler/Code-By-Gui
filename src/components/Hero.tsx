@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-secondary/30 to-background">
+    <section id="home" className="relative overflow-hidden min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-secondary/30 to-background">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
