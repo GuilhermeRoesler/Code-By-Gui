@@ -1,4 +1,5 @@
 import heroProfile from '@/assets/hero-profile.jpg';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -8,24 +9,61 @@ const Hero = () => {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const imageContainerVariants = {
+    hidden: { scale: 0.5, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.6, -0.05, 0.01, 0.99],
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center section-padding bg-gradient-to-br from-background via-secondary/30 to-background">
       <div className="container-max">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 fade-in">
+          <motion.div
+            className="space-y-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="gradient-text">Desenvolvedor</span><br />
                 Full-Stack & AI
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+              </motion.h1>
+              <motion.div variants={itemVariants} className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></motion.div>
             </div>
 
-            <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+            <motion.p variants={itemVariants} className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
               Transformando ideias em <span className="text-primary font-semibold">soluções digitais</span> seguras e escaláveis
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToProjects}
                 className="btn-hero"
@@ -38,9 +76,9 @@ const Hero = () => {
               >
                 Entrar em Contato
               </a>
-            </div>
+            </motion.div>
 
-            <div className="flex items-center space-x-6">
+            <motion.div variants={itemVariants} className="flex items-center space-x-6">
               <a
                 href="https://github.com/GuilhermeRoesler"
                 target="_blank"
@@ -71,10 +109,15 @@ const Hero = () => {
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative flex justify-center fade-in">
+          <motion.div
+            className="relative flex justify-center"
+            variants={imageContainerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="relative bounce">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl transform rotate-6"></div>
               <div className="relative bg-card rounded-[9999px] p-4 shadow-large lg:scale-[1.2]">
@@ -85,26 +128,29 @@ const Hero = () => {
                 />
               </div>
               {/* Bouncing Tech Badges */}
-              <div
+              <motion.div
+                variants={itemVariants}
                 className="absolute top-10 -right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
                 style={{ animationDelay: '0s' }}
               >
                 React
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
                 className="absolute top-1/2 -left-8 bg-purple-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
                 style={{ animationDelay: '0.5s' }}
               >
                 Py
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+                variants={itemVariants}
                 className="absolute bottom-12 -left-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
                 style={{ animationDelay: '1s' }}
               >
                 AI
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
