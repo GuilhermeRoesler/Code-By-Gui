@@ -1,7 +1,18 @@
-import heroProfile from '@/assets/hero-profile.jpg';
+import { useState, useEffect } from 'react';
 import { aboutData } from '@/data/about';
+import { aboutImages } from '@/data/aboutImages';
 
 const About = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % aboutImages.length);
+    }, 5000); // Muda a imagem a cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="about" className="section-padding">
       <div className="container-max">
@@ -16,15 +27,22 @@ const About = () => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-center">
-          {/* Image Section */}
+          {/* Image Carousel Section */}
           <div className="lg:col-span-2 flex justify-center fade-in">
-            <div className="relative">
+            <div className="relative w-full max-w-sm" style={{ height: '450px' }}>
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
-              <img
-                src={heroProfile}
-                alt="Guilherme Roesler"
-                className="relative w-full max-w-sm h-auto object-cover rounded-2xl shadow-large"
-              />
+              <div className="relative w-full h-full rounded-2xl shadow-large overflow-hidden">
+                {aboutImages.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                      index === currentIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
