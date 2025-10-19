@@ -50,7 +50,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center flip-2-hor-top-1">
+        <div className="mt-16 text-center slide-rotate-hor-top" style={{ animationDelay: '1.3s' }}>
           <div className="card-elevated max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Proposta de Valor</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">

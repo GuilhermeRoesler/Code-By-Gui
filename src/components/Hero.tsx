@@ -68,7 +68,9 @@ const Hero = () => {
                 Ver Projetos
               </button>
               <a
-                href="mailto:guiroesler2@gmail.com"
+                href="https://wa.me/5551989354834?text=Olá GUilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary fade-in"
               >
                 Entrar em Contato

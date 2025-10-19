@@ -50,7 +50,9 @@ const Header = () => {
         <div className="flex items-center gap-2">
           <ThemeSwitcher />
           <a
-            href="mailto:guiroesler2@gmail.com"
+            href="https://wa.me/5551989354834?text=Olá GUilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary py-2 px-6 text-sm"
           >
             Fale Comigo
