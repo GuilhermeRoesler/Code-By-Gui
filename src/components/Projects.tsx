@@ -1,8 +1,26 @@
+import { useState } from 'react';
 import { projects } from '@/data/projects';
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const featuredProjects = projects.slice(0, 3);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const getCardClass = (index: number) => {
+    if (hoveredIndex === null) {
+      return '';
+    }
+    if (index === hoveredIndex) {
+      return 'scale-up';
+    }
+    if (index < hoveredIndex) {
+      return 'rotate-right';
+    }
+    if (index > hoveredIndex) {
+      return 'rotate-left';
+    }
+    return '';
+  };
 
   return (
     <section id="projects" className="section-padding bg-secondary/30">
@@ -17,10 +35,17 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 projects-container"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           {featuredProjects.map((project, index) => (
-            <div key={index} className="card-project overflow-hidden transition duration-300 hover-lift slide-top group"
-              style={{ animationDelay: `${index * 0.2}s` }}>
+            <div
+              key={index}
+              className={`card-project overflow-hidden slide-top group project-card-3d ${getCardClass(index)}`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+              onMouseEnter={() => setHoveredIndex(index)}
+            >
               <div className={`h-48 relative overflow-hidden cursor-pointer`}
                 onClick={() => window.open(project.link, '_blank')}>
                 <div className="absolute inset-0 bg-primary/5 overflow-hidden transform-gpu">
