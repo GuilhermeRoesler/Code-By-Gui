@@ -125,7 +125,7 @@ ${formData.message}`;
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-transparent placeholder:text-muted-foreground/50"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
                       placeholder="Seu nome completo"
                     />
                   </div>
@@ -139,7 +139,7 @@ ${formData.message}`;
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-transparent placeholder:text-muted-foreground/50"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -154,7 +154,7 @@ ${formData.message}`;
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-transparent placeholder:text-muted-foreground/50"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
                     placeholder="Assunto da mensagem"
                   />
                 </div>
@@ -169,7 +169,7 @@ ${formData.message}`;
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-transparent resize-none placeholder:text-muted-foreground/50"
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background resize-none"
                     placeholder="Descreva seu projeto ou como posso ajudá-lo..."
                   />
                 </div>
