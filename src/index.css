@@ -318,4 +318,33 @@
     mix-blend-mode: plus-lighter;
     transition: opacity 200ms;
   }
+
+  /* Halftone Reveal Effect */
+  .halftone-reveal-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .halftone-reveal-container.active {
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+  }
+
+  .clip-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  .halftone-content {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
 }
