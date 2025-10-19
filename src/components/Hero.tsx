@@ -1,7 +1,24 @@
+import { useState, useEffect } from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
+import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
+  const [animationPhase, setAnimationPhase] = useState('flyIn');
+
+  useEffect(() => {
+    // Duração da animação fly-in (última fatia começa em 1560ms, animação dura 2500ms)
+    const flyInDuration = 1560 + 2500;
+    // Pausa de 5 segundos após o fly-in
+    const pauseDuration = 5000;
+
+    const timer = setTimeout(() => {
+      setAnimationPhase('typing');
+    }, flyInDuration + pauseDuration);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -15,9 +32,18 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <TextFlyIn>Desenvolvedor</TextFlyIn>
-                <TextFlyIn>Full-Stack & AI</TextFlyIn>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
+                {animationPhase === 'flyIn' ? (
+                  <>
+                    <TextFlyIn>Desenvolvedor</TextFlyIn>
+                    <TextFlyIn>Full-Stack & AI</TextFlyIn>
+                  </>
+                ) : (
+                  <TypingAnimation
+                    texts={["Desenvolvedor Full-Stack & AI", "Guilherme Roesler"]}
+                    startDeleting={true}
+                  />
+                )}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
