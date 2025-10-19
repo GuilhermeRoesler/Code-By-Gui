@@ -20,7 +20,7 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
       const row = Math.floor(i / 20);
       const progress = i / (numSlices - 1);
 
-      // Interpolação de cores HSL
+      // Interpolação de cores HSL para criar o gradiente
       const currentHue = (startColor.h + hueDifference * progress) % 360;
       const currentSat = startColor.s + (endColor.s - startColor.s) * progress;
       const currentLight = startColor.l + (endColor.l - startColor.l) * progress;
