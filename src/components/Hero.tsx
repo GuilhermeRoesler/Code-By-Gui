@@ -39,10 +39,18 @@ const Hero = () => {
                     <TextFlyIn>Full-Stack & AI</TextFlyIn>
                   </>
                 ) : (
-                  <TypingAnimation
-                    texts={["Desenvolvedor Full-Stack & AI", "Guilherme Roesler"]}
-                    startDeleting={true}
-                  />
+                  <>
+                    <TypingAnimation
+                      texts={["Desenvolvedor", "Guilherme"]}
+                      startDeleting={true}
+                      className="gradient-text"
+                    />
+                    <TypingAnimation
+                      texts={["Full-Stack & AI", "Roesler"]}
+                      startDeleting={true}
+                      className="gradient-text"
+                    />
+                  </>
                 )}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>

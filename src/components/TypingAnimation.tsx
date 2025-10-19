@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 interface TypingAnimationProps {
   texts: string[];
+  className?: string;
   startDeleting?: boolean;
   typingSpeed?: number;
   deletingSpeed?: number;
@@ -10,6 +11,7 @@ interface TypingAnimationProps {
 
 const TypingAnimation = ({
   texts,
+  className,
   startDeleting = false,
   typingSpeed = 100,
   deletingSpeed = 50,
@@ -54,7 +56,7 @@ const TypingAnimation = ({
   }, [text, delta]);
 
   return (
-    <span>
+    <span className={className}>
       {text}
       <span className="typing-cursor"></span>
     </span>
