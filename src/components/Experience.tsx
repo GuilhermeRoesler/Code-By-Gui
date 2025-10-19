@@ -45,8 +45,8 @@ const Experience = () => {
             <h3 className="text-2xl font-bold mb-8 text-center lg:text-left">Metas Profissionais</h3>
             <div className="space-y-6">
               {goals.map((goal, index) => (
-                <div key={index} className="card-elevated hover-lift fade-in">
-                  <div className="flex items-start space-x-4">
+                <div key={index} className="slide-fwd-left">
+                  <div className="flex items-start space-x-4 card-elevated hover-lift">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
                         {index + 1}
@@ -61,7 +61,7 @@ const Experience = () => {
               ))}
             </div>
 
-            <div className="mt-8 card-elevated fade-in">
+            <div className="mt-8 card-elevated slide-fwd-left">
               <h4 className="text-lg font-bold mb-4 gradient-text">Visão de Futuro</h4>
               <p className="text-muted-foreground leading-relaxed">
                 Comprometido com a excelência técnica e o impacto social da tecnologia, tenho como propósito desenvolver soluções que melhorem a eficiência das organizações e ampliem o alcance da inovação no Brasil.

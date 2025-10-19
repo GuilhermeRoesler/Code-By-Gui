@@ -26,7 +26,7 @@ const Index = () => {
     }, observerOptions);
 
     // Observe all fade-in elements
-    const elementsToObserve = document.querySelectorAll('.fade-in, .slide-top, .slide-rotate-hor-top, .flip-2-hor-top-1');
+    const elementsToObserve = document.querySelectorAll('.fade-in, .slide-top, .slide-rotate-hor-top, .flip-2-hor-top-1, .slide-fwd-left');
     elementsToObserve.forEach((el) => observer.observe(el));
 
     return () => {

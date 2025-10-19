@@ -149,6 +149,11 @@
 }
 
 .slide-fwd-left {
+  opacity: 0;
+}
+
+.slide-fwd-left.visible {
+  opacity: 1;
   -webkit-animation: slide-fwd-left 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: slide-fwd-left 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }

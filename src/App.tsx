@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      {/* {isLoading && <Preloader isFinishing={isFinishing} />} */}
+      {isLoading && <Preloader isFinishing={isFinishing} />}
       <QueryClientProvider client={queryClient}>
         <ThemeProvider attribute="data-theme" defaultTheme="bold-creative">
           <TooltipProvider>

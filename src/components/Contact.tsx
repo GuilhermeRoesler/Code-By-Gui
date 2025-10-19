@@ -191,7 +191,7 @@ ${formData.message}`;
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-elevated hover-lift fade-in flex items-center p-6 transition-all duration-300 hover:border-primary/30"
+                  className="card-elevated hover-lift slide-fwd-left flex items-center p-6 transition-all duration-300 hover:border-primary/30"
                 >
                   <div className="text-3xl mr-4">{method.icon}</div>
                   <div>
