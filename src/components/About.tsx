@@ -48,7 +48,7 @@ const About = () => {
           <div className="lg:col-span-2 flex justify-center fade-in">
             <div className="relative w-full max-w-sm" style={{ height: '450px' }}>
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
-              <div className="relative w-full h-full rounded-2xl shadow-large overflow-hidden">
+              <div key={currentIndex} className="relative w-full h-full rounded-2xl shadow-large overflow-hidden">
                 {aboutImages.map((image, index) => (
                   <HalftoneImage
                     key={index}
