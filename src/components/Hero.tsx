@@ -10,7 +10,7 @@ const Hero = () => {
     // Inicia a animação fly-in após o preloader
     const startTimer = setTimeout(() => {
       setAnimationPhase('flyIn');
-    }, 3000); // Atraso de 3s para corresponder ao preloader
+    }, 2000); // Atraso de 3s para corresponder ao preloader
 
     return () => clearTimeout(startTimer);
   }, []);
@@ -75,7 +75,7 @@ const Hero = () => {
               <button
                 onClick={scrollToProjects}
                 className="btn-hero slide-top"
-                style={{ animationDelay: '2.2s' }}
+                style={{ animationDelay: '2.3s' }}
               >
                 Ver Projetos
               </button>
@@ -84,7 +84,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary slide-top"
-                style={{ animationDelay: '2.2s' }}
+                style={{ animationDelay: '2.4s' }}
               >
                 Entrar em Contato
               </a>
