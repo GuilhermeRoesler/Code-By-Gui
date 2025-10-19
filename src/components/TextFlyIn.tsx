@@ -8,11 +8,25 @@ interface TextFlyInProps {
 const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
   const slices = React.useMemo(() => {
     const numSlices = 40;
+    // Cores do gradiente (HSL: Hue, Saturation, Lightness)
+    const startColor = { h: 41, s: 98, l: 49 }; // Amarelo/Laranja (Primary)
+    const endColor = { h: 356, s: 78, l: 56 }; // Vermelho (Accent)
+
+    // A diferença de matiz (hue) precisa considerar a "volta" no círculo de cores
+    const hueDifference = (endColor.h - startColor.h + 360) % 360;
+
     return Array.from({ length: numSlices }).map((_, i) => {
       const key = i + 1;
       const row = Math.floor(i / 20);
+      const progress = i / (numSlices - 1);
 
-      // Lógica de clip-path traduzida do SCSS
+      // Interpolação de cores HSL
+      const currentHue = (startColor.h + hueDifference * progress) % 360;
+      const currentSat = startColor.s + (endColor.s - startColor.s) * progress;
+      const currentLight = startColor.l + (endColor.l - startColor.l) * progress;
+      const color = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+
+      // Lógica de clip-path
       const p1x = Math.floor(i / 2) * 10 - row * 100;
       const p1y = row * 50;
       const p2x = Math.floor(key / 2) * 10 - row * 100;
@@ -20,9 +34,6 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
       const p3x = Math.ceil(key / 2) * 10 - row * 100;
       const p3y = (row + 1) * 50;
       const clipPath = `polygon(${p1x}% ${p1y}%, ${p2x}% ${p2y}%, ${p3x}% ${p3y}%)`;
-
-      // Lógica de cor traduzida do SCSS
-      const color = `rgba(${255 - key * 2}, ${50 - key / 2}, ${key * 3}, 1)`;
 
       // Valores aleatórios para a animação
       const style: React.CSSProperties = {

@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="gradient-text">Desenvolvedor</span><br />
+                <TextFlyIn>Desenvolvedor</TextFlyIn>
                 <TextFlyIn>Full-Stack & AI</TextFlyIn>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
