@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { aboutData } from '@/data/about';
 import { aboutImages } from '@/data/aboutImages';
+import { use3dCardEffect } from '@/hooks/use3dCardEffect';
 
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const statsContainerRef = useRef(null);
+  use3dCardEffect(statsContainerRef);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,6 +18,19 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding">
+      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <filter id="filterEdges">
+            <feConvolveMatrix
+              kernelMatrix="0 1 0 1 -4 1 0 1 0"
+              order="3 3"
+              bias="0"
+              divisor="1"
+              preserveAlpha={true} />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -53,12 +69,14 @@ const About = () => {
               </p>
             ))}
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6">
+            <div ref={statsContainerRef} className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6">
               {aboutData.stats.map((stat, index) => (
-                <div key={index} className="text-center card-elevated p-4 slide-top"
+                <div key={index} className="stat-card-3d slide-top"
                   style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <div className="stat-card-3d-figure text-center card-elevated p-4">
+                    <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
                 </div>
               ))}
             </div>

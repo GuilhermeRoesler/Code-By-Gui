@@ -165,6 +165,18 @@
   }
 }
 
+@property --x {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --y {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
 @layer components {
 
   /* Hero Button Variants */
@@ -258,14 +270,52 @@
   }
 
   .project-card-3d.rotate-left {
-    transform: perspective(1000px) rotateY(-25deg);
+    transform: rotateY(-25deg);
   }
 
   .project-card-3d.rotate-right {
-    transform: perspective(1000px) rotateY(25deg);
+    transform: rotateY(25deg);
   }
 
   .project-card-3d.scale-up {
-    transform: scale(1.1) translateZ(20px);
+    transform: scale(1.05) translateZ(20px);
+  }
+
+  /* 3D Stat Card Hover Effect */
+  .stat-card-3d {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .stat-card-3d-figure {
+    --atan: calc(-1 * atan2(var(--x), var(--y)));
+    position: relative;
+    height: 100%;
+    transform: rotateX(calc(var(--x) * 1deg)) rotateY(calc(var(--y) * 1deg));
+    overflow: hidden;
+    will-change: transform;
+    transition:
+      --x 400ms ease,
+      --y 400ms ease;
+  }
+
+  .stat-card-3d-figure:hover {
+    transition-duration: 0s;
+  }
+
+  .stat-card-3d-figure:hover::after {
+    opacity: 1;
+  }
+
+  .stat-card-3d-figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1615715874901-ad6a07ec5c88?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTQ0MjE2ODd8&ixlib=rb-4.1.0&q=85') center / cover;
+    mask-image: conic-gradient(from var(--atan), #0000, #fffa, #0000, #fffa, #0000);
+    backdrop-filter: url(#filterEdges);
+    opacity: 0;
+    mix-blend-mode: plus-lighter;
+    transition: opacity 200ms;
   }
 }
