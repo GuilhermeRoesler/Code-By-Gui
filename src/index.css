@@ -258,14 +258,14 @@
   }
 
   .project-card-3d.rotate-left {
-    transform: rotateY(-25deg);
+    transform: perspective(1000px) rotateY(-25deg);
   }
 
   .project-card-3d.rotate-right {
-    transform: rotateY(25deg);
+    transform: perspective(1000px) rotateY(25deg);
   }
 
   .project-card-3d.scale-up {
-    transform: scale(1.05) translateZ(20px);
+    transform: scale(1.1) translateZ(20px);
   }
 }

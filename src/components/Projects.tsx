@@ -95,7 +95,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center bounce">
           <Link to="/projects" className="btn-hero">
             Ver Todos os Projetos
           </Link>
