@@ -164,3 +164,117 @@
     transform: translateZ(0) translateX(0) scale(1);
   }
 }
+
+/* Golden Shimmer Card Effect */
+.golden-shock-card-container {
+  padding: 2px;
+  border-radius: 1.5em;
+  /* 24px */
+  position: relative;
+  background: linear-gradient(-30deg,
+      var(--gradient-color),
+      transparent,
+      var(--gradient-color)),
+    linear-gradient(to bottom,
+      hsl(var(--card)),
+      hsl(var(--card)));
+
+  --f: url(#golden-shock);
+  --electric-border-color: hsl(var(--primary));
+  --electric-light-color: hsl(var(--primary));
+  --gradient-color: hsla(var(--primary) / 0.4);
+
+  display: grid;
+  /* Use grid to stack content and effect */
+}
+
+.golden-shock-effect-wrapper,
+.golden-shock-content-wrapper {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.golden-shock-effect-wrapper {
+  z-index: 1;
+}
+
+.golden-shock-content-wrapper {
+  z-index: 2;
+  padding: 2.5rem;
+  /* 40px */
+}
+
+.golden-shock-inner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.golden-shock-border-outer {
+  border: 2px solid hsla(var(--primary) / 0.5);
+  border-radius: 1.5em;
+  padding-right: .15em;
+  padding-bottom: .15em;
+  width: 100%;
+  height: 100%;
+}
+
+.golden-shock-main-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5em;
+  border: 2px solid var(--electric-border-color);
+  margin-top: -4px;
+  margin-left: -4px;
+  filter: var(--f);
+  background-color: hsl(var(--card));
+}
+
+.golden-shock-glow-layer-1,
+.golden-shock-glow-layer-2,
+.golden-shock-overlay-1,
+.golden-shock-overlay-2,
+.golden-shock-background-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.golden-shock-glow-layer-1 {
+  border: 2px solid hsla(var(--primary) / 0.6);
+  filter: blur(1px);
+}
+
+.golden-shock-glow-layer-2 {
+  border: 2px solid var(--electric-light-color);
+  filter: blur(4px);
+}
+
+.golden-shock-overlay-1 {
+  opacity: 1;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+}
+
+.golden-shock-overlay-2 {
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+}
+
+.golden-shock-background-glow {
+  filter: blur(32px);
+  transform: scale(1.1);
+  opacity: 0.3;
+  z-index: -1;
+  background: linear-gradient(-30deg, var(--electric-light-color), transparent, var(--electric-border-color));
+}

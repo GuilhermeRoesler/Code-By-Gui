@@ -95,73 +95,88 @@ ${formData.message}`;
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="card-elevated fade-in">
-            <h3 className="text-2xl font-bold mb-6 gradient-text">Envie uma Mensagem</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+          <div className="golden-shock-card-container fade-in">
+            <div className="golden-shock-effect-wrapper">
+              <div className="golden-shock-inner-container">
+                <div className="golden-shock-border-outer">
+                  <div className="golden-shock-main-card"></div>
+                </div>
+                <div className="golden-shock-glow-layer-1"></div>
+                <div className="golden-shock-glow-layer-2"></div>
+              </div>
+              <div className="golden-shock-overlay-1"></div>
+              <div className="golden-shock-overlay-2"></div>
+              <div className="golden-shock-background-glow"></div>
+            </div>
+
+            <div className="golden-shock-content-wrapper">
+              <h3 className="text-2xl font-bold mb-6 gradient-text">Envie uma Mensagem</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                      Nome *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
+                      placeholder="Seu nome completo"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
+                      placeholder="seu@email.com"
+                    />
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-card-foreground mb-2">
-                    Nome *
+                    Assunto
                   </label>
                   <input
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
-                    placeholder="Seu nome completo"
+                    placeholder="Assunto da mensagem"
                   />
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-card-foreground mb-2">
-                    Email *
+                    Mensagem *
                   </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
-                    placeholder="seu@email.com"
+                    rows={5}
+                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background resize-none"
+                    placeholder="Descreva seu projeto ou como posso ajudá-lo..."
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-card-foreground mb-2">
-                  Assunto
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background"
-                  placeholder="Assunto da mensagem"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-card-foreground mb-2">
-                  Mensagem *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors bg-background resize-none"
-                  placeholder="Descreva seu projeto ou como posso ajudá-lo..."
-                />
-              </div>
-
-              <button type="submit" className="btn-hero w-full">
-                Enviar via WhatsApp
-              </button>
-            </form>
+                <button type="submit" className="btn-hero w-full">
+                  Enviar via WhatsApp
+                </button>
+              </form>
+            </div>
           </div>
 
           {/* Contact Methods */}
