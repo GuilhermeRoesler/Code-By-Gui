@@ -270,15 +270,15 @@
   }
 
   .project-card-3d.rotate-left {
-    transform: rotateY(-25deg);
+    transform: perspective(800px) rotateY(-25deg);
   }
 
   .project-card-3d.rotate-right {
-    transform: rotateY(25deg);
+    transform: perspective(800px) rotateY(25deg);
   }
 
   .project-card-3d.scale-up {
-    transform: scale(1.05) translateZ(20px);
+    transform: scale(1.1) translateZ(20px);
   }
 
   /* 3D Stat Card Hover Effect */
@@ -291,7 +291,7 @@
     --atan: calc(-1 * atan2(var(--x), var(--y)));
     position: relative;
     height: 100%;
-    transform: rotateX(calc(var(--x) * 1deg)) rotateY(calc(var(--y) * 1deg));
+    transform: perspective(200px) rotateX(calc(var(--x) * 1deg)) rotateY(calc(var(--y) * 1deg));
     overflow: hidden;
     will-change: transform;
     transition:

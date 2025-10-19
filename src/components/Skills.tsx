@@ -25,25 +25,27 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <div key={index} className="card-elevated hover-lift slide-rotate-hor-top"
+            <div key={index} className="slide-rotate-hor-top"
               style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
-                  {skill.level}
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>Proficiência</span>
-                  <span>{skill.proficiency}%</span>
+              <div className="card-elevated hover-lift h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
+                    {skill.level}
+                  </span>
                 </div>
-                <div className="w-full bg-border rounded-full h-2">
-                  <div
-                    className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
-                    style={{ width: `${skill.proficiency}%` }}
-                  ></div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm text-muted-foreground">
+                    <span>Proficiência</span>
+                    <span>{skill.proficiency}%</span>
+                  </div>
+                  <div className="w-full bg-border rounded-full h-2">
+                    <div
+                      className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
+                      style={{ width: `${skill.proficiency}%` }}
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>
