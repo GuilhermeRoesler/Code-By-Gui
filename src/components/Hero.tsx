@@ -4,9 +4,20 @@ import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
-  const [animationPhase, setAnimationPhase] = useState('flyIn');
+  const [animationPhase, setAnimationPhase] = useState('waiting');
 
   useEffect(() => {
+    // Inicia a animação fly-in após o preloader
+    const startTimer = setTimeout(() => {
+      setAnimationPhase('flyIn');
+    }, 3000); // Atraso de 3s para corresponder ao preloader
+
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (animationPhase !== 'flyIn') return;
+
     // Duração da animação fly-in (última fatia começa em 1560ms, animação dura 2500ms)
     const flyInDuration = 1560 + 2500;
     // Pausa de 5 segundos após o fly-in
@@ -17,7 +28,7 @@ const Hero = () => {
     }, flyInDuration + pauseDuration);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [animationPhase]);
 
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
@@ -38,7 +49,7 @@ const Hero = () => {
                     <TextFlyIn>Desenvolvedor</TextFlyIn>
                     <TextFlyIn>Full-Stack & AI</TextFlyIn>
                   </>
-                ) : (
+                ) : animationPhase === 'typing' ? (
                   <>
                     <TypingAnimation
                       texts={["Desenvolvedor", "Guilherme"]}
@@ -51,7 +62,7 @@ const Hero = () => {
                       className="gradient-text"
                     />
                   </>
-                )}
+                ) : null}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
