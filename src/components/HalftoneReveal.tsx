@@ -44,13 +44,11 @@ const HalftoneReveal = ({ src, alt, isActive }: HalftoneRevealProps) => {
     const clipPath = clipPathRef.current;
     const container = containerRef.current;
 
-    // A animação só deve ser criada quando o componente estiver ativo.
-    if (!isActive || !clipPath || !container) {
+    if (!clipPath || !container || !isActive) {
       return;
     }
 
     const createHalftoneEffect = () => {
-      // Limpa qualquer animação anterior para garantir um começo limpo.
       clipPath.innerHTML = "";
 
       const rect = container.getBoundingClientRect();
@@ -89,13 +87,15 @@ const HalftoneReveal = ({ src, alt, isActive }: HalftoneRevealProps) => {
       }
     };
 
-    // Executa a criação da animação diretamente, sem timeouts, para evitar o piscar.
-    createHalftoneEffect();
+    // Delay creation slightly to ensure dimensions are available
+    const timeoutId = setTimeout(createHalftoneEffect, 50);
 
-    // Não retornamos uma função de limpeza aqui. Isso evita que a máscara
-    // seja destruída prematuramente quando o componente se torna inativo.
-    // A limpeza agora é feita no início de `createHalftoneEffect`.
-
+    return () => {
+      clearTimeout(timeoutId);
+      if (clipPath) {
+        clipPath.innerHTML = "";
+      }
+    };
   }, [isActive, clipId]);
 
   return (
