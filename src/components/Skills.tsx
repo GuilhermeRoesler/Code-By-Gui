@@ -25,7 +25,8 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
-            <div key={index} className="card-elevated hover-lift fade-in">
+            <div key={index} className="card-elevated hover-lift slide-top"
+              style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
                 <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
@@ -49,7 +50,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center fade-in">
           <div className="card-elevated max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Proposta de Valor</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">

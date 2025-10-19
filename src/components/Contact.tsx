@@ -95,7 +95,7 @@ ${formData.message}`;
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="card-elevated">
+          <div className="card-elevated fade-in">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Envie uma Mensagem</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
@@ -174,7 +174,7 @@ ${formData.message}`;
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-elevated hover-lift flex items-center p-6 transition-all duration-300 hover:border-primary/30"
+                  className="card-elevated hover-lift fade-in flex items-center p-6 transition-all duration-300 hover:border-primary/30"
                 >
                   <div className="text-3xl mr-4">{method.icon}</div>
                   <div>
@@ -190,7 +190,7 @@ ${formData.message}`;
               ))}
             </div>
 
-            <div className="mt-8 card-elevated">
+            <div className="mt-8 card-elevated fade-in">
               <h4 className="text-lg font-bold mb-4 gradient-text">Disponibilidade</h4>
               <div className="space-y-3 text-muted-foreground">
                 <div className="flex items-center">

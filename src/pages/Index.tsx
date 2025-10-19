@@ -5,7 +5,7 @@ import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
-import Testimonials from '@/components/Testimonials';
+// import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -14,7 +14,7 @@ const Index = () => {
     // Scroll animation observer
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -200px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -26,11 +26,11 @@ const Index = () => {
     }, observerOptions);
 
     // Observe all fade-in elements
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach((el) => observer.observe(el));
+    const elementsToObserve = document.querySelectorAll('.fade-in, .slide-top');
+    elementsToObserve.forEach((el) => observer.observe(el));
 
     return () => {
-      fadeElements.forEach((el) => observer.unobserve(el));
+      elementsToObserve.forEach((el) => observer.unobserve(el));
     };
   }, []);
 

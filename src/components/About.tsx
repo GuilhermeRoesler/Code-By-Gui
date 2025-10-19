@@ -37,9 +37,8 @@ const About = () => {
                     key={index}
                     src={image.src}
                     alt={image.alt}
-                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                      index === currentIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
                   />
                 ))}
               </div>
@@ -49,14 +48,15 @@ const About = () => {
           {/* Text Section */}
           <div className="lg:col-span-3 space-y-6 fade-in">
             {aboutData.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground leading-relaxed">
+              <p key={index} className="text-muted-foreground leading-relaxed fade-in">
                 {paragraph}
               </p>
             ))}
-            
+
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6">
               {aboutData.stats.map((stat, index) => (
-                <div key={index} className="text-center card-elevated p-4">
+                <div key={index} className="text-center card-elevated p-4 slide-top"
+                  style={{ animationDelay: `${index * 0.2}s` }}>
                   <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>

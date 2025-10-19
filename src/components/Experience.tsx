@@ -61,7 +61,7 @@ const Experience = () => {
               ))}
             </div>
 
-            <div className="mt-8 card-elevated">
+            <div className="mt-8 card-elevated fade-in">
               <h4 className="text-lg font-bold mb-4 gradient-text">Visão de Futuro</h4>
               <p className="text-muted-foreground leading-relaxed">
                 Comprometido com a excelência técnica e o impacto social da tecnologia, tenho como propósito desenvolver soluções que melhorem a eficiência das organizações e ampliem o alcance da inovação no Brasil.

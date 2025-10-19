@@ -19,7 +19,8 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
-            <div key={index} className="card-project overflow-hidden transition duration-300 hover-lift fade-in group">
+            <div key={index} className="card-project overflow-hidden transition duration-300 hover-lift slide-top group"
+              style={{ animationDelay: `${index * 0.2}s` }}>
               <div className={`h-48 relative overflow-hidden cursor-pointer`}
                 onClick={() => window.open(project.link, '_blank')}>
                 <div className="absolute inset-0 bg-primary/5 overflow-hidden transform-gpu">
