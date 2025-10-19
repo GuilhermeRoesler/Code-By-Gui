@@ -12,8 +12,15 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
     const startColor = { h: 41, s: 98, l: 49 }; // Amarelo/Laranja (Primary)
     const endColor = { h: 356, s: 78, l: 56 }; // Vermelho (Accent)
 
-    // A diferença de matiz (hue) precisa considerar a "volta" no círculo de cores
-    const hueDifference = (endColor.h - startColor.h + 360) % 360;
+    // A diferença de matiz (hue) precisa considerar o caminho mais curto no círculo de cores
+    let hueDifference = endColor.h - startColor.h;
+    if (Math.abs(hueDifference) > 180) {
+      if (hueDifference > 0) {
+        hueDifference -= 360;
+      } else {
+        hueDifference += 360;
+      }
+    }
 
     return Array.from({ length: numSlices }).map((_, i) => {
       const key = i + 1;
@@ -21,7 +28,7 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
       const progress = i / (numSlices - 1);
 
       // Interpolação de cores HSL para criar o gradiente
-      const currentHue = (startColor.h + hueDifference * progress) % 360;
+      const currentHue = startColor.h + hueDifference * progress;
       const currentSat = startColor.s + (endColor.s - startColor.s) * progress;
       const currentLight = startColor.l + (endColor.l - startColor.l) * progress;
       const color = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
