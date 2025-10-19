@@ -216,7 +216,7 @@
     margin-top: -4px;
     margin-left: -4px;
     filter: var(--f);
-    background-color: hsl(var(--card));
+    background-color: oklch(0.145 0 0 / 0.8);
 }
 
 .golden-shock-glow-layer-1,
@@ -238,7 +238,7 @@
 
 .golden-shock-glow-layer-2 {
     border: 2px solid var(--electric-light-color);
-    filter: blur(4px);
+    filter: blur(8px);
 }
 
 .golden-shock-overlay-1 {
@@ -260,14 +260,14 @@
 .golden-shock-background-glow {
     filter: blur(32px);
     transform: scale(1.1);
-    opacity: 0.3;
+    opacity: 0.5;
     z-index: -1;
     background: linear-gradient(-30deg, var(--electric-light-color), transparent, var(--electric-border-color));
 }
 
 .golden-shock-content-container {
     position: relative;
-    padding: 2.5rem;
+    padding: 3rem;
 }
 
 .golden-shock-svg-container {
