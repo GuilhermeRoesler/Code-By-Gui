@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { aboutData } from '@/data/about';
 import { aboutImages } from '@/data/aboutImages';
 import { use3dCardEffect } from '@/hooks/use3dCardEffect';
-import HalftoneReveal from './HalftoneReveal';
 
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,11 +49,12 @@ const About = () => {
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
               <div className="relative w-full h-full rounded-2xl shadow-large overflow-hidden">
                 {aboutImages.map((image, index) => (
-                  <HalftoneReveal
+                  <img
                     key={index}
                     src={image.src}
                     alt={image.alt}
-                    isActive={index === currentIndex}
+                    className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'
+                      }`}
                   />
                 ))}
               </div>
