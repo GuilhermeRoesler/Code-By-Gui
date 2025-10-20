@@ -19,58 +19,63 @@ const TypingAnimation = ({
 }: TypingAnimationProps) => {
   const [displayedText, setDisplayedText] = useState(startDeleting ? texts[0] : '');
 
-  // Usamos useRef para armazenar o estado da animação.
-  // Isso evita que a lógica da animação seja reiniciada a cada renderização
-  // e resolve o problema de "stale state" nos timeouts.
-  const animationState = useRef({
+  // useRef armazena o estado da animação. Este objeto persiste durante toda a vida do componente.
+  const state = useRef({
     textIndex: 0,
     charIndex: startDeleting ? texts[0].length : 0,
     isDeleting: startDeleting,
-    timeoutId: null as number | null,
+    timeoutId: null as NodeJS.Timeout | null,
   });
 
   useEffect(() => {
+    // Reinicia o estado da animação se as props mudarem.
+    state.current.textIndex = 0;
+    state.current.charIndex = startDeleting ? texts[0].length : 0;
+    state.current.isDeleting = startDeleting;
+    setDisplayedText(startDeleting ? texts[0] : '');
+
     const tick = () => {
-      const state = animationState.current;
-      const currentFullText = texts[state.textIndex % texts.length];
+      const { textIndex, isDeleting } = state.current;
+      const currentFullText = texts[textIndex % texts.length];
 
-      if (state.isDeleting) {
-        // Lógica para apagar
-        state.charIndex--;
+      // Atualiza o índice de caracteres
+      if (isDeleting) {
+        state.current.charIndex -= 1;
       } else {
-        // Lógica para digitar
-        state.charIndex++;
+        state.current.charIndex += 1;
       }
+      
+      // Atualiza o texto exibido, o que causa uma re-renderização
+      setDisplayedText(currentFullText.substring(0, state.current.charIndex));
 
-      const newText = currentFullText.substring(0, state.charIndex);
-      setDisplayedText(newText);
+      let delay = isDeleting ? deletingSpeed : typingSpeed;
 
-      let delay = state.isDeleting ? deletingSpeed : typingSpeed;
-
-      if (!state.isDeleting && newText === currentFullText) {
+      // Lógica de transição de estado da animação
+      if (!isDeleting && state.current.charIndex === currentFullText.length) {
         // Terminou de digitar, pausa e começa a apagar
-        state.isDeleting = true;
+        state.current.isDeleting = true;
         delay = pauseDuration;
-      } else if (state.isDeleting && newText === '') {
+      } else if (isDeleting && state.current.charIndex === 0) {
         // Terminou de apagar, passa para o próximo texto
-        state.isDeleting = false;
-        state.textIndex++;
-        // charIndex já será 0 na próxima iteração de digitação
+        state.current.isDeleting = false;
+        state.current.textIndex += 1;
       }
 
-      state.timeoutId = setTimeout(tick, delay);
+      // Agenda o próximo "tick" da animação
+      state.current.timeoutId = setTimeout(tick, delay);
     };
 
-    // Inicia o loop da animação
-    animationState.current.timeoutId = setTimeout(tick, typingSpeed);
+    // Inicia a animação
+    state.current.timeoutId = setTimeout(tick, typingSpeed);
 
     // Função de limpeza para parar a animação quando o componente for desmontado
     return () => {
-      if (animationState.current.timeoutId) {
-        clearTimeout(animationState.current.timeoutId);
+      if (state.current.timeoutId) {
+        clearTimeout(state.current.timeoutId);
       }
     };
-    // As dependências garantem que a animação reinicie se as props mudarem.
+    // A dependência do useEffect está correta agora: ele só será executado novamente
+    // se as props que controlam a animação mudarem, e não a cada letra.
   }, [texts, typingSpeed, deletingSpeed, pauseDuration, startDeleting]);
 
   return (
