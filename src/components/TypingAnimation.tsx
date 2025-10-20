@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useReducer } from 'react';
 
 interface TypingAnimationProps {
   texts: string[];
@@ -9,6 +9,14 @@ interface TypingAnimationProps {
   pauseDuration?: number;
 }
 
+interface AnimationState {
+  displayedText: string;
+  isDeleting: boolean;
+  loopNum: number;
+}
+
+type AnimationAction = { type: 'TICK' } | { type: 'RESET'; payload: AnimationState };
+
 const TypingAnimation = ({
   texts,
   className,
@@ -17,70 +25,78 @@ const TypingAnimation = ({
   deletingSpeed = 50,
   pauseDuration = 2000,
 }: TypingAnimationProps) => {
-  const [displayedText, setDisplayedText] = useState(startDeleting ? texts[0] : '');
+  const reducer = (state: AnimationState, action: AnimationAction): AnimationState => {
+    switch (action.type) {
+      case 'TICK': {
+        const { isDeleting, loopNum, displayedText } = state;
+        const i = loopNum % texts.length;
+        const fullText = texts[i];
 
-  // useRef armazena o estado da animação. Este objeto persiste durante toda a vida do componente.
-  const state = useRef({
-    textIndex: 0,
-    charIndex: startDeleting ? texts[0].length : 0,
+        let newText;
+        if (isDeleting) {
+          newText = fullText.substring(0, displayedText.length - 1);
+        } else {
+          newText = fullText.substring(0, displayedText.length + 1);
+        }
+
+        let newIsDeleting = isDeleting;
+        let newLoopNum = loopNum;
+
+        if (!isDeleting && newText === fullText) {
+          newIsDeleting = true; // Terminou de digitar, começa a apagar após a pausa.
+        } else if (isDeleting && newText === '') {
+          newIsDeleting = false; // Terminou de apagar, passa para a próxima palavra.
+          newLoopNum = loopNum + 1;
+        }
+
+        return { ...state, displayedText: newText, isDeleting: newIsDeleting, loopNum: newLoopNum };
+      }
+      case 'RESET': {
+        return action.payload;
+      }
+      default:
+        return state;
+    }
+  };
+
+  const getInitialState = (): AnimationState => ({
+    displayedText: startDeleting ? texts[0] : '',
     isDeleting: startDeleting,
-    timeoutId: null as NodeJS.Timeout | null,
+    loopNum: 0,
   });
 
+  const [state, dispatch] = useReducer(reducer, getInitialState());
+
+  // Efeito para reiniciar a animação se as props mudarem.
   useEffect(() => {
-    // Reinicia o estado da animação se as props mudarem.
-    state.current.textIndex = 0;
-    state.current.charIndex = startDeleting ? texts[0].length : 0;
-    state.current.isDeleting = startDeleting;
-    setDisplayedText(startDeleting ? texts[0] : '');
+    dispatch({ type: 'RESET', payload: getInitialState() });
+  }, [texts, startDeleting]);
 
-    const tick = () => {
-      const { textIndex, isDeleting } = state.current;
-      const currentFullText = texts[textIndex % texts.length];
+  // Efeito principal que "dirige" a animação.
+  useEffect(() => {
+    const { isDeleting, displayedText, loopNum } = state;
+    const fullText = texts[loopNum % texts.length];
 
-      // Atualiza o índice de caracteres
-      if (isDeleting) {
-        state.current.charIndex -= 1;
-      } else {
-        state.current.charIndex += 1;
-      }
-      
-      // Atualiza o texto exibido, o que causa uma re-renderização
-      setDisplayedText(currentFullText.substring(0, state.current.charIndex));
+    let delay;
+    if (!isDeleting && displayedText === fullText) {
+      // Acabou de digitar a palavra completa, então pausa.
+      delay = pauseDuration;
+    } else if (isDeleting) {
+      delay = deletingSpeed;
+    } else {
+      delay = typingSpeed;
+    }
 
-      let delay = isDeleting ? deletingSpeed : typingSpeed;
+    const timeoutId = setTimeout(() => {
+      dispatch({ type: 'TICK' });
+    }, delay);
 
-      // Lógica de transição de estado da animação
-      if (!isDeleting && state.current.charIndex === currentFullText.length) {
-        // Terminou de digitar, pausa e começa a apagar
-        state.current.isDeleting = true;
-        delay = pauseDuration;
-      } else if (isDeleting && state.current.charIndex === 0) {
-        // Terminou de apagar, passa para o próximo texto
-        state.current.isDeleting = false;
-        state.current.textIndex += 1;
-      }
-
-      // Agenda o próximo "tick" da animação
-      state.current.timeoutId = setTimeout(tick, delay);
-    };
-
-    // Inicia a animação
-    state.current.timeoutId = setTimeout(tick, typingSpeed);
-
-    // Função de limpeza para parar a animação quando o componente for desmontado
-    return () => {
-      if (state.current.timeoutId) {
-        clearTimeout(state.current.timeoutId);
-      }
-    };
-    // A dependência do useEffect está correta agora: ele só será executado novamente
-    // se as props que controlam a animação mudarem, e não a cada letra.
-  }, [texts, typingSpeed, deletingSpeed, pauseDuration, startDeleting]);
+    return () => clearTimeout(timeoutId);
+  }, [state, texts, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={`${className || ''} typing-cursor-host`}>
-      {displayedText}
+      {state.displayedText}
     </span>
   );
 };
