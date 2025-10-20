@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
+import TextFlyIn from './TextFlyIn';
+import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
+  const [animationPhase, setAnimationPhase] = useState('waiting');
+
+  useEffect(() => {
+    // Inicia a animação fly-in após o preloader
+    const startTimer = setTimeout(() => {
+      setAnimationPhase('flyIn');
+    }, 2000); // Atraso de 3s para corresponder ao preloader
+
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (animationPhase !== 'flyIn') return;
+
+    // Duração da animação fly-in (última fatia começa em 1560ms, animação dura 2500ms)
+    const flyInDuration = 1560 + 2500;
+    // Pausa de 5 segundos após o fly-in
+    const pauseDuration = 5000;
+
+    const timer = setTimeout(() => {
+      setAnimationPhase('typing');
+    }, flyInDuration + pauseDuration);
+
+    return () => clearTimeout(timer);
+  }, [animationPhase]);
+
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -14,9 +43,26 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center slide-top visible" style={{ animationDelay: '2s' }}>
-                <span className="gradient-text">Guilherme</span>
-                <span className="gradient-text">Roesler</span>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
+                {animationPhase === 'flyIn' ? (
+                  <>
+                    <TextFlyIn>Desenvolvedor</TextFlyIn>
+                    <TextFlyIn>Full-Stack & AI</TextFlyIn>
+                  </>
+                ) : animationPhase === 'typing' ? (
+                  <>
+                    <TypingAnimation
+                      texts={["Desenvolvedor", "Guilherme"]}
+                      startDeleting={true}
+                      className="gradient-text"
+                    />
+                    <TypingAnimation
+                      texts={["Full-Stack & AI", "Roesler"]}
+                      startDeleting={true}
+                      className="gradient-text"
+                    />
+                  </>
+                ) : null}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
