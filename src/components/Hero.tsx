@@ -1,62 +1,32 @@
-import { useState, useEffect, useRef } from 'react';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
   const [animationPhase, setAnimationPhase] = useState('waiting');
-  const animatedTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Inicia a animação fly-in após o preloader
-    const startTimer = setTimeout(() => {
-      setAnimationPhase('flyIn');
-    }, 2000); // Atraso para corresponder ao preloader
-
+    const startTimer = setTimeout(() => setAnimationPhase('flyIn'), 2000);
     return () => clearTimeout(startTimer);
   }, []);
 
   useEffect(() => {
-    if (animationPhase !== 'flyIn') return;
-
-    // Duração da animação fly-in (última fatia começa em 1560ms, animação dura 2500ms)
-    const flyInDuration = 1560 + 2500;
-    // Pausa após o fly-in
-    const pauseDuration = 5000;
-
-    const timer = setTimeout(() => {
-      setAnimationPhase('fadingOut');
-    }, flyInDuration + pauseDuration);
-
-    return () => clearTimeout(timer);
+    if (animationPhase === 'flyIn') {
+      const flyInDuration = 1560 + 2500;
+      const pauseDuration = 5000;
+      const timer = setTimeout(() => setAnimationPhase('fadingOut'), flyInDuration + pauseDuration);
+      return () => clearTimeout(timer);
+    }
   }, [animationPhase]);
 
   useEffect(() => {
-    if (animationPhase !== 'fadingOut') return;
-
-    const node = animatedTextRef.current;
-    if (!node) return;
-
-    const handleAnimationEnd = (event: AnimationEvent) => {
-      if (event.animationName === 'hero-fade-out-anim') {
-        setAnimationPhase('typing');
-      }
-    };
-
-    node.addEventListener('animationend', handleAnimationEnd);
-
-    // Fallback para garantir que a animação continue
-    const fallbackTimer = setTimeout(() => {
-      setAnimationPhase('typing');
-    }, 600); // Um pouco mais que a duração da animação
-
-    return () => {
-      node.removeEventListener('animationend', handleAnimationEnd);
-      clearTimeout(fallbackTimer);
-    };
+    if (animationPhase === 'fadingOut') {
+      const fadeOutDuration = 500;
+      const timer = setTimeout(() => setAnimationPhase('typing'), fadeOutDuration);
+      return () => clearTimeout(timer);
+    }
   }, [animationPhase]);
-
 
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
@@ -72,30 +42,32 @@ const Hero = () => {
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
-                {(animationPhase === 'flyIn' || animationPhase === 'fadingOut') && (
-                  <div
-                    ref={animatedTextRef}
-                    key="flyIn"
-                    className={animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}
-                  >
-                    <TextFlyIn>Desenvolvedor</TextFlyIn>
-                    <TextFlyIn>Full-Stack & AI</TextFlyIn>
-                  </div>
-                )}
-                {animationPhase === 'typing' && (
-                  <div key="typing" className="hero-fade-in">
-                    <TypingAnimation
-                      texts={["Desenvolvedor", "Guilherme"]}
-                      startDeleting={true}
-                      className="gradient-text"
-                    />
-                    <TypingAnimation
-                      texts={["Full-Stack & AI", "Roesler"]}
-                      startDeleting={true}
-                      className="gradient-text"
-                    />
-                  </div>
-                )}
+                <div
+                  className={`
+                    ${animationPhase === 'typing' ? 'animation-hidden' : ''}
+                    ${animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}
+                  `}
+                >
+                  <TextFlyIn>Desenvolvedor</TextFlyIn>
+                  <TextFlyIn>Full-Stack & AI</TextFlyIn>
+                </div>
+                <div
+                  className={`
+                    ${animationPhase !== 'typing' ? 'animation-hidden' : ''}
+                    ${animationPhase === 'typing' ? 'hero-fade-in' : ''}
+                  `}
+                >
+                  <TypingAnimation
+                    texts={["Desenvolvedor", "Guilherme"]}
+                    startDeleting={true}
+                    className="gradient-text"
+                  />
+                  <TypingAnimation
+                    texts={["Full-Stack & AI", "Roesler"]}
+                    startDeleting={true}
+                    className="gradient-text"
+                  />
+                </div>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
