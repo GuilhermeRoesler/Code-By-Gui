@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
@@ -6,6 +6,7 @@ import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
   const [animationPhase, setAnimationPhase] = useState('waiting');
+  const animatedTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Inicia a animação fly-in após o preloader
@@ -34,13 +35,26 @@ const Hero = () => {
   useEffect(() => {
     if (animationPhase !== 'fadingOut') return;
 
-    // Duração da animação de fade-out
-    const fadeOutDuration = 500;
-    const timer = setTimeout(() => {
-      setAnimationPhase('typing');
-    }, fadeOutDuration);
+    const node = animatedTextRef.current;
+    if (!node) return;
 
-    return () => clearTimeout(timer);
+    const handleAnimationEnd = (event: AnimationEvent) => {
+      if (event.animationName === 'hero-fade-out-anim') {
+        setAnimationPhase('typing');
+      }
+    };
+
+    node.addEventListener('animationend', handleAnimationEnd);
+
+    // Fallback para garantir que a animação continue
+    const fallbackTimer = setTimeout(() => {
+      setAnimationPhase('typing');
+    }, 600); // Um pouco mais que a duração da animação
+
+    return () => {
+      node.removeEventListener('animationend', handleAnimationEnd);
+      clearTimeout(fallbackTimer);
+    };
   }, [animationPhase]);
 
 
@@ -59,7 +73,11 @@ const Hero = () => {
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
                 {(animationPhase === 'flyIn' || animationPhase === 'fadingOut') && (
-                  <div key="flyIn" className={animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}>
+                  <div
+                    ref={animatedTextRef}
+                    key="flyIn"
+                    className={animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}
+                  >
                     <TextFlyIn>Desenvolvedor</TextFlyIn>
                     <TextFlyIn>Full-Stack & AI</TextFlyIn>
                   </div>
