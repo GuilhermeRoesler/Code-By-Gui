@@ -1,5 +1,4 @@
 import heroProfile from '@/assets/hero-profile.jpg';
-import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -16,16 +15,8 @@ const Hero = () => {
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center slide-top visible" style={{ animationDelay: '2s' }}>
-                <TypingAnimation
-                  texts={["Desenvolvedor", "Guilherme"]}
-                  startDeleting={true}
-                  className="gradient-text"
-                />
-                <TypingAnimation
-                  texts={["Full-Stack & AI", "Roesler"]}
-                  startDeleting={true}
-                  className="gradient-text"
-                />
+                <span className="gradient-text">Guilherme</span>
+                <span className="gradient-text">Roesler</span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
