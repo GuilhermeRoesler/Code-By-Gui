@@ -362,3 +362,22 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Hero Animation Transition */
+.hero-fade-out {
+  animation: hero-fade-out-anim 0.5s ease-out forwards;
+}
+
+.hero-fade-in {
+  animation: hero-fade-in-anim 0.5s ease-in forwards;
+}
+
+@keyframes hero-fade-out-anim {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes hero-fade-in-anim {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

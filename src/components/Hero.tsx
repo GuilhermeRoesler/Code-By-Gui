@@ -11,7 +11,7 @@ const Hero = () => {
     // Inicia a animação fly-in após o preloader
     const startTimer = setTimeout(() => {
       setAnimationPhase('flyIn');
-    }, 2000); // Atraso de 3s para corresponder ao preloader
+    }, 2000); // Atraso para corresponder ao preloader
 
     return () => clearTimeout(startTimer);
   }, []);
@@ -21,15 +21,28 @@ const Hero = () => {
 
     // Duração da animação fly-in (última fatia começa em 1560ms, animação dura 2500ms)
     const flyInDuration = 1560 + 2500;
-    // Pausa de 5 segundos após o fly-in
+    // Pausa após o fly-in
     const pauseDuration = 5000;
 
     const timer = setTimeout(() => {
-      setAnimationPhase('typing');
+      setAnimationPhase('fadingOut');
     }, flyInDuration + pauseDuration);
 
     return () => clearTimeout(timer);
   }, [animationPhase]);
+
+  useEffect(() => {
+    if (animationPhase !== 'fadingOut') return;
+
+    // Duração da animação de fade-out
+    const fadeOutDuration = 500;
+    const timer = setTimeout(() => {
+      setAnimationPhase('typing');
+    }, fadeOutDuration);
+
+    return () => clearTimeout(timer);
+  }, [animationPhase]);
+
 
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
@@ -45,13 +58,14 @@ const Hero = () => {
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
-                {animationPhase === 'flyIn' ? (
-                  <React.Fragment key="flyIn">
+                {(animationPhase === 'flyIn' || animationPhase === 'fadingOut') && (
+                  <div key="flyIn" className={animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}>
                     <TextFlyIn>Desenvolvedor</TextFlyIn>
                     <TextFlyIn>Full-Stack & AI</TextFlyIn>
-                  </React.Fragment>
-                ) : animationPhase === 'typing' ? (
-                  <React.Fragment key="typing">
+                  </div>
+                )}
+                {animationPhase === 'typing' && (
+                  <div key="typing" className="hero-fade-in">
                     <TypingAnimation
                       texts={["Desenvolvedor", "Guilherme"]}
                       startDeleting={true}
@@ -62,8 +76,8 @@ const Hero = () => {
                       startDeleting={true}
                       className="gradient-text"
                     />
-                  </React.Fragment>
-                ) : null}
+                  </div>
+                )}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
