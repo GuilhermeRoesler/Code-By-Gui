@@ -1,33 +1,7 @@
-import { useState, useEffect } from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
-import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
-  const [animationPhase, setAnimationPhase] = useState('waiting');
-
-  useEffect(() => {
-    const startTimer = setTimeout(() => setAnimationPhase('flyIn'), 2000);
-    return () => clearTimeout(startTimer);
-  }, []);
-
-  useEffect(() => {
-    if (animationPhase === 'flyIn') {
-      const flyInDuration = 1560 + 2500;
-      const pauseDuration = 5000;
-      const timer = setTimeout(() => setAnimationPhase('fadingOut'), flyInDuration + pauseDuration);
-      return () => clearTimeout(timer);
-    }
-  }, [animationPhase]);
-
-  useEffect(() => {
-    if (animationPhase === 'fadingOut') {
-      const fadeOutDuration = 500;
-      const timer = setTimeout(() => setAnimationPhase('typing'), fadeOutDuration);
-      return () => clearTimeout(timer);
-    }
-  }, [animationPhase]);
-
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
     if (element) {
@@ -41,33 +15,17 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
-                <div
-                  className={`
-                    ${animationPhase === 'typing' ? 'animation-hidden' : ''}
-                    ${animationPhase === 'fadingOut' ? 'hero-fade-out' : ''}
-                  `}
-                >
-                  <TextFlyIn>Desenvolvedor</TextFlyIn>
-                  <TextFlyIn>Full-Stack & AI</TextFlyIn>
-                </div>
-                <div
-                  className={`
-                    ${animationPhase !== 'typing' ? 'animation-hidden' : ''}
-                    ${animationPhase === 'typing' ? 'hero-fade-in' : ''}
-                  `}
-                >
-                  <TypingAnimation
-                    texts={["Desenvolvedor", "Guilherme"]}
-                    startDeleting={true}
-                    className="gradient-text"
-                  />
-                  <TypingAnimation
-                    texts={["Full-Stack & AI", "Roesler"]}
-                    startDeleting={true}
-                    className="gradient-text"
-                  />
-                </div>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center slide-top visible" style={{ animationDelay: '2s' }}>
+                <TypingAnimation
+                  texts={["Desenvolvedor", "Guilherme"]}
+                  startDeleting={true}
+                  className="gradient-text"
+                />
+                <TypingAnimation
+                  texts={["Full-Stack & AI", "Roesler"]}
+                  startDeleting={true}
+                  className="gradient-text"
+                />
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
