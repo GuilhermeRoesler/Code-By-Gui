@@ -15,45 +15,42 @@ const TypingAnimation = ({
   startDeleting = false,
   typingSpeed = 100,
   deletingSpeed = 50,
-  pauseDuration = 5000,
+  pauseDuration = 2000, // Reduzido para uma melhor experiência
 }: TypingAnimationProps) => {
   const [text, setText] = useState(startDeleting ? texts[0] : '');
   const [isDeleting, setIsDeleting] = useState(startDeleting);
   const [loopNum, setLoopNum] = useState(0);
-  const [delta, setDelta] = useState(startDeleting ? deletingSpeed : typingSpeed);
 
   useEffect(() => {
-    const tick = () => {
+    const handleType = () => {
       const i = loopNum % texts.length;
       const fullText = texts[i];
-      const updatedText = isDeleting
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1);
 
-      setText(updatedText);
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
+    };
 
-      if (isDeleting) {
-        setDelta(deletingSpeed);
-      }
+    let timeoutId: number;
 
-      if (!isDeleting && updatedText === fullText) {
+    if (!isDeleting && text === texts[loopNum % texts.length]) {
+      // Finished typing, pause then start deleting
+      timeoutId = setTimeout(() => {
         setIsDeleting(true);
-        setDelta(pauseDuration);
-      } else if (isDeleting && updatedText === '') {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-        setDelta(typingSpeed);
-      }
-    };
+      }, pauseDuration);
+    } else if (isDeleting && text === '') {
+      // Finished deleting, start typing next word
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+    } else {
+      // Continue typing/deleting
+      timeoutId = setTimeout(handleType, isDeleting ? deletingSpeed : typingSpeed);
+    }
 
-    const ticker = setTimeout(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearTimeout(ticker);
-    };
-  }, [text, delta]);
+    return () => clearTimeout(timeoutId);
+  }, [text, isDeleting, loopNum, texts, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <span className={`${className || ''} typing-cursor-host`}>
