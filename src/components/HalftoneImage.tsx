@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useId } from 'react';
+import React, { useEffect, useRef, useId, useState } from 'react';
 
 interface HalftoneImageProps {
   src: string;
@@ -35,21 +35,27 @@ function getRevealDelay(row: number, col: number, rows: number, cols: number) {
   }
 }
 
+interface Circle {
+  cx: number;
+  cy: number;
+  maxRadius: number;
+  revealDelay: number;
+}
+
 const HalftoneImage: React.FC<HalftoneImageProps> = ({ src, alt, isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const clipPathRef = useRef<SVGClipPathElement>(null);
   const clipId = useId();
   const clipPathId = `halftone-clip-${clipId}`;
+  const [circles, setCircles] = useState<Circle[]>([]);
 
   useEffect(() => {
-    if (isActive && containerRef.current && clipPathRef.current) {
-      const clipPath = clipPathRef.current;
+    if (isActive && containerRef.current) {
       const container = containerRef.current;
-
-      clipPath.innerHTML = "";
-
       const rect = container.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0) return;
+      if (rect.width === 0 || rect.height === 0) {
+        setCircles([]);
+        return;
+      }
 
       const width = rect.width;
       const height = rect.height;
@@ -60,29 +66,18 @@ const HalftoneImage: React.FC<HalftoneImageProps> = ({ src, alt, isActive }) => 
       const actualSpacingY = height / rows;
       const maxRadius = Math.max(actualSpacingX, actualSpacingY) * 1.2;
 
+      const newCircles: Circle[] = [];
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const x = (col + 0.5) * actualSpacingX;
           const y = (row + 0.5) * actualSpacingY;
           const revealDelay = getRevealDelay(row, col, rows, cols);
-
-          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-          circle.setAttribute("cx", String(x));
-          circle.setAttribute("cy", String(y));
-          circle.setAttribute("r", "0");
-
-          const animate = document.createElementNS("http://www.w3.org/2000/svg", "animate");
-          animate.setAttribute("attributeName", "r");
-          animate.setAttribute("values", `0;${maxRadius}`);
-          animate.setAttribute("dur", `${config.duration}s`);
-          animate.setAttribute("repeatCount", "1");
-          animate.setAttribute("fill", "freeze");
-          animate.setAttribute("begin", `${revealDelay}s`);
-
-          circle.appendChild(animate);
-          clipPath.appendChild(circle);
+          newCircles.push({ cx: x, cy: y, maxRadius, revealDelay });
         }
       }
+      setCircles(newCircles);
+    } else {
+      setCircles([]);
     }
   }, [isActive]);
 
@@ -93,7 +88,20 @@ const HalftoneImage: React.FC<HalftoneImageProps> = ({ src, alt, isActive }) => 
     >
       <svg className="clip-svg">
         <defs>
-          <clipPath id={clipPathId} ref={clipPathRef} />
+          <clipPath id={clipPathId}>
+            {circles.map((circle, i) => (
+              <circle key={i} cx={circle.cx} cy={circle.cy} r="0">
+                <animate
+                  attributeName="r"
+                  values={`0;${circle.maxRadius}`}
+                  dur={`${config.duration}s`}
+                  repeatCount="1"
+                  fill="freeze"
+                  begin={`${circle.revealDelay}s`}
+                />
+              </circle>
+            ))}
+          </clipPath>
         </defs>
       </svg>
       <img
