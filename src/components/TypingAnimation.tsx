@@ -56,9 +56,8 @@ const TypingAnimation = ({
   }, [text, delta]);
 
   return (
-    <span className={className}>
+    <span className={`${className || ''} typing-cursor-host`}>
       {text}
-      <span className="typing-cursor"></span>
     </span>
   );
 };
