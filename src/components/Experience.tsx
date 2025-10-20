@@ -29,8 +29,8 @@ const Experience = () => {
                     </div>
                     <h5 className="text-md font-semibold text-card-foreground mb-3">{exp.company}</h5>
                     <div className="bg-accent/10 border-l-4 border-accent p-3 rounded mb-3">
-                      {exp.achievements.map((achievement, index) => (
-                        <p className="text-sm font-medium text-accent">• {achievement}</p>
+                      {exp.achievements.map((achievement, i) => (
+                        <p key={i} className="text-sm font-medium text-accent">• {achievement}</p>
                       ))}
                     </div>
                     <p className="text-muted-foreground text-sm">{exp.description}</p>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
@@ -45,12 +46,12 @@ const Hero = () => {
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight h-[9.5rem] lg:h-[12rem] flex flex-col justify-center">
                 {animationPhase === 'flyIn' ? (
-                  <>
+                  <React.Fragment key="flyIn">
                     <TextFlyIn>Desenvolvedor</TextFlyIn>
                     <TextFlyIn>Full-Stack & AI</TextFlyIn>
-                  </>
+                  </React.Fragment>
                 ) : animationPhase === 'typing' ? (
-                  <>
+                  <React.Fragment key="typing">
                     <TypingAnimation
                       texts={["Desenvolvedor", "Guilherme"]}
                       startDeleting={true}
@@ -61,7 +62,7 @@ const Hero = () => {
                       startDeleting={true}
                       className="gradient-text"
                     />
-                  </>
+                  </React.Fragment>
                 ) : null}
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
