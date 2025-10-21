@@ -127,7 +127,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative flex justify-center slide-fwd-left" style={{ animationDelay: '2s' }}>
+          <div className="relative flex justify-center slide-fwd-left">
             <div className="relative bounce">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl transform rotate-6"></div>
               <div className="relative bg-card rounded-[9999px] p-4 shadow-large lg:scale-[1.2]">
