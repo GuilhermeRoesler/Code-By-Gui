@@ -3,7 +3,17 @@ import React, { useRef, useEffect } from 'react';
 const badges = [
   { text: 'React', color: 'bg-blue-500' },
   { text: 'Py', color: 'bg-purple-500' },
+  { text: 'PHP', color: 'bg-indigo-900' },
   { text: 'AI', color: 'bg-green-500' },
+  { text: 'Next', color: 'bg-yellow-500' },
+  { text: 'JS', color: 'bg-orange-500' },
+  { text: 'TS', color: 'bg-cyan-500' },
+  { text: 'Node', color: 'bg-green-700' },
+  { text: 'SQL', color: 'bg-indigo-700' },
+  { text: 'Java', color: 'bg-orange-700' },
+  // { text: 'Docker', color: 'bg-blue-700' },
+  // { text: 'Cloud', color: 'bg-gray-500' },
+  // { text: 'UX', color: 'bg-pink-500' },
 ];
 
 const OrbitingBadges = () => {
@@ -29,14 +39,14 @@ const OrbitingBadges = () => {
 
     const center = { x: container.offsetWidth / 2, y: container.offsetHeight / 2 };
     const orbitRadius = 180;
-    const maxDistanceFromCenter = 220;
+    const maxDistanceFromCenter = 250;
     const repulsionRadius = 100;
-    const repulsionStrength = 10;
-    const gravityStrength = 0.05;
+    const repulsionStrength = 1;
+    const gravityStrength = 0.005;
 
     const badgeData = badgesRef.current.map((_, i) => ({
       angle: (i / badges.length) * 2 * Math.PI,
-      speed: 0.01 + Math.random() * 0.005,
+      speed: 0.002,
       x: center.x + orbitRadius * Math.cos((i / badges.length) * 2 * Math.PI),
       y: center.y + orbitRadius * Math.sin((i / badges.length) * 2 * Math.PI),
       vx: 0,
@@ -76,9 +86,9 @@ const OrbitingBadges = () => {
         const distCenter = Math.sqrt(dxCenter * dxCenter + dyCenter * dyCenter);
 
         if (distCenter > maxDistanceFromCenter) {
-            const pullForce = (distCenter - maxDistanceFromCenter) * gravityStrength * 2;
-            badge.vx -= (dxCenter / distCenter) * pullForce;
-            badge.vy -= (dyCenter / dyCenter) * pullForce;
+          const pullForce = (distCenter - maxDistanceFromCenter) * gravityStrength * 2;
+          badge.vx -= (dxCenter / distCenter) * pullForce;
+          badge.vy -= (dyCenter / dyCenter) * pullForce;
         }
 
         // Apply friction/damping
@@ -110,10 +120,13 @@ const OrbitingBadges = () => {
         <div
           key={badge.text}
           ref={(el) => (badgesRef.current[i] = el)}
-          className={`${badge.color} text-white px-4 py-2 rounded-lg shadow-lg font-bold select-none absolute cursor-pointer`}
+          className={'absolute'}
           style={{ willChange: 'transform' }}
         >
-          {badge.text}
+          <div className={`${badge.color} bounce text-white px-4 py-2 rounded-lg shadow-lg font-bold select-none cursor-pointer`}
+            style={{ animationDelay: `${i * 0.1}s` }}>
+            {badge.text}
+          </div>
         </div>
       ))}
     </div>
