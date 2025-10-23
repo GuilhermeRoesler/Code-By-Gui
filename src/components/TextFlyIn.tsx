@@ -68,7 +68,9 @@ const TextFlyIn: React.FC<TextFlyInProps> = ({ children, className }) => {
       const currentHue = startColor.h + hueDifference * progress;
       const currentSat = startColor.s + (endColor.s - startColor.s) * progress;
       const currentLight = startColor.l + (endColor.l - startColor.l) * progress;
-      const color = `hsl(${currentHue}, ${currentSat}%, ${currentLight}%)`;
+
+      const style2 = getComputedStyle(document.documentElement);
+      const color = `hsl(${style2.getPropertyValue('--primary')})`;
 
       const p1x = Math.floor(i / 2) * 10 - row * 100;
       const p1y = row * 50;
