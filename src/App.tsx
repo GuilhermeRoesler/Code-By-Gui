@@ -37,7 +37,7 @@ const App = () => {
     <>
       {isLoading && <Preloader isFinishing={isFinishing} />}
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider attribute="data-theme" defaultTheme="bold-creative">
+        <ThemeProvider attribute="data-theme" defaultTheme="default">
           <TooltipProvider>
             <Toaster />
             <Sonner />

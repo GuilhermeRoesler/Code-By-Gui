@@ -1,11 +1,11 @@
 export const themesData = [
   {
-    name: "bold-creative",
+    name: "default",
     label: "Padrão"
   },
   {
-    name: "default",
-    label: "Foguete Marciano"
+    name: "bold-creative",
+    label: "Ousado e Criativo"
   },
   {
     name: "neon-futuristic",
