@@ -98,13 +98,18 @@ export default {
           "20%, 80%": { transform: "rotate(0.7deg)" },
           "30%, 50%, 70%": { transform: "rotate(-0.7deg)" },
           "40%, 60%": { transform: "rotate(0.7deg)" },
-        }
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "rotate-hor-center": "rotate-hor-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both",
         "shake": "shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite",
+        "fade-in": "fade-in 0.5s ease-out forwards",
       },
     },
   },
