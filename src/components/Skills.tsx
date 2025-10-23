@@ -18,14 +18,6 @@ const Skills = () => {
     setModalOpen(false);
   };
 
-  const handleNextSkill = () => {
-    setSelectedSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
-  };
-
-  const handlePrevSkill = () => {
-    setSelectedSkillIndex((prevIndex) => (prevIndex - 1 + skills.length) % skills.length);
-  };
-
   const getSkillColor = (level: string) => {
     switch (level) {
       case "Avançado": return "from-green-500 to-emerald-600";
@@ -57,12 +49,9 @@ const Skills = () => {
                 style={{ animationDelay: `${index % 3 * 0.1}s` }}
                 onClick={() => handleOpenModal(index)}
               >
-                <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
+                <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 5}s` } as React.CSSProperties}>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-4">
-                      <i className={`${skill.icon} text-4xl text-primary`}></i>
-                      <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
-                    </div>
+                    <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
                       {skill.level}
                     </span>
@@ -97,8 +86,6 @@ const Skills = () => {
         <SkillDetailModal
           skillIndex={selectedSkillIndex}
           onClose={handleCloseModal}
-          onNext={handleNextSkill}
-          onPrev={handlePrevSkill}
         />
       )}
     </>
