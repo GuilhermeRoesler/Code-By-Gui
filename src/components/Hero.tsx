@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
+import OrbitingBadges from './OrbitingBadges';
 
 const Hero = () => {
   const [animationPhase, setAnimationPhase] = useState('waiting');
@@ -128,7 +129,7 @@ const Hero = () => {
           </div>
 
           <div className="relative flex justify-center slide-fwd-left">
-            <div className="relative bounce">
+            <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl transform rotate-6"></div>
               <div className="relative bg-card rounded-[9999px] p-4 shadow-large lg:scale-[1.2]">
                 <img
@@ -137,24 +138,8 @@ const Hero = () => {
                   className="w-80 h-80 object-cover rounded-[9999px]"
                 />
               </div>
-              {/* Bouncing Tech Badges */}
-              <div
-                className="absolute top-10 -right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
-                style={{ animationDelay: '0s' }}
-              >
-                React
-              </div>
-              <div
-                className="absolute top-1/2 -left-8 bg-purple-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
-                style={{ animationDelay: '0.5s' }}
-              >
-                Py
-              </div>
-              <div
-                className="absolute bottom-12 -right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg subtle-bounce font-bold"
-                style={{ animationDelay: '1s' }}
-              >
-                AI
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px]">
+                <OrbitingBadges />
               </div>
             </div>
           </div>
