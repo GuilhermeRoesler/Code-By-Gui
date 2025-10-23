@@ -16,18 +16,23 @@ const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
 
   const updateCarousel = (newIndex: number) => {
     if (isAnimating || newIndex === currentIndex) return;
+
+    const nextIndex = (newIndex + skills.length) % skills.length;
+
     setIsAnimating(true);
-    setIsTextVisible(false);
+    setIsTextVisible(false); // 1. Começa a esconder o texto atual
 
+    setCurrentIndex(nextIndex); // 2. Dispara a animação dos cards imediatamente
+
+    // 3. Após um atraso, mostra o novo texto
     setTimeout(() => {
-      const nextIndex = (newIndex + skills.length) % skills.length;
-      setCurrentIndex(nextIndex);
       setIsTextVisible(true);
-    }, 300); // Delay to match fade-out transition
+    }, 400);
 
+    // 4. Libera para a próxima animação após a transição completar
     setTimeout(() => {
       setIsAnimating(false);
-    }, 800); // Corresponde à duração da transição do CSS
+    }, 800);
   };
 
   useEffect(() => {
