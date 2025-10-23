@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AllProjects from "./pages/AllProjects";
+import AllSkills from "./pages/AllSkills";
 import Preloader from './components/Preloader';
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/projects" element={<AllProjects />} />
+                <Route path="/skills" element={<AllSkills />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
