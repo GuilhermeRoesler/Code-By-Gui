@@ -115,8 +115,8 @@ ${formData.message}`;
               <h3 className="text-2xl font-bold mb-6 gradient-text">Envie uma Mensagem</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                  <div className='group'>
+                    <label className="block text-sm font-medium text-card-foreground group-hover:text-accent mb-2 transition-all duration-300">
                       Nome *
                     </label>
                     <input
@@ -129,8 +129,8 @@ ${formData.message}`;
                       placeholder="Seu nome completo"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-card-foreground mb-2">
+                  <div className='group'>
+                    <label className="block text-sm font-medium text-card-foreground mb-2 group-hover:text-accent transition-all duration-300">
                       Email *
                     </label>
                     <input
@@ -145,8 +145,8 @@ ${formData.message}`;
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-card-foreground mb-2">
+                <div className='group'>
+                  <label className="block text-sm font-medium text-card-foreground mb-2 group-hover:text-accent transition-all duration-300">
                     Assunto
                   </label>
                   <input
@@ -159,8 +159,8 @@ ${formData.message}`;
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-card-foreground mb-2">
+                <div className='group'>
+                  <label className="block text-sm font-medium text-card-foreground mb-2 group-hover:text-accent transition-all duration-300">
                     Mensagem *
                   </label>
                   <textarea
@@ -191,17 +191,19 @@ ${formData.message}`;
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-elevated hover-lift slide-fwd-left flex items-center p-6 transition-all duration-300 hover:border-primary/30"
+                  className="p-6 slide-fwd-left"
                 >
-                  <div className="text-3xl mr-4">{method.icon}</div>
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">{method.title}</h4>
-                    <p className="text-muted-foreground">{method.value}</p>
-                  </div>
-                  <div className="ml-auto">
-                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                  <div className='card-elevated hover-lift flex items-center transition-all duration-300 hover:border-primary/30'>
+                    <div className="text-3xl mr-4">{method.icon}</div>
+                    <div>
+                      <h4 className="font-semibold text-card-foreground">{method.title}</h4>
+                      <p className="text-muted-foreground">{method.value}</p>
+                    </div>
+                    <div className="ml-auto">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
                 </a>
               ))}

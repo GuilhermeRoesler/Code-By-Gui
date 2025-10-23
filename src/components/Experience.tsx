@@ -69,6 +69,17 @@ const Experience = () => {
             </div>
           </div>
         </div>
+        <div className="mt-16 text-center slide-rotate-hor-top">
+          <div className="card-elevated max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-6 gradient-text">Proposta de Valor</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              <span className="font-semibold text-primary">Empresas de tecnologia e startups</span> que buscam
+              inovar e expandir negócios através de <span className="font-semibold text-accent">soluções digitais
+                seguras e escaláveis</span>. Especialização em integração de IA e desenvolvimento full-stack
+              para maximizar eficiência operacional e resultados.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

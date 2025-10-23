@@ -38,7 +38,10 @@ const AllSkills = () => {
               <div key={index} className="fade-in visible">
                 <div className="card-elevated h-full">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
+                    <div className="flex items-center gap-4">
+                      <i className={`${skill.icon} text-4xl text-primary`}></i>
+                      <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
+                    </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
                       {skill.level}
                     </span>

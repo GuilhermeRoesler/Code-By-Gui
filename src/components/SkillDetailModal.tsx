@@ -19,7 +19,7 @@ const SkillDetailModal = ({ skillIndex, onClose, onNext, onPrev }: SkillDetailMo
       onClick={onClose}
     >
       <div
-        className="relative bg-card border border-border rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto animate-scale-up"
+        className="relative bg-card border border-border rounded-2xl w-full max-w-xl max-h-[90vh] animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with Banner */}
@@ -30,20 +30,16 @@ const SkillDetailModal = ({ skillIndex, onClose, onNext, onPrev }: SkillDetailMo
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-6">
-          <div className="grid md:grid-cols-2 gap-6 text-center">
-            <div className="card-elevated p-4">
-              <h4 className="font-semibold text-primary mb-1">Como Aprendi</h4>
-              <p className="text-sm text-muted-foreground">{skill.howILearned}</p>
-            </div>
-            <div className="card-elevated p-4">
-              <h4 className="font-semibold text-primary mb-1">Tempo de Habilidade</h4>
-              <p className="text-sm text-muted-foreground">{skill.time}</p>
-            </div>
+        <div className="p-12 space-y-6">
+          <div className="">
+            <h4 className="font-semibold text-primary mb-1">Como Aprendi</h4>
+            <p className="text-sm text-muted-foreground">{skill.howILearned}</p>
+            <h4 className="font-semibold text-primary mb-1 mt-6 text-center">Tempo de Habilidade</h4>
+            <p className="font-bold text-md text-accent text-center">{skill.time}</p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-primary mb-2 text-center">Onde Usei</h4>
+            <h4 className="font-semibold text-primary mb-4 text-center">Onde Usei</h4>
             <div className="flex flex-wrap justify-center gap-2">
               {skill.whereIUsed.map((project, index) => (
                 <span key={index} className="skill-badge text-xs">

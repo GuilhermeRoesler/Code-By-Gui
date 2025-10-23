@@ -377,32 +377,32 @@
 }
 
 .card-skill:hover {
-  transform: translateY(-0.5rem);
-  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
   transform-origin: center;
+  translate: 0 -0.5rem;
 }
 
 @keyframes shake {
 
   10%,
   90% {
-    transform: translateY(-0.5rem) rotate(-1deg);
+    transform: rotate(-0.7deg);
   }
 
   20%,
   80% {
-    transform: translateY(-0.5rem) rotate(1deg);
+    transform: rotate(0.7deg);
   }
 
   30%,
   50%,
   70% {
-    transform: translateY(-0.5rem) rotate(-1deg);
+    transform: rotate(-0.7deg);
   }
 
   40%,
   60% {
-    transform: translateY(-0.5rem) rotate(1deg);
+    transform: rotate(0.7deg);
   }
 }
 
@@ -420,15 +420,19 @@
       rgba(255, 255, 255, 0.1) 50%,
       rgba(255, 255, 255, 0.05) 52%,
       transparent 100%);
-  transform: rotate(25deg);
+  transform: translateX(-75%) translateY(-75%) rotate(25deg);
   pointer-events: none;
-  animation: shimmer 6s infinite linear;
+  animation: shimmer var(--time) infinite linear;
   animation-delay: var(--delay);
 }
 
 @keyframes shimmer {
   0% {
     transform: translateX(-75%) translateY(-75%) rotate(25deg);
+  }
+
+  10% {
+    transform: translateX(75%) translateY(75%) rotate(25deg);
   }
 
   100% {
