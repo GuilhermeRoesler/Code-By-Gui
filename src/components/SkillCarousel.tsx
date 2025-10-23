@@ -11,14 +11,19 @@ interface SkillCarouselProps {
 const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isTextVisible, setIsTextVisible] = useState(true);
   const touchStartX = useRef(0);
 
   const updateCarousel = (newIndex: number) => {
-    if (isAnimating) return;
+    if (isAnimating || newIndex === currentIndex) return;
     setIsAnimating(true);
+    setIsTextVisible(false);
 
-    const nextIndex = (newIndex + skills.length) % skills.length;
-    setCurrentIndex(nextIndex);
+    setTimeout(() => {
+      const nextIndex = (newIndex + skills.length) % skills.length;
+      setCurrentIndex(nextIndex);
+      setIsTextVisible(true);
+    }, 300); // Delay to match fade-out transition
 
     setTimeout(() => {
       setIsAnimating(false);
@@ -100,7 +105,7 @@ const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
           <X className="w-6 h-6" />
         </button>
 
-        <div className="skill-info">
+        <div className={`skill-info ${isTextVisible ? 'visible' : ''}`}>
           <h2 className="skill-name">{currentSkill.name}</h2>
           <p className="skill-level">{currentSkill.level} - {currentSkill.proficiency}% de Proficiência</p>
           <div className="skill-details">
@@ -110,7 +115,7 @@ const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
             </div>
             <div className="detail-item">
               <h4>Tempo de Habilidade</h4>
-              <p>{currentSkill.time}</p>
+              <p className='!text-accent !text-2xl font-bold'>{currentSkill.time}</p>
             </div>
             <div className="detail-item full-width">
               <h4>Onde Usei</h4>

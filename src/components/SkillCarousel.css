@@ -140,11 +140,18 @@
   width: 100%;
   max-width: 700px;
   color: hsl(var(--foreground));
-  transition: all 0.5s ease-out;
   height: 250px; /* Altura fixa para evitar mudanças de layout */
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.skill-info.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skill-name {
