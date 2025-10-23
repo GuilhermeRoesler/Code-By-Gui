@@ -1,29 +1,21 @@
 import { useState } from "react";
 import { skills } from "@/data/skills";
 import { Link } from "react-router-dom";
-import SkillDetailModal from "./SkillDetailModal";
+import SkillCarousel from "./SkillCarousel";
 
 const Skills = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [carouselOpen, setCarouselOpen] = useState(false);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
 
   const featuredSkills = skills.slice(0, 12);
 
-  const handleOpenModal = (index: number) => {
+  const handleOpenCarousel = (index: number) => {
     setSelectedSkillIndex(index);
-    setModalOpen(true);
+    setCarouselOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
-  const handleNextSkill = () => {
-    setSelectedSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
-  };
-
-  const handlePrevSkill = () => {
-    setSelectedSkillIndex((prevIndex) => (prevIndex - 1 + skills.length) % skills.length);
+  const handleCloseCarousel = () => {
+    setCarouselOpen(false);
   };
 
   const getSkillColor = (level: string) => {
@@ -55,7 +47,7 @@ const Skills = () => {
                 key={index}
                 className="slide-rotate-hor-top cursor-pointer"
                 style={{ animationDelay: `${index % 3 * 0.1}s` }}
-                onClick={() => handleOpenModal(index)}
+                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
               >
                 <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
                   <div className="flex items-center justify-between mb-4">
@@ -93,12 +85,10 @@ const Skills = () => {
         </div>
       </section>
 
-      {modalOpen && (
-        <SkillDetailModal
-          skillIndex={selectedSkillIndex}
-          onClose={handleCloseModal}
-          onNext={handleNextSkill}
-          onPrev={handlePrevSkill}
+      {carouselOpen && (
+        <SkillCarousel
+          initialIndex={selectedSkillIndex}
+          onClose={handleCloseCarousel}
         />
       )}
     </>
