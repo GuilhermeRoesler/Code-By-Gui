@@ -8,13 +8,14 @@ interface SkillCarouselProps {
 }
 
 // Constantes para as posições e estilos dos cards
+// A lógica de transform foi unificada para incluir a centralização (-50%)
 const POSITIONS = {
-  center: { transform: 'translateX(0) scale(1.1) translateZ(0)', opacity: 1, zIndex: 10 },
-  left1: { transform: 'translateX(-220px) scale(0.9) translateZ(-150px) rotateY(30deg)', opacity: 0.8, zIndex: 5 },
-  left2: { transform: 'translateX(-420px) scale(0.8) translateZ(-300px) rotateY(45deg)', opacity: 0.5, zIndex: 1 },
-  right1: { transform: 'translateX(220px) scale(0.9) translateZ(-150px) rotateY(-30deg)', opacity: 0.8, zIndex: 5 },
-  right2: { transform: 'translateX(420px) scale(0.8) translateZ(-300px) rotateY(-45deg)', opacity: 0.5, zIndex: 1 },
-  hidden: { transform: 'scale(0.5)', opacity: 0, zIndex: 0 },
+  center: { transform: 'translateX(-50%) translateY(-50%) scale(1.1) translateZ(0)', opacity: 1, zIndex: 10 },
+  left1: { transform: 'translateX(calc(-50% - 220px)) translateY(-50%) scale(0.9) translateZ(-150px) rotateY(30deg)', opacity: 0.8, zIndex: 5 },
+  left2: { transform: 'translateX(calc(-50% - 420px)) translateY(-50%) scale(0.8) translateZ(-300px) rotateY(45deg)', opacity: 0.5, zIndex: 1 },
+  right1: { transform: 'translateX(calc(-50% + 220px)) translateY(-50%) scale(0.9) translateZ(-150px) rotateY(-30deg)', opacity: 0.8, zIndex: 5 },
+  right2: { transform: 'translateX(calc(-50% + 420px)) translateY(-50%) scale(0.8) translateZ(-300px) rotateY(-45deg)', opacity: 0.5, zIndex: 1 },
+  hidden: { transform: 'translateX(-50%) translateY(-50%) scale(0.5)', opacity: 0, zIndex: 0 },
 };
 
 const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
@@ -60,7 +61,7 @@ const SkillCarousel = ({ initialIndex, onClose }: SkillCarouselProps) => {
                 <div
                   key={i}
                   style={getCardStyle(i)}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[380px] transition-all duration-700 ease-in-out cursor-pointer"
+                  className="absolute top-1/2 left-1/2 w-[280px] h-[380px] transition-all duration-700 ease-in-out cursor-pointer"
                   onClick={() => updateCarousel(i)}
                 >
                   <div className={`relative w-full h-full bg-card border rounded-2xl shadow-lg p-6 overflow-hidden transition-all duration-500 ${isCenter ? 'border-primary' : 'border-border'}`}>
