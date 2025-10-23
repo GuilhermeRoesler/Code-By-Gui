@@ -1,0 +1,300 @@
+/* === Text Fly-In Component === */
+.text-fly-in-container {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  width: 100%;
+  height: 1.2em;
+}
+
+.text-fly-in-slice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: fly-in 2500ms cubic-bezier(0.36, 0.1, 0.16, 1) forwards;
+}
+
+/* === Typing Animation Component === */
+.typing-cursor-host::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 1em;
+  vertical-align: text-bottom;
+  border-right: 0.1em solid hsl(var(--primary));
+  animation: blink-caret 0.75s step-end infinite;
+  margin-left: 2px;
+}
+
+/* === Golden Shock Card Component === */
+.golden-shock-card-container {
+  display: grid;
+  isolation: isolate;
+}
+
+.golden-shock-card-container > * {
+  grid-area: 1 / 1;
+}
+
+.golden-shock-background {
+  padding: 2px;
+  border-radius: 1.5em;
+  background: linear-gradient(-30deg, var(--gradient-color), transparent, var(--gradient-color)),
+    linear-gradient(to bottom, hsl(var(--card)), hsl(var(--card)));
+  --f: url(#golden-shock);
+  --electric-border-color: hsl(var(--primary));
+  --electric-light-color: oklch(from var(--electric-border-color) l c h);
+  --gradient-color: oklch(from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4);
+  pointer-events: none;
+}
+
+.golden-shock-inner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.golden-shock-border-outer {
+  border: 2px solid oklch(from var(--electric-border-color) l c h / 0.5);
+  border-radius: 1.5em;
+  width: 100%;
+  height: 100%;
+  padding-right: .15em;
+  padding-bottom: .15em;
+}
+
+.golden-shock-main-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5em;
+  border: 2px solid var(--electric-border-color);
+  margin-top: -4px;
+  margin-left: -4px;
+  filter: var(--f);
+  background-color: hsl(var(--card));
+}
+
+.golden-shock-glow-layer-1,
+.golden-shock-glow-layer-2,
+.golden-shock-overlay-1,
+.golden-shock-overlay-2,
+.golden-shock-background-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+}
+
+.golden-shock-glow-layer-1 {
+  border: 2px solid oklch(from var(--electric-border-color) l c h / 0.6);
+  filter: blur(1px);
+}
+
+.golden-shock-glow-layer-2 {
+  border: 2px solid var(--electric-light-color);
+  filter: blur(4px);
+}
+
+.golden-shock-overlay-1 {
+  opacity: 1;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, rgba(255 255 255 / 0.0), transparent 30%, transparent 70%, rgba(255 255 255 / 0.0));
+}
+
+.golden-shock-overlay-2 {
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, rgba(255 255 255 / 0.0), transparent 30%, transparent 70%, rgba(255 255 255 / 0.0));
+}
+
+.golden-shock-background-glow {
+  filter: blur(32px);
+  transform: scale(1.1);
+  opacity: 0.3;
+  z-index: -1;
+  background: linear-gradient(-30deg, var(--electric-light-color), transparent, var(--electric-border-color));
+}
+
+.golden-shock-content-container {
+  position: relative;
+  padding: 2.5rem;
+}
+
+.golden-shock-svg-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* === Halftone Image Component === */
+.halftone-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.halftone-image-container.active {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.clip-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.halftone-image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Skill Card Component === */
+.card-skill {
+  @apply bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-6 shadow-medium hover:shadow-large transition-all duration-300 border border-border/50;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-skill:hover {
+  transform: translateY(-0.5rem);
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform-origin: center;
+}
+
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 48%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 52%,
+      transparent 100%);
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: shimmer 6s infinite linear;
+  animation-delay: var(--delay);
+}
+
+/* === Skill Carousel Component === */
+.skill-carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.skill-carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-carousel-card {
+  position: absolute;
+  width: 320px;
+  height: 520px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.skill-carousel-card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+  opacity: 1;
+}
+
+.skill-carousel-card.left-2 {
+  z-index: 1;
+  transform: translateX(-400px) scale(0.8) translateZ(-300px);
+  opacity: 0.5;
+}
+
+.skill-carousel-card.left-1 {
+  z-index: 5;
+  transform: translateX(-220px) scale(0.9) translateZ(-150px);
+  opacity: 0.8;
+}
+
+.skill-carousel-card.right-1 {
+  z-index: 5;
+  transform: translateX(220px) scale(0.9) translateZ(-150px);
+  opacity: 0.8;
+}
+
+.skill-carousel-card.right-2 {
+  z-index: 1;
+  transform: translateX(400px) scale(0.8) translateZ(-300px);
+  opacity: 0.5;
+}
+
+.skill-carousel-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: hsl(var(--card) / 0.6);
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.nav-arrow:hover {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+  left: 20px;
+}
+
+.nav-arrow.right {
+  right: 20px;
+}
