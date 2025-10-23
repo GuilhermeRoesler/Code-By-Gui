@@ -20,9 +20,9 @@ export function ThemeSwitcher() {
           <span className="sr-only">Alterar tema</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="backdrop-blur-sm">
         {themesData.map((theme) => (
-          <DropdownMenuItem key={theme.name} onClick={() => setTheme(theme.name)}>
+          <DropdownMenuItem key={theme.name} onClick={() => setTheme(theme.name)} className="cursor-pointer">
             {theme.label}
           </DropdownMenuItem>
         ))}
