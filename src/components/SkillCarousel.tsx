@@ -11,10 +11,10 @@ interface SkillCarouselProps {
 // A lógica de transform foi unificada para incluir a centralização (-50%)
 const POSITIONS = {
   center: { transform: 'translateX(-50%) translateY(-50%) scale(1.1) translateZ(0)', opacity: 1, zIndex: 10 },
-  left1: { transform: 'translateX(calc(-50% - 220px)) translateY(-50%) scale(0.9) translateZ(-150px) rotateY(30deg)', opacity: 0.8, zIndex: 5 },
-  left2: { transform: 'translateX(calc(-50% - 420px)) translateY(-50%) scale(0.8) translateZ(-300px) rotateY(45deg)', opacity: 0.5, zIndex: 1 },
-  right1: { transform: 'translateX(calc(-50% + 220px)) translateY(-50%) scale(0.9) translateZ(-150px) rotateY(-30deg)', opacity: 0.8, zIndex: 5 },
-  right2: { transform: 'translateX(calc(-50% + 420px)) translateY(-50%) scale(0.8) translateZ(-300px) rotateY(-45deg)', opacity: 0.5, zIndex: 1 },
+  left1: { transform: 'translateX(calc(-50% - 240px)) translateY(-50%) scale(0.9) perspective(1100px) translateZ(-150px) rotateY(30deg)', opacity: 0.8, zIndex: 5 },
+  left2: { transform: 'translateX(calc(-50% - 400px)) translateY(-50%) scale(0.8) perspective(1100px) translateZ(-300px) rotateY(45deg)', opacity: 0.5, zIndex: 1 },
+  right1: { transform: 'translateX(calc(-50% + 240px)) translateY(-50%) scale(0.9) perspective(1100px) translateZ(-150px) rotateY(-30deg)', opacity: 0.8, zIndex: 5 },
+  right2: { transform: 'translateX(calc(-50% + 400px)) translateY(-50%) scale(0.8) perspective(1100px) translateZ(-300px) rotateY(-45deg)', opacity: 0.5, zIndex: 1 },
   hidden: { transform: 'translateX(-50%) translateY(-50%) scale(0.5)', opacity: 0, zIndex: 0 },
 };
 

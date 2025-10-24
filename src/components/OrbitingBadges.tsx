@@ -38,9 +38,9 @@ const OrbitingBadges = () => {
     container.addEventListener('mouseleave', handleMouseLeave);
 
     const center = { x: container.offsetWidth / 2, y: container.offsetHeight / 2 };
-    const orbitRadius = 180;
-    const maxDistanceFromCenter = 250;
-    const repulsionRadius = 100;
+    const orbitRadius = 200;
+    const maxDistanceFromCenter = 270;
+    const repulsionRadius = 1000;
     const repulsionStrength = 1;
     const gravityStrength = 0.005;
 
