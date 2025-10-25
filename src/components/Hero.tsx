@@ -82,7 +82,7 @@ const Hero = () => {
                 Ver Projetos
               </button>
               <GridHoverButton
-                href="https://wa.me/5551989354834?text=Olá GUilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
+                href="https://wa.me/5551989354834?text=Olá Guilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="slide-top px-8 py-4"

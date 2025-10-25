@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import GoldenShockFilter from './GoldenShockFilter';
 
@@ -10,6 +10,29 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const glowButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const button = glowButtonRef.current;
+    if (!button) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPercent = x / rect.width;
+
+      button.style.setProperty('--x', `${x}px`);
+      button.style.setProperty('--y', `${y}px`);
+      button.style.setProperty('--x-percent', `${xPercent}`);
+    };
+
+    button.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      button.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -174,8 +197,8 @@ ${formData.message}`;
                   />
                 </div>
 
-                <button type="submit" className="btn-hero w-full">
-                  Enviar via WhatsApp
+                <button ref={glowButtonRef} type="submit" className="btn-glow-hover w-full">
+                  <span>Enviar via WhatsApp</span>
                 </button>
               </form>
             </div>
