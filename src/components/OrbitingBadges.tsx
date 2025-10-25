@@ -1,15 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 
 const badges = [
-  { text: 'React', color: 'bg-blue-500' },
-  { text: 'Py', color: 'bg-purple-500' },
-  { text: 'PHP', color: 'bg-indigo-900' },
+  { text: 'React', color: 'bg-cyan-500' },
+  { text: 'Py', color: 'bg-yellow-500' },
+  { text: 'PHP', color: 'bg-indigo-700' },
   { text: 'AI', color: 'bg-green-500' },
-  { text: 'Next', color: 'bg-yellow-500' },
+  { text: 'Next', color: 'bg-pink-500' },
   { text: 'JS', color: 'bg-orange-500' },
-  { text: 'TS', color: 'bg-cyan-500' },
-  { text: 'Node', color: 'bg-green-700' },
-  { text: 'SQL', color: 'bg-indigo-700' },
+  { text: 'TS', color: 'bg-purple-500' },
+  { text: 'Node', color: 'bg-green-600' },
+  { text: 'SQL', color: 'bg-blue-700' },
   { text: 'Java', color: 'bg-orange-700' },
   // { text: 'Docker', color: 'bg-blue-700' },
   // { text: 'Cloud', color: 'bg-gray-500' },
@@ -38,9 +38,9 @@ const OrbitingBadges = () => {
     container.addEventListener('mouseleave', handleMouseLeave);
 
     const center = { x: container.offsetWidth / 2, y: container.offsetHeight / 2 };
-    const orbitRadius = 200;
-    const maxDistanceFromCenter = 270;
-    const repulsionRadius = 1000;
+    const orbitRadius = 190;
+    const maxDistanceFromCenter = 2100;
+    const repulsionRadius = 200;
     const repulsionStrength = 1;
     const gravityStrength = 0.005;
 
