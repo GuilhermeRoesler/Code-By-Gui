@@ -3,6 +3,7 @@ import heroProfile from '@/assets/hero-profile.jpg';
 import TextFlyIn from './TextFlyIn';
 import TypingAnimation from './TypingAnimation';
 import OrbitingBadges from './OrbitingBadges';
+import GridHoverButton from './GridHoverButton';
 
 const Hero = () => {
   const [animationPhase, setAnimationPhase] = useState('waiting');
@@ -80,15 +81,15 @@ const Hero = () => {
               >
                 Ver Projetos
               </button>
-              <a
+              <GridHoverButton
                 href="https://wa.me/5551989354834?text=Olá GUilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary slide-top"
+                className="slide-top px-8 py-4"
                 style={{ animationDelay: '2.4s' }}
               >
                 Entrar em Contato
-              </a>
+              </GridHoverButton>
             </div>
 
             <div className="flex items-center space-x-6">

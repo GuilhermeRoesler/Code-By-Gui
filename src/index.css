@@ -184,10 +184,6 @@
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-large hover:shadow-glow transition-all duration-300 hover:scale-105;
   }
 
-  .btn-secondary {
-    @apply bg-transparent border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300;
-  }
-
   /* Card Variants */
   .card-elevated {
     @apply bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-6 shadow-medium hover:shadow-large transition-all duration-300 border border-border/50;

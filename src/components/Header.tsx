@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Home, User, Code, Wrench, Briefcase, Mail } from 'lucide-react';
+import GridHoverButton from './GridHoverButton';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,14 +50,14 @@ const Header = () => {
 
         <div className="flex items-center gap-2">
           <ThemeSwitcher />
-          <a
+          <GridHoverButton
             href="https://wa.me/5551989354834?text=Olá GUilherme, bom dia! Vim aqui pelo seu portfólio, será que podemos conversar?"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary py-2 px-6 text-sm"
+            className="py-2 px-6 text-sm"
           >
             Fale Comigo
-          </a>
+          </GridHoverButton>
         </div>
       </nav>
     </header>
