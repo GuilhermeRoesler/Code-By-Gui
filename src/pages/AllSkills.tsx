@@ -1,14 +1,31 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { skills } from '@/data/skills';
 import { ArrowLeft } from 'lucide-react';
 import Footer from '@/components/Footer';
+import SkillCarousel from '@/components/SkillCarousel';
 
 const AllSkills = () => {
+  const [carouselOpen, setCarouselOpen] = useState(false);
+  const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
+
+  const handleOpenCarousel = (index: number) => {
+    setSelectedSkillIndex(index);
+    setCarouselOpen(true);
+  };
+
+  const handleCloseCarousel = () => {
+    setCarouselOpen(false);
+  };
+
   const getSkillColor = (level: string) => {
     switch (level) {
       case "Avançado": return "from-green-500 to-emerald-600";
       case "Intermediário": return "from-blue-500 to-indigo-600";
       case "Básico": return "from-orange-500 to-amber-600";
+      case "Básico+": return "from-orange-500 to-red-600";
+      case "Intermediário+": return "from-indigo-500 to-violet-600";
+      case "Avançado+": return "from-emerald-500 to-fuchsia-600";
       default: return "from-gray-500 to-gray-600";
     }
   };
@@ -35,8 +52,9 @@ const AllSkills = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skill, index) => (
-              <div key={index} className="fade-in visible">
-                <div className="card-elevated h-full">
+              <div key={index} className="fade-in visible cursor-pointer"
+                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}>
+                <div className="card-skill shimmer-card h-full">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-4">
                       <i className={`${skill.icon} text-4xl text-primary`}></i>
@@ -63,6 +81,13 @@ const AllSkills = () => {
             ))}
           </div>
         </div>
+        {carouselOpen && (
+          <SkillCarousel
+            skills={skills}
+            initialIndex={selectedSkillIndex}
+            onClose={handleCloseCarousel}
+          />
+        )}
       </main>
       <Footer />
     </div>

@@ -23,6 +23,9 @@ const Skills = () => {
       case "Avançado": return "from-green-500 to-emerald-600";
       case "Intermediário": return "from-blue-500 to-indigo-600";
       case "Básico": return "from-orange-500 to-amber-600";
+      case "Básico+": return "from-orange-500 to-red-600";
+      case "Intermediário+": return "from-indigo-500 to-violet-600";
+      case "Avançado+": return "from-emerald-500 to-fuchsia-600";
       default: return "from-gray-500 to-gray-600";
     }
   };
@@ -87,6 +90,7 @@ const Skills = () => {
 
       {carouselOpen && (
         <SkillCarousel
+          skills={featuredSkills}
           initialIndex={selectedSkillIndex}
           onClose={handleCloseCarousel}
         />

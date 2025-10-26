@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import AllProjects from "./pages/AllProjects";
 import AllSkills from "./pages/AllSkills";
 import Preloader from './components/Preloader';
+import ScrollToTop from './lib/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/projects" element={<AllProjects />} />
