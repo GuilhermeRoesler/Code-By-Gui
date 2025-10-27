@@ -414,7 +414,6 @@
   width: 60px;
   height: 60px;
   border: 2px solid hsl(var(--foreground));
-  animation: spin3D 10s linear 0s infinite;
 }
 
 .w1 {
@@ -431,9 +430,9 @@
 
 @keyframes spin3D {
   from {
-    transform: rotate3d(.5,.5,.5, 360deg);
+    transform: rotate3d(.5,.5,.5, 0deg);
   }
   to{
-    transform: rotate3d(0deg);
+    transform: rotate3d(.5,.5,.5, 360deg);
   }
 }
