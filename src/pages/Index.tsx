@@ -11,11 +11,17 @@ import Footer from '@/components/Footer';
 import { useToast } from '@/hooks/use-toast';
 import { AlertTriangle } from 'lucide-react';
 
-const Index = () => {
+interface IndexProps {
+  isReady: boolean;
+}
+
+const Index = ({ isReady }: IndexProps) => {
   const { toast } = useToast();
 
   // Efeito para o aviso de compatibilidade do navegador
   useEffect(() => {
+    if (!isReady) return;
+
     // Verifica se o navegador é Chrome, excluindo outros navegadores baseados em Chromium como o Edge
     const isChrome = navigator.userAgent.includes("Chrome") && !navigator.userAgent.includes("Edg");
 
@@ -33,13 +39,15 @@ const Index = () => {
           description: "Para a melhor experiência visual, recomendamos um navegador alternativo. Algumas animações podem não funcionar como esperado no Chrome.",
           duration: 10000, // Aumenta a duração para dar tempo de leitura
         });
-      }, 4000);
+      }, 1500); // Atraso ajustado para após a transição
 
       return () => clearTimeout(timer);
     }
-  }, [toast]);
+  }, [toast, isReady]);
 
   useEffect(() => {
+    if (!isReady) return;
+
     // Scroll animation observer
     const observerOptions = {
       threshold: 0.1,
@@ -61,10 +69,10 @@ const Index = () => {
     return () => {
       elementsToObserve.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, [isReady]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background transition-opacity duration-1000 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
       <Header />
       <main>
         <Hero />
