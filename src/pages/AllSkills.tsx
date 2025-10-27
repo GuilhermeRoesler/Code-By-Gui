@@ -35,7 +35,7 @@ const AllSkills = () => {
       <main className="section-padding">
         <div className="container-max">
           <div className="mb-16">
-            <Link to="/" className="inline-flex items-center text-primary hover:text-accent transition-colors font-medium mb-8">
+            <Link to="/#skills" className="inline-flex items-center text-primary hover:text-accent transition-colors font-medium mb-8">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Voltar para o Início
             </Link>
