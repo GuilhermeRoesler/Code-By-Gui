@@ -2,10 +2,15 @@ import { useState } from "react";
 import { skills } from "@/data/skills";
 import { Link } from "react-router-dom";
 import SkillCarousel from "./SkillCarousel";
+import SkillsCarousel3D from "./SkillsCarousel3D";
+import { LayoutGrid, View } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const Skills = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
+  const [view, setView] = useState<'grid' | '3d'>('grid');
 
   const featuredSkills = skills.slice(0, 12);
 
@@ -44,41 +49,66 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredSkills.map((skill, index) => (
-              <div
-                key={index}
-                className="slide-rotate-hor-top cursor-pointer"
-                style={{ animationDelay: `${index % 3 * 0.1}s` }}
-                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
-              >
-                <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-4">
-                      <i className={`${skill.icon} text-4xl text-primary`}></i>
-                      <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
-                      {skill.level}
-                    </span>
-                  </div>
+          <div className="flex justify-center gap-2 mb-8">
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn("text-muted-foreground hover:text-primary", view === 'grid' && "text-primary bg-primary/10")}
+              onClick={() => setView('grid')}
+              aria-label="Grid View"
+            >
+              <LayoutGrid className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn("text-muted-foreground hover:text-primary", view === '3d' && "text-primary bg-primary/10")}
+              onClick={() => setView('3d')}
+              aria-label="3D View"
+            >
+              <View className="h-5 w-5" />
+            </Button>
+          </div>
 
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm text-muted-foreground">
-                      <span>Proficiência</span>
-                      <span>{skill.proficiency}%</span>
+          {view === 'grid' ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredSkills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="slide-rotate-hor-top cursor-pointer"
+                  style={{ animationDelay: `${index % 3 * 0.1}s` }}
+                  onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
+                >
+                  <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-4">
+                        <i className={`${skill.icon} text-4xl text-primary`}></i>
+                        <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
+                      </div>
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
+                        {skill.level}
+                      </span>
                     </div>
-                    <div className="w-full bg-border rounded-full h-2">
-                      <div
-                        className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
-                        style={{ width: `${skill.proficiency}%` }}
-                      ></div>
+
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>Proficiência</span>
+                        <span>{skill.proficiency}%</span>
+                      </div>
+                      <div className="w-full bg-border rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
+                          style={{ width: `${skill.proficiency}%` }}
+                        ></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <SkillsCarousel3D skills={featuredSkills} />
+          )}
 
           <div className="mt-16 text-center bounce">
             <Link to="/skills" className="btn-hero">
