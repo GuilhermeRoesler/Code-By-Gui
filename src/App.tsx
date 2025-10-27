@@ -17,24 +17,17 @@ const queryClient = new QueryClient();
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFinishing, setIsFinishing] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Duração do preloader antes de iniciar a transição
-    const preloaderDuration = 2500;
-    // Duração da animação de fade-out/fade-in
-    const transitionDuration = 1000;
-
-    // Inicia a transição
+    // Inicia o fade-out após 2.5 segundos
     const finishTimer = setTimeout(() => {
-      setIsFinishing(true); // Inicia o fade-out do preloader
-      setShowContent(true); // Permite que o conteúdo principal comece a aparecer
-    }, preloaderDuration);
+      setIsFinishing(true);
+    }, 2500);
 
-    // Remove o preloader do DOM após a transição
+    // Remove o preloader do DOM após a animação de fade-out (2.5s + 1s)
     const loadTimer = setTimeout(() => {
       setIsLoading(false);
-    }, preloaderDuration + transitionDuration);
+    }, 3500);
 
     return () => {
       clearTimeout(finishTimer);
@@ -53,7 +46,7 @@ const App = () => {
             <BrowserRouter>
               <ScrollToTop />
               <Routes>
-                <Route path="/" element={<Index isReady={showContent} />} />
+                <Route path="/" element={<Index />} />
                 <Route path="/projects" element={<AllProjects />} />
                 <Route path="/skills" element={<AllSkills />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
