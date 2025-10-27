@@ -70,45 +70,46 @@ const Skills = () => {
             </Button>
           </div>
 
-          {view === 'grid' ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredSkills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="slide-rotate-hor-top cursor-pointer"
-                  style={{ animationDelay: `${index % 3 * 0.1}s` }}
-                  onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
-                >
-                  <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-4">
-                        <i className={`${skill.icon} text-4xl text-primary`}></i>
-                        <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
-                      </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
-                        {skill.level}
-                      </span>
+          <div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            style={{ display: view === 'grid' ? 'grid' : 'none' }}
+          >
+            {featuredSkills.map((skill, index) => (
+              <div
+                key={index}
+                className="slide-rotate-hor-top cursor-pointer"
+                style={{ animationDelay: `${index % 3 * 0.1}s` }}
+                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
+              >
+                <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-4">
+                      <i className={`${skill.icon} text-4xl text-primary`}></i>
+                      <h3 className="font-semibold text-lg text-card-foreground">{skill.name}</h3>
                     </div>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
+                      {skill.level}
+                    </span>
+                  </div>
 
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm text-muted-foreground">
-                        <span>Proficiência</span>
-                        <span>{skill.proficiency}%</span>
-                      </div>
-                      <div className="w-full bg-border rounded-full h-2">
-                        <div
-                          className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
-                          style={{ width: `${skill.proficiency}%` }}
-                        ></div>
-                      </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span>Proficiência</span>
+                      <span>{skill.proficiency}%</span>
+                    </div>
+                    <div className="w-full bg-border rounded-full h-2">
+                      <div
+                        className={`h-2 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)} transition-all duration-1000 ease-out`}
+                        style={{ width: `${skill.proficiency}%` }}
+                      ></div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <SkillsCarousel3D skills={featuredSkills} />
-          )}
+              </div>
+            ))}
+          </div>
+
+          {view === '3d' && <SkillsCarousel3D skills={featuredSkills} />}
 
           <div className="mt-16 text-center bounce">
             <Link to="/skills" className="btn-hero">
