@@ -89,7 +89,7 @@ const SkillCarousel = ({ skills, initialIndex, onClose }: SkillCarouselProps) =>
                           <div>
                             <h4 className="font-semibold text-primary">Onde Usei:</h4>
                             <div className="flex flex-wrap gap-1 mt-1">
-                              {currentSkill.dd.slice(0, 3).map(proj => <span key={proj} className="text-[10px] bg-secondary px-2 py-0.5 rounded-full">{proj}</span>)}
+                              {currentSkill.whereIUsed.slice(0, 3).map(proj => <span key={proj} className="text-[10px] bg-secondary px-2 py-0.5 rounded-full">{proj}</span>)}
                             </div>
                           </div>
                         </div>
