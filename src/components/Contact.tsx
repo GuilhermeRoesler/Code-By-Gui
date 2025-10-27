@@ -214,9 +214,9 @@ ${formData.message}`;
                   href={method.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-6 slide-fwd-left"
+                  className="block slide-fwd-left"
                 >
-                  <div className='card-elevated hover-lift flex items-center transition-all duration-300 hover:border-primary/30'>
+                  <div className='card-elevated hover-lift flex items-center transition-all duration-300 hover:border-primary/30 p-6'>
                     <div className="text-3xl mr-4">{method.icon}</div>
                     <div>
                       <h4 className="font-semibold text-card-foreground">{method.title}</h4>
