@@ -61,6 +61,76 @@ export const skills = [
         category: "database"
     },
     {
+        name: "Versionamento (Git)",
+        level: "Avançado+",
+        proficiency: 80,
+        icon: "devicon-git-plain",
+        howILearned: "Uso diário em todos os projetos, colaboração em equipe e resolução de conflitos.",
+        time: "4+ anos",
+        dd: ["Todos os projetos de desenvolvimento", "Trabalho em Equipe", "Deploy Contínuo"],
+        category: "versioning"
+    },
+    {
+        name: "Tailwind CSS",
+        level: "Avançado+",
+        proficiency: 98,
+        icon: "devicon-tailwindcss-plain",
+        howILearned: "Uso extensivo em todos os projetos front-end recentes, criação de design systems e prototipagem rápida.",
+        time: "1+ anos",
+        dd: ["Este Portfólio", "Plataformas Web Responsivas", "Componentização de UI"],
+        category: "design"
+    },
+    {
+        name: "Typescript",
+        level: "Avançado+",
+        proficiency: 100,
+        icon: "devicon-typescript-plain",
+        howILearned: "Migração de projetos Javascript para tipagem Typescript",
+        time: "1+ anos",
+        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+        category: ""
+    },
+    {
+        name: "Django",
+        level: "Intermediário",
+        proficiency: 72,
+        icon: "devicon-django-plain",
+        howILearned: "Criação de APIs RESTful para projetos web, seguindo a documentação oficial e tutoriais.",
+        time: "1+ anos",
+        dd: ["Backend de E-commerce", "Sistemas de Gerenciamento", "APIs para Apps Mobile"],
+        category: "web framework"
+    },
+    {
+        name: "Spring Boot",
+        level: "Intermediário",
+        proficiency: 40,
+        icon: "devicon-spring-plain",
+        howILearned: "Conteúdo visto no técnico em Desenvolvimento de Sistemas quanto a Backend Java.",
+        time: "1+ anos",
+        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+        category: "web framework"
+    },
+    {
+        name: "C++",
+        level: "Intermediário+",
+        proficiency: 70,
+        icon: "devicon-cplusplus-plain",
+        howILearned: "Exercícios lógicos e práticos no Exercism",
+        time: "1+ anos",
+        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+        category: "programming"
+    },
+    {
+        name: "Java",
+        level: "Avançado",
+        proficiency: 70,
+        icon: "devicon-java-plain",
+        howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas",
+        time: "3+ anos",
+        dd: ["Sistemas Corporativos (ERP)", "Aplicações Android (Legado)", "Projetos Universitários"],
+        category: "backend"
+    },
+    {
         name: "Python",
         level: "Avançado+",
         proficiency: 80,
@@ -81,36 +151,6 @@ export const skills = [
         category: ""
     },
     {
-        name: "Typescript",
-        level: "Avançado+",
-        proficiency: 100,
-        icon: "devicon-typescript-plain",
-        howILearned: "Migração de projetos Javascript para tipagem Typescript",
-        time: "1+ anos",
-        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
-        category: ""
-    },
-    {
-        name: "Java",
-        level: "Avançado",
-        proficiency: 70,
-        icon: "devicon-java-plain",
-        howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas",
-        time: "3+ anos",
-        dd: ["Sistemas Corporativos (ERP)", "Aplicações Android (Legado)", "Projetos Universitários"],
-        category: "backend"
-    },
-    {
-        name: "Versionamento (Git)",
-        level: "Avançado+",
-        proficiency: 80,
-        icon: "devicon-git-plain",
-        howILearned: "Uso diário em todos os projetos, colaboração em equipe e resolução de conflitos.",
-        time: "4+ anos",
-        dd: ["Todos os projetos de desenvolvimento", "Trabalho em Equipe", "Deploy Contínuo"],
-        category: "versioning"
-    },
-    {
         name: "HTML",
         level: "Avançado",
         proficiency: 100,
@@ -119,16 +159,6 @@ export const skills = [
         time: "4+ anos",
         dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
         category: ""
-    },
-    {
-        name: "Tailwind CSS",
-        level: "Avançado+",
-        proficiency: 98,
-        icon: "devicon-tailwindcss-plain",
-        howILearned: "Uso extensivo em todos os projetos front-end recentes, criação de design systems e prototipagem rápida.",
-        time: "1+ anos",
-        dd: ["Este Portfólio", "Plataformas Web Responsivas", "Componentização de UI"],
-        category: "design"
     },
     {
         name: "CSS",
@@ -151,14 +181,14 @@ export const skills = [
         category: "backend"
     },
     {
-        name: "Django",
-        level: "Intermediário",
-        proficiency: 72,
-        icon: "devicon-django-plain",
-        howILearned: "Criação de APIs RESTful para projetos web, seguindo a documentação oficial e tutoriais.",
-        time: "1+ anos",
-        dd: ["Backend de E-commerce", "Sistemas de Gerenciamento", "APIs para Apps Mobile"],
-        category: "web framework"
+        name: "Postman",
+        level: "Avançado+",
+        proficiency: 100,
+        icon: "devicon-postman-plain",
+        howILearned: "Testes de APIs, depuração de requisições e documentação de endpoints. Vídeos do YouTube",
+        time: "2+ anos",
+        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+        category: "API testing"
     },
     {
         name: "PostgreSQL",
@@ -211,16 +241,6 @@ export const skills = [
         category: "web framework"
     },
     {
-        name: "Postman",
-        level: "Avançado+",
-        proficiency: 100,
-        icon: "devicon-postman-plain",
-        howILearned: "Testes de APIs, depuração de requisições e documentação de endpoints. Vídeos do YouTube",
-        time: "2+ anos",
-        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
-        category: "API testing"
-    },
-    {
         name: "JSON",
         level: "Avançado+",
         proficiency: 100,
@@ -241,16 +261,6 @@ export const skills = [
         category: "documentation"
     },
     {
-        name: "C++",
-        level: "Intermediário+",
-        proficiency: 70,
-        icon: "devicon-cplusplus-plain",
-        howILearned: "Exercícios lógicos e práticos no Exercism",
-        time: "1+ anos",
-        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
-        category: "programming"
-    },
-    {
         name: "Pandas",
         level: "Intermediário",
         proficiency: 70,
@@ -269,16 +279,6 @@ export const skills = [
         time: "2+ anos",
         dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
         category: "web automation"
-    },
-    {
-        name: "Spring Boot",
-        level: "Intermediário",
-        proficiency: 40,
-        icon: "devicon-spring-plain",
-        howILearned: "Conteúdo visto no técnico em Desenvolvimento de Sistemas quanto a Backend Java.",
-        time: "1+ anos",
-        dd: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
-        category: "web framework"
     },
     {
         name: "Supabase",

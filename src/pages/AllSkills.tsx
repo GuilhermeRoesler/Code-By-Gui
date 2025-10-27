@@ -54,7 +54,7 @@ const AllSkills = () => {
             {skills.map((skill, index) => (
               <div key={index} className="fade-in visible cursor-pointer"
                 onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}>
-                <div className="card-skill shimmer-card h-full">
+                <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-4">
                       <i className={`${skill.icon} text-4xl text-primary`}></i>
