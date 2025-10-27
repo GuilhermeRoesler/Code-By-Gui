@@ -3,9 +3,7 @@ import { skills } from "@/data/skills";
 import { Link } from "react-router-dom";
 import SkillCarousel from "./SkillCarousel";
 import SkillsCarousel3D from "./SkillsCarousel3D";
-import { LayoutGrid, View } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import ViewSwitcher from "./ViewSwitcher";
 
 const Skills = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);
@@ -49,25 +47,8 @@ const Skills = () => {
             </p>
           </div>
 
-          <div className="flex justify-center gap-2 mb-8">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={cn("text-muted-foreground hover:text-primary", view === 'grid' && "text-primary bg-primary/10")}
-              onClick={() => setView('grid')}
-              aria-label="Grid View"
-            >
-              <LayoutGrid className="h-5 w-5" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className={cn("text-muted-foreground hover:text-primary", view === '3d' && "text-primary bg-primary/10")}
-              onClick={() => setView('3d')}
-              aria-label="3D View"
-            >
-              <View className="h-5 w-5" />
-            </Button>
+          <div className="flex justify-center mb-8">
+            <ViewSwitcher view={view} setView={setView} />
           </div>
 
           <div

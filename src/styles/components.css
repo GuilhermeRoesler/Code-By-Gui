@@ -283,3 +283,52 @@
 .btn-glow-hover:hover::after {
   transform: translate(-50%, -50%) scale(1);
 }
+
+/* View Switcher Toggle */
+.view-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 4px;
+  background-color: hsl(var(--secondary));
+  border-radius: 9999px;
+  width: 120px;
+  border: 1px solid hsl(var(--border));
+}
+
+.view-switcher__input {
+  display: none;
+}
+
+.view-switcher__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-switcher__toggle {
+  position: absolute;
+  height: calc(100% - 8px);
+  width: calc(50% - 4px);
+  background-color: hsl(var(--primary));
+  border-radius: 9999px;
+  left: 4px;
+  top: 4px;
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.view-switcher__input:checked+.view-switcher__label {
+  color: hsl(var(--primary-foreground));
+}
+
+.view-switcher__input--3d:checked~.view-switcher__toggle {
+  left: calc(50% + 2px);
+}
