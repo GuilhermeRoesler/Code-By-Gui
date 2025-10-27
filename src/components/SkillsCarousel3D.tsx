@@ -28,12 +28,14 @@ const getSkillColor = (level: string) => {
 };
 
 const SkillsCarousel3D: React.FC<SkillsCarousel3DProps> = ({ skills }) => {
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
   const dragContainerRef = useRef<HTMLDivElement>(null);
   const spinContainerRef = useRef<HTMLDivElement>(null);
   const groundRef = useRef<HTMLDivElement>(null);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    const container = carouselContainerRef.current;
     const odrag = dragContainerRef.current;
     const ospin = spinContainerRef.current;
     const ground = groundRef.current;
@@ -42,7 +44,7 @@ const SkillsCarousel3D: React.FC<SkillsCarousel3DProps> = ({ skills }) => {
 
     const aEle = Array.from(ospin.children) as HTMLElement[];
 
-    let radius = 240;
+    let radius = 320;
     const autoRotate = true;
     const rotateSpeed = -60;
     const imgWidth = 140;
@@ -140,23 +142,23 @@ const SkillsCarousel3D: React.FC<SkillsCarousel3DProps> = ({ skills }) => {
       e.preventDefault();
       const d = e.deltaY / 20 || -e.detail;
       radius += d;
-      if (radius < 120) radius = 120;
-      if (radius > 480) radius = 480;
+      if (radius < 280) radius = 280;
+      if (radius > 480) radius = 400;
       init(0);
     };
 
     odrag.addEventListener('pointerdown', handlePointerDown);
-    document.addEventListener('wheel', handleWheel, { passive: false });
+    container.addEventListener('wheel', handleWheel, { passive: false });
 
     return () => {
       odrag.removeEventListener('pointerdown', handlePointerDown);
-      document.removeEventListener('wheel', handleWheel);
+      container.removeEventListener('wheel', handleWheel);
       clearInterval(timer);
     };
   }, []);
 
   return (
-    <div className="carousel-3d-body">
+    <div className="carousel-3d-body" ref={carouselContainerRef}>
       <div id="drag-container" ref={dragContainerRef}>
         <div id="spin-container" ref={spinContainerRef}>
           {skills.map((skill, index) => (
@@ -179,18 +181,18 @@ const SkillsCarousel3D: React.FC<SkillsCarousel3DProps> = ({ skills }) => {
                   >
                     <X size={16} />
                   </button>
-                  <div className="w-full">
-                    <div className="flex items-center gap-3 mb-2">
-                      <i className={`${skill.icon} text-3xl gradient-text`}></i>
-                      <h3 className="text-xl font-bold text-card-foreground">{skill.name}</h3>
-                    </div>
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
+                  <div className="w-full flex flex-col items-center justify-center text-center">
+                    {/* <div className="flex items-center gap-3 mb-2"> */}
+                    <i className={`${skill.icon} text-3xl gradient-text`}></i>
+                    <h3 className="text-xl font-bold text-card-foreground">{skill.name}</h3>
+                    {/* </div> */}
+                    <span className={`px-2 mt-2 rounded-full text-xs font-medium text-white bg-gradient-to-r ${getSkillColor(skill.level)}`}>
                       {skill.level}
                     </span>
                     <div className="w-full bg-border rounded-full h-1.5 my-3">
                       <div className={`h-1.5 rounded-full bg-gradient-to-r ${getSkillColor(skill.level)}`} style={{ width: `${skill.proficiency}%` }}></div>
                     </div>
-                    <div className="text-xs space-y-2 w-full text-muted-foreground">
+                    {/* <div className="text-xs space-y-2 w-full text-muted-foreground">
                       <div>
                         <h4 className="font-semibold text-primary text-sm">Como Aprendi:</h4>
                         <p className="leading-tight">{skill.howILearned}</p>
@@ -201,7 +203,7 @@ const SkillsCarousel3D: React.FC<SkillsCarousel3DProps> = ({ skills }) => {
                           {skill.dd.slice(0, 2).map(proj => <span key={proj} className="text-[10px] bg-secondary px-2 py-0.5 rounded-full">{proj}</span>)}
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
