@@ -50,22 +50,11 @@
 
 /* Inner colored background effect */
 .glow-card::after {
-  border: 1px solid transparent;
-  background:
-    radial-gradient(at 80% 55%, hsl(var(--primary) / 0.5) 0px, transparent 50%) padding-box,
-    radial-gradient(at 8% 6%, hsl(var(--accent) / 0.5) 0px, transparent 50%) padding-box,
-    radial-gradient(at 86% 85%, hsl(var(--primary) / 0.5) 0px, transparent 50%) padding-box,
-    radial-gradient(at 51% 4%, hsl(var(--accent) / 0.5) 0px, transparent 50%) padding-box,
-    linear-gradient(hsl(var(--primary)) 0 100%) padding-box;
-  mask-image:
-    linear-gradient(to bottom, black, black),
-    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
-    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
-    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
-    conic-gradient(from var(--pointer-°) at center, transparent 5%, black 15%, black 85%, transparent 95%);
-  mask-composite: subtract, add, add, add, add, add;
+  background: radial-gradient(
+    800px circle at var(--pointer-x) var(--pointer-y),
+    hsl(var(--accent) / 0.15),
+    transparent 40%
+  );
   opacity: calc((var(--pointer-d) - var(--color-sens)) / (100 - var(--color-sens)));
   mix-blend-mode: soft-light;
 }
