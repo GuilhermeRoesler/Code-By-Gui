@@ -1,5 +1,6 @@
 import { experiences } from "@/data/experiences";
 import { goals } from "@/data/goals";
+import ExperienceCard from "./ExperienceCard";
 
 const Experience = () => {
   return (
@@ -22,19 +23,7 @@ const Experience = () => {
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={index} className="timeline-item fade-in">
-                  <div className="card-elevated">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                      <h4 className="text-lg font-bold text-primary">{exp.role}</h4>
-                      <span className="text-sm text-muted-foreground font-medium">{exp.period}</span>
-                    </div>
-                    <h5 className="text-md font-semibold text-card-foreground mb-3">{exp.company}</h5>
-                    <div className="bg-accent/10 border-l-4 border-accent p-3 rounded mb-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <p key={i} className="text-sm font-medium text-accent">• {achievement}</p>
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground text-sm">{exp.description}</p>
-                  </div>
+                  <ExperienceCard experience={exp} />
                 </div>
               ))}
             </div>
