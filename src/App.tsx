@@ -18,22 +18,22 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFinishing, setIsFinishing] = useState(false);
 
-  useEffect(() => {
-    // Inicia o fade-out após 2.5 segundos
-    const finishTimer = setTimeout(() => {
-      setIsFinishing(true);
-    }, 2500);
+  // useEffect(() => {
+  //   // Inicia o fade-out após 2.5 segundos
+  //   const finishTimer = setTimeout(() => {
+  //     setIsFinishing(true);
+  //   }, 2500);
 
-    // Remove o preloader do DOM após a animação de fade-out (2.5s + 1s)
-    const loadTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3500);
+  //   // Remove o preloader do DOM após a animação de fade-out (2.5s + 1s)
+  //   const loadTimer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3500);
 
-    return () => {
-      clearTimeout(finishTimer);
-      clearTimeout(loadTimer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(finishTimer);
+  //     clearTimeout(loadTimer);
+  //   };
+  // }, []);
 
   return (
     <>
