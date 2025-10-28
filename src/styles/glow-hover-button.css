@@ -1,0 +1,39 @@
+/* Glow Hover Button */
+.btn-glow-hover {
+  @apply relative overflow-hidden bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-large transition-all duration-300;
+  z-index: 1;
+}
+
+.btn-glow-hover>span {
+  @apply relative z-10;
+}
+
+.btn-glow-hover::before,
+.btn-glow-hover::after {
+  content: "";
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  width: 250px;
+  height: 250px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-glow-hover::before {
+  background: radial-gradient(circle, hsl(var(--primary)) 10%, transparent 60%);
+  opacity: calc(var(--x-percent, 0.5) * 0.7);
+}
+
+.btn-glow-hover::after {
+  background: radial-gradient(circle, hsl(var(--accent)) 10%, transparent 60%);
+  opacity: calc((1 - var(--x-percent, 0.5)) * 0.7);
+}
+
+.btn-glow-hover:hover::before,
+.btn-glow-hover:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}

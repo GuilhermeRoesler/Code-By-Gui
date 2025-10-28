@@ -1,0 +1,32 @@
+/* Skill Card */
+.card-skill {
+  @apply bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-6 shadow-medium hover:shadow-large transition-all duration-300 border border-border/50;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-skill:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  transform-origin: center;
+  translate: 0 -0.5rem;
+}
+
+/* Shimmer Effect */
+.shimmer-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 48%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 52%,
+      transparent 100%);
+  transform: translateX(-75%) translateY(-75%) rotate(25deg);
+  pointer-events: none;
+  animation: shimmer var(--time) infinite linear;
+  animation-delay: var(--delay);
+}

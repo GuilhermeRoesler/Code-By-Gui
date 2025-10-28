@@ -1,0 +1,107 @@
+/* Contact Form Card (Golden Shock) */
+.golden-shock-card-container {
+  display: grid;
+  isolation: isolate;
+}
+
+.golden-shock-card-container>* {
+  grid-area: 1 / 1;
+}
+
+.golden-shock-background {
+  padding: 2px;
+  border-radius: 1.5em;
+  background: linear-gradient(-30deg, var(--gradient-color), transparent, var(--gradient-color)),
+    linear-gradient(to bottom, hsl(var(--card)), hsl(var(--card)));
+  --f: url(#golden-shock);
+  --electric-border-color: hsl(var(--primary));
+  --electric-light-color: oklch(from var(--electric-border-color) l c h);
+  --gradient-color: oklch(from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4);
+  pointer-events: none;
+}
+
+.golden-shock-inner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.golden-shock-border-outer {
+  border: 2px solid oklch(from var(--electric-border-color) l c h / 0.5);
+  border-radius: 1.5em;
+  width: 100%;
+  height: 100%;
+  padding-right: 0.15em;
+  padding-bottom: 0.15em;
+}
+
+.golden-shock-main-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5em;
+  border: 2px solid var(--electric-border-color);
+  margin-top: -4px;
+  margin-left: -4px;
+  filter: var(--f);
+  background-color: hsl(var(--card));
+}
+
+.golden-shock-glow-layer-1,
+.golden-shock-glow-layer-2,
+.golden-shock-overlay-1,
+.golden-shock-overlay-2,
+.golden-shock-background-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+}
+
+.golden-shock-glow-layer-1 {
+  border: 2px solid oklch(from var(--electric-border-color) l c h / 0.6);
+  filter: blur(1px);
+}
+
+.golden-shock-glow-layer-2 {
+  border: 2px solid var(--electric-light-color);
+  filter: blur(4px);
+}
+
+.golden-shock-overlay-1 {
+  opacity: 1;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, rgba(255 255 255 / 0), transparent 30%, transparent 70%, rgba(255 255 255 / 0));
+}
+
+.golden-shock-overlay-2 {
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  background: linear-gradient(-30deg, rgba(255 255 255 / 0), transparent 30%, transparent 70%, rgba(255 255 255 / 0));
+}
+
+.golden-shock-background-glow {
+  filter: blur(32px);
+  transform: scale(1.1);
+  opacity: 0.3;
+  z-index: -1;
+  background: linear-gradient(-30deg, var(--electric-light-color), transparent, var(--electric-border-color));
+}
+
+.golden-shock-content-container {
+  position: relative;
+  padding: 2.5rem;
+}
+
+.golden-shock-svg-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
