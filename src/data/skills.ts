@@ -4381,4 +4381,355 @@ export const skills = [
         //     }
         // ]
     },
+    // {
+    //     name: "C",
+    //     level: "Básico",
+    //     proficiency: 30,
+    //     icon: "devicon-c-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Programação Estruturada",
+    //             descricao: "Desenvolvimento de programas utilizando a linguagem C, com foco em lógica de programação e estruturas de dados."
+    //         },
+    //         {
+    //             titulo: "Manipulação de Ponteiros",
+    //             descricao: "Utilização de ponteiros para manipulação de memória e estruturas de dados dinâmicas."
+    //         },
+    //         {
+    //             titulo: "Gerenciamento de Memória",
+    //             descricao: "Alocação e desalocação de memória de forma manual, garantindo o uso eficiente dos recursos."
+    //         },
+    //         {
+    //             titulo: "Sistemas Embarcados",
+    //             descricao: "Desenvolvimento de aplicações para sistemas embarcados e microcontroladores, com restrições de hardware."
+    //         },
+    //         {
+    //             titulo: "Algoritmos e Estruturas de Dados",
+    //             descricao: "Implementação de algoritmos e estruturas de dados fundamentais para otimização de desempenho."
+    //         },
+    //         {
+    //             titulo: "Compilação e Depuração",
+    //             descricao: "Utilização de compiladores como GCC e ferramentas de depuração para identificar e corrigir erros em programas C."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "C#",
+    //     level: "Básico",
+    //     proficiency: 50,
+    //     icon: "devicon-csharp-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Desenvolvimento de Aplicações Windows Forms",
+    //             descricao: "Criação de aplicações desktop com interface gráfica utilizando Windows Forms e a linguagem C#."
+    //         },
+    //         {
+    //             titulo: "Programação Orientada a Objetos (POO)",
+    //             descricao: "Aplicação dos princípios de POO (encapsulamento, herança, polimorfismo) para desenvolver código modular e reutilizável."
+    //         },
+    //         {
+    //             titulo: "Conexão com Banco de Dados (ADO.NET)",
+    //             descricao: "Conexão e manipulação de dados em bancos como SQL Server utilizando ADO.NET."
+    //         },
+    //         {
+    //             titulo: "Desenvolvimento Web com ASP.NET",
+    //             descricao: "Criação de aplicações web utilizando o framework ASP.NET e a linguagem C#."
+    //         },
+    //         {
+    //             titulo: "Integração com APIs",
+    //             descricao: "Consumo e criação de APIs RESTful para integração com outras aplicações e serviços."
+    //         },
+    //         {
+    //             titulo: "Testes Unitários",
+    //             descricao: "Criação de testes unitários para garantir a qualidade e estabilidade do código C#."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "Laravel",
+    //     level: "Básico",
+    //     proficiency: 20,
+    //     icon: "devicon-laravel-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Desenvolvimento de Aplicações Web",
+    //             descricao: "Criação de aplicações web robustas e escaláveis utilizando o framework Laravel."
+    //         },
+    //         {
+    //             titulo: "Rotas e Controladores",
+    //             descricao: "Definição de rotas e controladores para gerenciar requisições HTTP e lógica de negócio."
+    //         },
+    //         {
+    //             titulo: "Eloquent ORM",
+    //             descricao: "Utilização do Eloquent ORM para interagir com bancos de dados de forma intuitiva e eficiente."
+    //         },
+    //         {
+    //             titulo: "Blade Templating Engine",
+    //             descricao: "Criação de templates dinâmicos e reutilizáveis com a engine Blade para renderização de views."
+    //         },
+    //         {
+    //             titulo: "Autenticação e Autorização",
+    //             descricao: "Implementação de sistemas de autenticação e autorização de usuários com os recursos do Laravel."
+    //         },
+    //         {
+    //             titulo: "Testes Automatizados",
+    //             descricao: "Criação de testes unitários e de integração para garantir a qualidade e estabilidade do código."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "teste",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "Lua",
+    //     level: "Básico",
+    //     proficiency: 20,
+    //     icon: "devicon-lua-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Programação de Scripts",
+    //             descricao: "Desenvolvimento de scripts leves e eficientes para automação de tarefas e extensão de aplicações."
+    //         },
+    //         {
+    //             titulo: "Integração com Aplicações",
+    //             descricao: "Utilização de Lua como linguagem de script embarcada em aplicações para personalização e flexibilidade."
+    //         },
+    //         {
+    //             titulo: "Desenvolvimento de Jogos (Corona SDK/Love2D)",
+    //             descricao: "Criação de jogos 2D com frameworks como Corona SDK ou Love2D, utilizando a linguagem Lua."
+    //         },
+    //         {
+    //             titulo: "Configuração de Servidores (Nginx/OpenResty)",
+    //             descricao: "Uso de Lua para estender a funcionalidade de servidores web como Nginx e OpenResty."
+    //         },
+    //         {
+    //             titulo: "Manipulação de Dados",
+    //             descricao: "Processamento e manipulação de dados utilizando as estruturas de dados e funções da linguagem Lua."
+    //         },
+    //         {
+    //             titulo: "Otimização de Performance",
+    //             descricao: "Aplicação de técnicas para otimizar o desempenho de scripts Lua em ambientes de produção."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "MongoDB",
+    //     level: "Básico",
+    //     proficiency: 40,
+    //     icon: "devicon-mongodb-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Modelagem de Dados NoSQL",
+    //             descricao: "Criação de esquemas flexíveis e otimizados para armazenamento de dados em documentos JSON."
+    //         },
+    //         {
+    //             titulo: "Consultas e Agregações",
+    //             descricao: "Realização de consultas complexas e operações de agregação para extrair insights dos dados."
+    //         },
+    //         {
+    //             titulo: "Indexação para Performance",
+    //             descricao: "Criação de índices para otimizar o desempenho de consultas em grandes volumes de dados."
+    //         },
+    //         {
+    //             titulo: "Replicação e Sharding",
+    //             descricao: "Configuração de replicação para alta disponibilidade e sharding para escalabilidade horizontal."
+    //         },
+    //         {
+    //             titulo: "Integração com Aplicações",
+    //             descricao: "Conexão e interação do MongoDB com diferentes linguagens de programação e frameworks."
+    //         },
+    //         {
+    //             titulo: "Gerenciamento de Banco de Dados",
+    //             descricao: "Administração de instâncias MongoDB, incluindo backup, restauração e monitoramento."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "NumPy",
+    //     level: "Básico",
+    //     proficiency: 50,
+    //     icon: "devicon-numpy-plain",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Computação Numérica Eficiente",
+    //             descricao: "Utilização do NumPy para realizar operações numéricas complexas e eficientes em arrays multidimensionais."
+    //         },
+    //         {
+    //             titulo: "Manipulação de Arrays",
+    //             descricao: "Criação, manipulação e indexação de arrays NumPy para processamento de dados científicos e matemáticos."
+    //         },
+    //         {
+    //             titulo: "Operações Matemáticas Avançadas",
+    //             descricao: "Aplicação de funções matemáticas, álgebra linear e transformadas de Fourier em arrays NumPy."
+    //         },
+    //         {
+    //             titulo: "Integração com Pandas e Matplotlib",
+    //             descricao: "Uso do NumPy em conjunto com Pandas para análise de dados e Matplotlib para visualização."
+    //         },
+    //         {
+    //             titulo: "Otimização de Performance",
+    //             descricao: "Aplicação de técnicas para otimizar o desempenho de cálculos numéricos com NumPy em grandes volumes de dados."
+    //         },
+    //         {
+    //             titulo: "Desenvolvimento de Algoritmos",
+    //             descricao: "Implementação de algoritmos numéricos e científicos utilizando as funcionalidades do NumPy."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "Unity",
+    //     level: "Básico",
+    //     proficiency: 20,
+    //     icon: "devicon-unity-plain",
+    //     time: "1+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Desenvolvimento de Jogos 2D e 3D",
+    //             descricao: "Criação de jogos completos, desde a concepção até a implementação, utilizando a engine Unity."
+    //         },
+    //         {
+    //             titulo: "Programação com C#",
+    //             descricao: "Domínio da linguagem C# para implementar lógicas de jogo, interações e sistemas complexos."
+    //         },
+    //         {
+    //             titulo: "Design de Níveis e Cenas",
+    //             descricao: "Criação de níveis, cenários e ambientes de jogo, utilizando as ferramentas de edição da Unity."
+    //         },
+    //         {
+    //             titulo: "Animação e Efeitos Visuais",
+    //             descricao: "Implementação de animações de personagens, objetos e efeitos visuais para enriquecer a experiência de jogo."
+    //         },
+    //         {
+    //             titulo: "Física e Colisões",
+    //             descricao: "Configuração de sistemas de física e detecção de colisões para interações realistas no jogo."
+    //         },
+    //         {
+    //             titulo: "Otimização de Performance",
+    //             descricao: "Identificação e resolução de gargalos de performance para garantir jogos fluidos e responsivos."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "Docker",
+    //     level: "Básico",
+    //     proficiency: 55,
+    //     icon: "devicon-docker-plain",
+    //     time: "1 ano",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Containerização de Aplicações",
+    //             descricao: "Criação de imagens Docker e execução de contêineres para isolar e empacotar aplicações e seus ambientes."
+    //         },
+    //         {
+    //             titulo: "Orquestração com Docker Compose",
+    //             descricao: "Definição e execução de aplicações multi-contêiner utilizando Docker Compose para ambientes de desenvolvimento e teste."
+    //         },
+    //         {
+    //             titulo: "Gerenciamento de Volumes e Redes",
+    //             descricao: "Configuração de volumes para persistência de dados e redes para comunicação entre contêineres."
+    //         },
+    //         {
+    //             titulo: "Integração Contínua (CI/CD)",
+    //             descricao: "Uso do Docker em pipelines de CI/CD para construir, testar e implantar aplicações de forma consistente."
+    //         },
+    //         {
+    //             titulo: "Otimização de Imagens Docker",
+    //             descricao: "Criação de Dockerfiles otimizados para reduzir o tamanho das imagens e acelerar o tempo de build."
+    //         },
+    //         {
+    //             titulo: "Deploy em Ambientes de Produção",
+    //             descricao: "Deploy de aplicações containerizadas em ambientes de produção, utilizando orquestradores como Kubernetes."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
+    // {
+    //     name: "Blender",
+    //     level: "Básico",
+    //     proficiency: 10,
+    //     icon: "devicon-blender-original",
+    //     time: "4+ anos",
+    //     tags: "",
+    //     about: "",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Modelagem 3D Básica",
+    //             descricao: "Criação de modelos 3D simples, utilizando as ferramentas de modelagem e escultura do Blender."
+    //         },
+    //         {
+    //             titulo: "Renderização de Cenas",
+    //             descricao: "Configuração de iluminação, materiais e câmeras para renderizar cenas 3D com qualidade visual."
+    //         },
+    //         {
+    //             titulo: "Animação de Objetos",
+    //             descricao: "Criação de animações básicas de objetos e personagens, utilizando keyframes e curvas de animação."
+    //         },
+    //         {
+    //             titulo: "Texturização e Materiais",
+    //             descricao: "Aplicação de texturas e criação de materiais para dar realismo aos modelos 3D."
+    //         },
+    //         {
+    //             titulo: "Edição de Vídeo",
+    //             descricao: "Utilização do editor de vídeo do Blender para cortar, montar e adicionar efeitos a produções audiovisuais."
+    //         },
+    //         {
+    //             titulo: "Composição e Pós-produção",
+    //             descricao: "Composição de elementos 3D com imagens e vídeos, e aplicação de efeitos de pós-produção."
+    //         }
+    //     ],
+    //     roadmap: [],
+    //     howILearned: "Projetos acadêmicos no técnico de Desenvolvimento de Sistemas e na faculdade de Engenharia de Software.",
+    //     whereIUsed: ["Design de Interfaces", "Prototipagem de Aplicações", "Colaboração com Times de Design"],
+    // },
 ];
