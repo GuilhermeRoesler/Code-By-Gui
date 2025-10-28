@@ -2,71 +2,79 @@
 .glow-card {
   --pointer-x: 50%;
   --pointer-y: 50%;
-  --border-size: 2px;
-  --border-radius: 1.5rem; /* Corresponds to rounded-2xl */
+  --border-radius: 1.5rem;
   --bg-color: hsl(var(--card));
   --border-color-1: hsl(var(--primary));
   --border-color-2: hsl(var(--accent));
-  --glow-color-1: hsl(var(--primary) / 0.3);
-  --glow-color-2: hsl(var(--accent) / 0.3);
+  --glow-color-1: hsl(var(--primary) / 0.4);
+  --glow-color-2: hsl(var(--accent) / 0.4);
 
   position: relative;
   border-radius: var(--border-radius);
-  background: var(--bg-color);
-  display: grid;
+  overflow: hidden;
 }
 
-.glow-card > .glow-card-inner {
+.glow-card-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   background: var(--bg-color);
   border-radius: inherit;
-  overflow: hidden;
   height: 100%;
 }
 
-/* The glowing border */
+/* The rotating gradient for the border */
 .glow-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: var(--border-size);
+  inset: -200%; /* Make it huge to avoid edge artifacts */
+  z-index: 1;
   background: conic-gradient(
     from 180deg at var(--pointer-x) var(--pointer-y),
     var(--border-color-2),
-    var(--border-color-1),
-    var(--border-color-2)
+    var(--border-color-1) 25%,
+    var(--border-color-2) 50%
   );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  z-index: 1;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  animation: spin 4s linear infinite;
 }
 
-/* The inner glow */
+/* The opaque layer that creates the border effect by covering the gradient */
 .glow-card::after {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at var(--pointer-x) var(--pointer-y),
-    var(--glow-color-1),
-    var(--glow-color-2),
-    transparent 30%
-  );
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  mix-blend-mode: soft-light;
+  inset: 2px; /* This creates the border width */
+  border-radius: calc(var(--border-radius) - 2px);
+  background: var(--bg-color);
+  z-index: 2;
+}
+
+/* The inner glow effect, applied to the inner container */
+.glow-card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      var(--glow-color-1),
+      var(--glow-color-2),
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    mix-blend-mode: soft-light;
+    z-index: 4; /* Ensure it's on top of the content */
+    pointer-events: none; /* Allow clicking through the glow */
 }
 
 .glow-card.is-glowing::before,
-.glow-card.is-glowing::after {
+.glow-card.is-glowing .glow-card-inner::after {
   opacity: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
