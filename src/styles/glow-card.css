@@ -16,17 +16,17 @@
 
 .glow-card-inner {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   background: var(--bg-color);
   border-radius: inherit;
   height: 100%;
 }
 
-/* The rotating gradient for the border */
+/* The blurred, rotating gradient for the border glow */
 .glow-card::before {
   content: '';
   position: absolute;
-  inset: -200%; /* Make it huge to avoid edge artifacts */
+  inset: -10px; /* Make it larger to allow blur to escape */
   z-index: 1;
   background: conic-gradient(
     from 180deg at var(--pointer-x) var(--pointer-y),
@@ -34,22 +34,13 @@
     var(--border-color-1) 25%,
     var(--border-color-2) 50%
   );
+  filter: blur(15px); /* This creates the soft aura effect */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   animation: spin 4s linear infinite;
 }
 
-/* The opaque layer that creates the border effect by covering the gradient */
-.glow-card::after {
-  content: '';
-  position: absolute;
-  inset: 2px; /* This creates the border width */
-  border-radius: calc(var(--border-radius) - 2px);
-  background: var(--bg-color);
-  z-index: 2;
-}
-
-/* The inner glow effect, applied to the inner container */
+/* The inner glow effect */
 .glow-card-inner::after {
     content: '';
     position: absolute;
@@ -64,8 +55,8 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     mix-blend-mode: soft-light;
-    z-index: 4; /* Ensure it's on top of the content */
-    pointer-events: none; /* Allow clicking through the glow */
+    z-index: 4;
+    pointer-events: none;
 }
 
 .glow-card.is-glowing::before,
