@@ -23,12 +23,10 @@ const Skills = () => {
 
   const getSkillColor = (level: string) => {
     switch (level) {
-      case "Experiente": return "from-green-500 to-emerald-600";
-      case "Intermediário": return "from-blue-500 to-indigo-600";
-      case "Básico": return "from-orange-500 to-amber-600";
-      case "Experiente ↑": return "from-emerald-500 to-fuchsia-600";
-      case "Intermediário ↑": return "from-indigo-500 to-violet-600";
-      case "Básico ↑": return "from-orange-500 to-red-600";
+      case "Dominante": return "from-emerald-500 to-fuchsia-600";
+      case "Aplicando": return "from-green-500 to-emerald-600";
+      case "Familiarizado": return "from-blue-500 to-indigo-600";
+      case "Explorando": return "from-orange-500 to-red-600";
       default: return "from-gray-500 to-gray-600";
     }
   };

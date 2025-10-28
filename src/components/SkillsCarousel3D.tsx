@@ -4,11 +4,15 @@ import { cn } from '@/lib/utils';
 
 interface Skill {
   name: string;
-  icon: string;
   level: string;
   proficiency: number;
-  howILearned: string;
-  dd: string[];
+  icon: string;
+  time: string;
+  tags: string[];
+  about: string;
+  projects: { alias: string; link: string; }[];
+  achievements: { titulo: string; descricao: string; };
+  // roadmap: string[];
 }
 
 interface SkillsCarousel3DProps {
