@@ -19,7 +19,6 @@ const ExperienceCard = ({ experience }: ExperienceCardProps) => {
 
     return (
         <div ref={cardRef} className="glow-card h-full">
-            <span className="glow"></span>
             <div className="glow-card-inner p-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                     <h4 className="text-lg font-bold text-primary">{experience.role}</h4>
