@@ -1,71 +1,106 @@
-/* Glow Card Effect */
 .glow-card {
-  --pointer-x: 50%;
-  --pointer-y: 50%;
-  --border-radius: 1.5rem;
-  --bg-color: hsl(var(--card));
-  --border-color-1: hsl(var(--primary));
-  --border-color-2: hsl(var(--accent));
-  --glow-color-1: hsl(var(--primary) / 0.4);
-  --glow-color-2: hsl(var(--accent) / 0.4);
+  --glow-sens: 30;
+  --color-sens: calc(var(--glow-sens) + 20);
+  --pointer-°: 45deg;
+  --pads: 24px;
+  /* Corresponds to p-6 in tailwind */
 
   position: relative;
-  border-radius: var(--border-radius);
-  overflow: hidden;
+  isolation: isolate;
+  transform: translate3d(0, 0, 0.01px);
+  display: grid;
+  border-radius: 1.5rem;
+  /* from card-elevated */
 }
 
-.glow-card-inner {
+.glow-card::before,
+.glow-card::after,
+.glow-card>.glow {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.5s ease-out;
+  z-index: -1;
+}
+
+.glow-card:not(:hover) {
+
+  &::before,
+  &::after,
+  &>.glow {
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+  }
+}
+
+/* Colored border effect */
+.glow-card::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(hsl(var(--card)) 0 100%) padding-box,
+    radial-gradient(at 80% 55%, hsl(var(--primary)) 0px, transparent 50%) border-box,
+    radial-gradient(at 8% 6%, hsl(var(--accent)) 0px, transparent 50%) border-box,
+    radial-gradient(at 86% 85%, hsl(var(--primary)) 0px, transparent 50%) border-box,
+    radial-gradient(at 51% 4%, hsl(var(--accent)) 0px, transparent 50%) border-box,
+    linear-gradient(hsl(var(--primary)) 0 100%) border-box;
+  opacity: calc((var(--pointer-d) - var(--color-sens)) / (100 - var(--color-sens)));
+  mask-image: conic-gradient(from var(--pointer-°) at center, black 25%, transparent 40%, transparent 60%, black 75%);
+}
+
+/* Inner colored background effect */
+.glow-card::after {
+  border: 1px solid transparent;
+  background:
+    radial-gradient(at 80% 55%, hsl(var(--primary) / 0.5) 0px, transparent 50%) padding-box,
+    radial-gradient(at 8% 6%, hsl(var(--accent) / 0.5) 0px, transparent 50%) padding-box,
+    radial-gradient(at 86% 85%, hsl(var(--primary) / 0.5) 0px, transparent 50%) padding-box,
+    radial-gradient(at 51% 4%, hsl(var(--accent) / 0.5) 0px, transparent 50%) padding-box,
+    linear-gradient(hsl(var(--primary)) 0 100%) padding-box;
+  mask-image:
+    linear-gradient(to bottom, black, black),
+    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
+    conic-gradient(from var(--pointer-°) at center, transparent 5%, black 15%, black 85%, transparent 95%);
+  mask-composite: subtract, add;
+  opacity: calc((var(--pointer-d) - var(--color-sens)) / (100 - var(--color-sens)));
+  mix-blend-mode: soft-light;
+}
+
+/* The glow element */
+.glow-card>.glow {
+  --outset: var(--pads);
+  inset: calc(var(--outset) * -1);
+  pointer-events: none;
+  z-index: 1;
+  mask-image: conic-gradient(from var(--pointer-°) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
+  opacity: calc((var(--pointer-d) - var(--glow-sens)) / (100 - var(--glow-sens)));
+  mix-blend-mode: plus-lighter;
+}
+
+.glow-card>.glow::before {
+  content: "";
+  position: absolute;
+  inset: var(--outset);
+  border-radius: inherit;
+  --glow-color: var(--primary);
+  --glow-boost: 0%;
+  box-shadow:
+    inset 0 0 0 1px hsl(var(--glow-color) / 100%),
+    inset 0 0 1px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 60%)),
+    inset 0 0 3px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 50%)),
+    inset 0 0 6px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 40%)),
+    inset 0 0 15px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 30%)),
+    0 0 1px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 60%)),
+    0 0 3px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 50%)),
+    0 0 6px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 40%)),
+    0 0 15px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 30%));
+}
+
+.glow-card>.glow-card-inner {
   position: relative;
   z-index: 2;
-  background: var(--bg-color);
+  background: hsl(var(--card));
   border-radius: inherit;
+  overflow: hidden;
   height: 100%;
-}
-
-/* The blurred, rotating gradient for the border glow */
-.glow-card::before {
-  content: '';
-  position: absolute;
-  inset: -10px; /* Make it larger to allow blur to escape */
-  z-index: 1;
-  background: conic-gradient(
-    from 180deg at var(--pointer-x) var(--pointer-y),
-    var(--border-color-2),
-    var(--border-color-1) 25%,
-    var(--border-color-2) 50%
-  );
-  filter: blur(15px); /* This creates the soft aura effect */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  animation: spin 4s linear infinite;
-}
-
-/* The inner glow effect */
-.glow-card-inner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      circle at var(--pointer-x) var(--pointer-y),
-      var(--glow-color-1),
-      var(--glow-color-2),
-      transparent 50%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    mix-blend-mode: soft-light;
-    z-index: 4;
-    pointer-events: none;
-}
-
-.glow-card.is-glowing::before,
-.glow-card.is-glowing .glow-card-inner::after {
-  opacity: 1;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
