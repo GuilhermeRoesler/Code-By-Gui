@@ -1,5 +1,4 @@
 import CloudLoader from './CloudLoader';
-import SpinOrbitLoader from './SpinOrbitLoader';
 
 interface PreloaderProps {
   isFinishing: boolean;
@@ -8,15 +7,20 @@ interface PreloaderProps {
 const Preloader = ({ isFinishing }: PreloaderProps) => {
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ${isFinishing ? 'opacity-0' : 'opacity-100'
-        }`}
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ${
+        isFinishing ? 'opacity-0' : 'opacity-100'
+      }`}
     >
-      {/* <CloudLoader /> */}
-      <SpinOrbitLoader />
+      {/* Você pode comentar a linha abaixo para remover o efeito de nuvem */}
+      <CloudLoader />
 
-      <div className="text-center">
-        <h1 className="text-2xl font-bold gradient-text">Guilherme Roesler</h1>
-        <p className="text-muted-foreground">Carregando portfólio...</p>
+      <div className="mt-48 text-center w-full max-w-xs px-4">
+        <p className="text-muted-foreground mb-4 text-sm">
+          Loading a beautiful experience for you
+        </p>
+        <div className="progress-bar-container">
+          <div className="progress-bar-fill"></div>
+        </div>
       </div>
     </div>
   );
