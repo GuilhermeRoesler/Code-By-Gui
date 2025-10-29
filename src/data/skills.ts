@@ -93,7 +93,7 @@ export const skills = [
     },
     {
         name: "Engenharia de Prompt",
-        level: "Dominante",
+        level: "Aplicando",
         proficiency: 95,
         icon: "devicon-google-plain",
         time: "2+ anos",
@@ -401,7 +401,7 @@ export const skills = [
     },
     {
         name: "MySQL",
-        level: "Aplicando",
+        level: "Dominante",
         proficiency: 90,
         icon: "devicon-mysql-plain",
         time: "3+ anos",
@@ -479,12 +479,12 @@ export const skills = [
     },
     {
         name: "Versionamento (Git)",
-        level: "Dominante",
+        level: "Aplicando",
         proficiency: 80,
         icon: "devicon-git-plain",
         time: "4+ anos",
         tags: ["ferramenta", "devops", "versionamento"],
-        about: "Utilizo Git diariamente para controle de versão em todos os meus projetos. Tenho proficiência em fluxos de trabalho como Git Flow, resolvendo conflitos de merge e colaborando de forma eficiente em equipe através de plataformas como GitHub.",
+        about: "Utilizo Git diariamente para o controle de versão em todos os meus projetos. Tenho experiência em resolver conflitos de merge e em colaborar de forma eficiente com a equipe em plataformas como o GitHub.",
         projects: [],
         achievements: [
             {
@@ -870,7 +870,7 @@ export const skills = [
     },
     {
         name: "C++",
-        level: "Aplicando",
+        level: "Familiarizado",
         proficiency: 70,
         icon: "devicon-cplusplus-plain",
         time: "1+ anos",
@@ -1026,7 +1026,7 @@ export const skills = [
     },
     {
         name: "Python",
-        level: "Dominante",
+        level: "Aplicando",
         proficiency: 80,
         icon: "devicon-python-plain",
         time: "4+ anos",
@@ -1732,7 +1732,7 @@ export const skills = [
     },
     {
         name: "FastAPI",
-        level: "Dominante",
+        level: "Familiarizado",
         proficiency: 95,
         icon: "devicon-fastapi-plain",
         time: "2+ anos",
@@ -1966,7 +1966,7 @@ export const skills = [
     },
     {
         name: "Markdown",
-        level: "Aplicando",
+        level: "Dominante",
         proficiency: 90,
         icon: "devicon-markdown-plain",
         time: "3+ anos",
@@ -2668,8 +2668,8 @@ export const skills = [
     },
     {
         name: "Flutter",
-        level: "Aplicando",
-        proficiency: 70,
+        level: "Familiarizado",
+        proficiency: 50,
         icon: "devicon-flutter-plain",
         time: "2+ anos",
         tags: ["mobile", "framework", "multiplataforma", "dart"],
@@ -2746,7 +2746,7 @@ export const skills = [
     },
     {
         name: "Godot",
-        level: "Familiarizado",
+        level: "Explorando",
         proficiency: 60,
         icon: "devicon-godot-plain",
         time: "1+ anos",
@@ -2824,7 +2824,7 @@ export const skills = [
     },
     {
         name: "Gradle",
-        level: "Aplicando",
+        level: "Familiarizado",
         proficiency: 70,
         icon: "devicon-gradle-plain",
         time: "4+ anos",
@@ -3214,7 +3214,7 @@ export const skills = [
     },
     {
         name: "Jupyter",
-        level: "Aplicando",
+        level: "Familiarizado",
         proficiency: 70,
         icon: "devicon-jupyter-plain",
         time: "4+ anos",
