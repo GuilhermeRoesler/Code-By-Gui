@@ -1,16 +1,36 @@
 import { useState } from "react";
-import { skills } from "@/data/skills";
+import { skills as allSkills } from "@/data/skills";
 import { Link } from "react-router-dom";
 import SkillCarousel from "./SkillCarousel";
 import SkillsCarousel3D from "./SkillsCarousel3D";
 import ViewSwitcher from "./ViewSwitcher";
 
+// Define the featured skills by name to decouple from the data order
+const featuredSkillNames = [
+  "React",
+  "Engenharia de Prompt",
+  "Inteligência Artificial",
+  "Typescript",
+  "Tailwind CSS",
+  "Node.js",
+  "Python",
+  "Django",
+  "MySQL",
+  "Versionamento (Git)",
+  "Vite",
+  "Zustand",
+];
+
+// Create the featured skills array by finding them in the main list
+const featuredSkills = featuredSkillNames
+  .map(name => allSkills.find(skill => skill.name === name))
+  .filter((skill): skill is NonNullable<typeof skill> => skill !== undefined);
+
+
 const Skills = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
   const [view, setView] = useState<'grid' | '3d'>('grid');
-
-  const featuredSkills = skills.slice(0, 12);
 
   const handleOpenCarousel = (index: number) => {
     setSelectedSkillIndex(index);
@@ -58,7 +78,7 @@ const Skills = () => {
                 key={index}
                 className="slide-rotate-hor-top cursor-pointer"
                 style={{ animationDelay: `${index % 3 * 0.1}s` }}
-                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}
+                onClick={() => handleOpenCarousel(allSkills.findIndex(s => s.name === skill.name))}
               >
                 <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
                   <div className="flex items-center justify-between mb-4">
@@ -100,7 +120,7 @@ const Skills = () => {
 
       {carouselOpen && (
         <SkillCarousel
-          skills={featuredSkills}
+          skills={allSkills}
           initialIndex={selectedSkillIndex}
           onClose={handleCloseCarousel}
         />
