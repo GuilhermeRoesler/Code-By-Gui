@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { skills as allSkills } from '@/data/skills';
+import { skills } from '@/data/skills';
 import { ArrowLeft } from 'lucide-react';
 import Footer from '@/components/Footer';
 import SkillCarousel from '@/components/SkillCarousel';
@@ -8,10 +8,6 @@ import SkillCarousel from '@/components/SkillCarousel';
 const AllSkills = () => {
   const [carouselOpen, setCarouselOpen] = useState(false);
   const [selectedSkillIndex, setSelectedSkillIndex] = useState(0);
-
-  const sortedSkills = useMemo(() => {
-    return [...allSkills].sort((a, b) => a.name.localeCompare(b.name));
-  }, []);
 
   const handleOpenCarousel = (index: number) => {
     setSelectedSkillIndex(index);
@@ -53,9 +49,9 @@ const AllSkills = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedSkills.map((skill) => (
-              <div key={skill.name} className="fade-in visible cursor-pointer"
-                onClick={() => handleOpenCarousel(sortedSkills.findIndex(s => s.name === skill.name))}>
+            {skills.map((skill, index) => (
+              <div key={index} className="fade-in visible cursor-pointer"
+                onClick={() => handleOpenCarousel(skills.findIndex(s => s.name === skill.name))}>
                 <div className="card-skill shimmer-card h-full" style={{ '--delay': `${Math.random() * 10}s`, '--time': `${Math.random() * 4 + 8}s` } as React.CSSProperties}>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-4">
@@ -85,7 +81,7 @@ const AllSkills = () => {
         </div>
         {carouselOpen && (
           <SkillCarousel
-            skills={sortedSkills}
+            skills={skills}
             initialIndex={selectedSkillIndex}
             onClose={handleCloseCarousel}
           />
