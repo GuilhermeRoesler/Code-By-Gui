@@ -169,84 +169,84 @@ export const skills = [
         //     }
         // ]
     },
-    {
-        name: "Inteligência Artificial",
-        level: "Dominante",
-        proficiency: 95,
-        icon: "devicon-python-plain",
-        time: "3+ anos",
-        tags: ["ia", "machine learning", "dados", "python"],
-        about: "Tenho paixão por desenvolver soluções inteligentes que otimizam processos e geram insights valiosos. Minha experiência abrange Machine Learning, Processamento de Linguagem Natural e Visão Computacional, aplicando conhecimentos em projetos práticos e desafiadores para resolver problemas complexos.",
-        projects: [],
-        achievements: [
-            {
-                titulo: "Machine Learning (ML)",
-                descricao: "Implementação de algoritmos de ML para análise preditiva e classificação de dados."
-            },
-            {
-                titulo: "Processamento de Linguagem Natural (NLP)",
-                descricao: "Desenvolvimento de soluções para compreensão e geração de texto, como chatbots e sumarizadores."
-            },
-            {
-                titulo: "Visão Computacional",
-                descricao: "Criação de sistemas para reconhecimento de imagens e detecção de objetos."
-            },
-            {
-                titulo: "Redes Neurais e Deep Learning",
-                descricao: "Construção e treinamento de redes neurais para tarefas complexas de IA."
-            },
-            {
-                titulo: "Ferramentas e Frameworks de IA",
-                descricao: "Uso de bibliotecas como TensorFlow, Keras e PyTorch para desenvolvimento de modelos."
-            },
-            {
-                titulo: "Ética e Responsabilidade em IA",
-                descricao: "Consciência sobre os impactos sociais da IA e desenvolvimento de sistemas éticos e justos."
-            }
-        ],
-        // roadmap: [
-        //     {
-        //         "nível": "Fundamentos",
-        //         "conquistas": [
-        //             "Lógica de programação e algoritmos com Python",
-        //             "Bibliotecas de manipulação de dados (Pandas, NumPy)",
-        //             "Conceitos de Machine Learning (supervisionado, não supervisionado)",
-        //             "Regressão Linear e Logística",
-        //             "Visualização de dados com Matplotlib e Seaborn"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Intermediário",
-        //         "conquistas": [
-        //             "Algoritmos de classificação (SVM, Decision Trees, Random Forest)",
-        //             "Algoritmos de clustering (K-Means)",
-        //             "Pré-processamento de dados e engenharia de features",
-        //             "Validação de modelos (cross-validation)",
-        //             "Introdução a Redes Neurais com Scikit-learn"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Avançado",
-        //         "conquistas": [
-        //             "Deep Learning com TensorFlow ou PyTorch",
-        //             "Redes Neurais Convolucionais (CNNs) para Visão Computacional",
-        //             "Redes Neurais Recorrentes (RNNs) para NLP",
-        //             "Processamento de Linguagem Natural (NLP) com NLTK e SpaCy",
-        //             "Técnicas de Transfer Learning"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Especializações",
-        //         "conquistas": [
-        //             "Arquiteturas avançadas (Transformers, GANs)",
-        //             "Sistemas de recomendação",
-        //             "Deploy de modelos de IA em produção (MLOps)",
-        //             "Computação em nuvem para IA (AWS, GCP, Azure)",
-        //             "Ética e explicabilidade em IA (XAI)"
-        //         ]
-        //     }
-        // ]
-    },
+    // {
+    //     name: "Inteligência Artificial",
+    //     level: "Dominante",
+    //     proficiency: 95,
+    //     icon: "devicon-python-plain",
+    //     time: "3+ anos",
+    //     tags: ["ia", "machine learning", "dados", "python"],
+    //     about: "Tenho paixão por desenvolver soluções inteligentes que otimizam processos e geram insights valiosos. Minha experiência abrange Machine Learning, Processamento de Linguagem Natural e Visão Computacional, aplicando conhecimentos em projetos práticos e desafiadores para resolver problemas complexos.",
+    //     projects: [],
+    //     achievements: [
+    //         {
+    //             titulo: "Machine Learning (ML)",
+    //             descricao: "Implementação de algoritmos de ML para análise preditiva e classificação de dados."
+    //         },
+    //         {
+    //             titulo: "Processamento de Linguagem Natural (NLP)",
+    //             descricao: "Desenvolvimento de soluções para compreensão e geração de texto, como chatbots e sumarizadores."
+    //         },
+    //         {
+    //             titulo: "Visão Computacional",
+    //             descricao: "Criação de sistemas para reconhecimento de imagens e detecção de objetos."
+    //         },
+    //         {
+    //             titulo: "Redes Neurais e Deep Learning",
+    //             descricao: "Construção e treinamento de redes neurais para tarefas complexas de IA."
+    //         },
+    //         {
+    //             titulo: "Ferramentas e Frameworks de IA",
+    //             descricao: "Uso de bibliotecas como TensorFlow, Keras e PyTorch para desenvolvimento de modelos."
+    //         },
+    //         {
+    //             titulo: "Ética e Responsabilidade em IA",
+    //             descricao: "Consciência sobre os impactos sociais da IA e desenvolvimento de sistemas éticos e justos."
+    //         }
+    //     ],
+    // roadmap: [
+    //     {
+    //         "nível": "Fundamentos",
+    //         "conquistas": [
+    //             "Lógica de programação e algoritmos com Python",
+    //             "Bibliotecas de manipulação de dados (Pandas, NumPy)",
+    //             "Conceitos de Machine Learning (supervisionado, não supervisionado)",
+    //             "Regressão Linear e Logística",
+    //             "Visualização de dados com Matplotlib e Seaborn"
+    //         ]
+    //     },
+    //     {
+    //         "nível": "Intermediário",
+    //         "conquistas": [
+    //             "Algoritmos de classificação (SVM, Decision Trees, Random Forest)",
+    //             "Algoritmos de clustering (K-Means)",
+    //             "Pré-processamento de dados e engenharia de features",
+    //             "Validação de modelos (cross-validation)",
+    //             "Introdução a Redes Neurais com Scikit-learn"
+    //         ]
+    //     },
+    //     {
+    //         "nível": "Avançado",
+    //         "conquistas": [
+    //             "Deep Learning com TensorFlow ou PyTorch",
+    //             "Redes Neurais Convolucionais (CNNs) para Visão Computacional",
+    //             "Redes Neurais Recorrentes (RNNs) para NLP",
+    //             "Processamento de Linguagem Natural (NLP) com NLTK e SpaCy",
+    //             "Técnicas de Transfer Learning"
+    //         ]
+    //     },
+    //     {
+    //         "nível": "Especializações",
+    //         "conquistas": [
+    //             "Arquiteturas avançadas (Transformers, GANs)",
+    //             "Sistemas de recomendação",
+    //             "Deploy de modelos de IA em produção (MLOps)",
+    //             "Computação em nuvem para IA (AWS, GCP, Azure)",
+    //             "Ética e explicabilidade em IA (XAI)"
+    //         ]
+    //     }
+    // ]
+    // },
     {
         name: "Inglês",
         level: "Dominante",
@@ -473,6 +473,84 @@ export const skills = [
         //             "Window Functions",
         //             "Backup e recuperação de desastres",
         //             "Monitoramento de performance e tuning de servidor"
+        //         ]
+        //     }
+        // ]
+    },
+    {
+        name: "Supabase",
+        level: "Aplicando",
+        proficiency: 30,
+        icon: "devicon-supabase-plain",
+        time: "1+ anos",
+        tags: ["backend", "baas", "banco de dados", "serveless"],
+        about: "Estou explorando o Supabase como uma alternativa de backend como serviço (BaaS). Tenho conhecimento básico em sua arquitetura baseada em PostgreSQL, autenticação de usuários e armazenamento de arquivos, utilizando-o para acelerar o desenvolvimento de protótipos e projetos pessoais.",
+        projects: [],
+        achievements: [
+            {
+                titulo: "Banco de Dados como Serviço (BaaS)",
+                descricao: "Utilização do Supabase como backend completo para aplicações web e mobile, incluindo autenticação, banco de dados e armazenamento."
+            },
+            {
+                titulo: "Autenticação e Autorização",
+                descricao: "Implementação de sistemas de autenticação de usuários com Supabase Auth, suportando diversos provedores."
+            },
+            {
+                titulo: "Realtime Database",
+                descricao: "Criação de aplicações em tempo real com o banco de dados PostgreSQL do Supabase, utilizando WebSockets."
+            },
+            {
+                titulo: "Armazenamento de Arquivos (Storage)",
+                descricao: "Gerenciamento de upload e download de arquivos com o Supabase Storage, incluindo controle de acesso."
+            },
+            {
+                titulo: "Funções Serverless (Edge Functions)",
+                descricao: "Desenvolvimento e deploy de funções serverless para estender a lógica de backend da aplicação."
+            },
+            {
+                titulo: "Integração com Frameworks Frontend",
+                descricao: "Conexão e interação do Supabase com frameworks como React, Next.js e Vue.js para desenvolvimento full-stack."
+            }
+        ],
+        // roadmap: [
+        //     {
+        //         "nível": "Fundamentos",
+        //         "conquistas": [
+        //             "Criação de um projeto e tabelas no dashboard",
+        //             "Operações CRUD básicas com a biblioteca cliente",
+        //             "Configuração de autenticação (email/senha, social logins)",
+        //             "Upload e download de arquivos no Storage",
+        //             "Entendimento de Row Level Security (RLS)"
+        //         ]
+        //     },
+        //     {
+        //         "nível": "Intermediário",
+        //         "conquistas": [
+        //             "Implementação de políticas RLS para autorização",
+        //             "Uso de subscriptions para dados em tempo real",
+        //             "Criação de Funções PostgreSQL (triggers)",
+        //             "Desenvolvimento de Edge Functions (Deno)",
+        //             "Integração com frameworks frontend (React, Next.js)"
+        //         ]
+        //     },
+        //     {
+        //         "nível": "Avançado",
+        //         "conquistas": [
+        //             "Gerenciamento de migrações de banco de dados via CLI",
+        //             "Otimização de queries e índices",
+        //             "Uso de Webhooks para integrações externas",
+        //             "Desenvolvimento local com a Supabase CLI",
+        //             "Configuração de backups e estratégias de recuperação"
+        //         ]
+        //     },
+        //     {
+        //         "nível": "Especializações",
+        //         "conquistas": [
+        //             "Self-hosting da plataforma Supabase",
+        //             "Integração com autenticação de terceiros (JWT)",
+        //             "Uso de extensões do PostgreSQL",
+        //             "Monitoramento e logging avançado",
+        //             "Contribuição para a comunidade Supabase"
         //         ]
         //     }
         // ]
@@ -2194,84 +2272,6 @@ export const skills = [
         //             "Testes visuais de regressão",
         //             "Criação de fixtures customizadas",
         //             "Extensão do Playwright com plugins"
-        //         ]
-        //     }
-        // ]
-    },
-    {
-        name: "Supabase",
-        level: "Explorando",
-        proficiency: 30,
-        icon: "devicon-supabase-plain",
-        time: "1+ anos",
-        tags: ["backend", "baas", "banco de dados", "serveless"],
-        about: "Estou explorando o Supabase como uma alternativa de backend como serviço (BaaS). Tenho conhecimento básico em sua arquitetura baseada em PostgreSQL, autenticação de usuários e armazenamento de arquivos, utilizando-o para acelerar o desenvolvimento de protótipos e projetos pessoais.",
-        projects: [],
-        achievements: [
-            {
-                titulo: "Banco de Dados como Serviço (BaaS)",
-                descricao: "Utilização do Supabase como backend completo para aplicações web e mobile, incluindo autenticação, banco de dados e armazenamento."
-            },
-            {
-                titulo: "Autenticação e Autorização",
-                descricao: "Implementação de sistemas de autenticação de usuários com Supabase Auth, suportando diversos provedores."
-            },
-            {
-                titulo: "Realtime Database",
-                descricao: "Criação de aplicações em tempo real com o banco de dados PostgreSQL do Supabase, utilizando WebSockets."
-            },
-            {
-                titulo: "Armazenamento de Arquivos (Storage)",
-                descricao: "Gerenciamento de upload e download de arquivos com o Supabase Storage, incluindo controle de acesso."
-            },
-            {
-                titulo: "Funções Serverless (Edge Functions)",
-                descricao: "Desenvolvimento e deploy de funções serverless para estender a lógica de backend da aplicação."
-            },
-            {
-                titulo: "Integração com Frameworks Frontend",
-                descricao: "Conexão e interação do Supabase com frameworks como React, Next.js e Vue.js para desenvolvimento full-stack."
-            }
-        ],
-        // roadmap: [
-        //     {
-        //         "nível": "Fundamentos",
-        //         "conquistas": [
-        //             "Criação de um projeto e tabelas no dashboard",
-        //             "Operações CRUD básicas com a biblioteca cliente",
-        //             "Configuração de autenticação (email/senha, social logins)",
-        //             "Upload e download de arquivos no Storage",
-        //             "Entendimento de Row Level Security (RLS)"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Intermediário",
-        //         "conquistas": [
-        //             "Implementação de políticas RLS para autorização",
-        //             "Uso de subscriptions para dados em tempo real",
-        //             "Criação de Funções PostgreSQL (triggers)",
-        //             "Desenvolvimento de Edge Functions (Deno)",
-        //             "Integração com frameworks frontend (React, Next.js)"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Avançado",
-        //         "conquistas": [
-        //             "Gerenciamento de migrações de banco de dados via CLI",
-        //             "Otimização de queries e índices",
-        //             "Uso de Webhooks para integrações externas",
-        //             "Desenvolvimento local com a Supabase CLI",
-        //             "Configuração de backups e estratégias de recuperação"
-        //         ]
-        //     },
-        //     {
-        //         "nível": "Especializações",
-        //         "conquistas": [
-        //             "Self-hosting da plataforma Supabase",
-        //             "Integração com autenticação de terceiros (JWT)",
-        //             "Uso de extensões do PostgreSQL",
-        //             "Monitoramento e logging avançado",
-        //             "Contribuição para a comunidade Supabase"
         //         ]
         //     }
         // ]
