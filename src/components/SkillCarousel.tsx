@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { skills as allSkills } from '@/data/skills';
 import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface SkillCarouselProps {
@@ -74,23 +73,65 @@ const SkillCarousel = ({ skills, initialIndex, onClose }: SkillCarouselProps) =>
 
                     {/* Expanded View (Center Card) */}
                     {isCenter && (
-                      <div className="absolute inset-0 p-6 flex flex-col items-center text-center animate-fade-in">
-                        <i className={`${currentSkill.icon} text-6xl gradient-text`}></i>
-                        <h2 className="text-2xl font-bold mt-2 text-card-foreground">{currentSkill.name}</h2>
-                        <p className="text-sm font-medium text-muted-foreground mb-3">{currentSkill.level}</p>
-                        <div className="w-full bg-border rounded-full h-2 mb-4">
-                          <div className="h-2 rounded-full bg-gradient-to-r from-primary to-accent" style={{ width: `${currentSkill.proficiency}%` }}></div>
-                        </div>
-                        <div className="text-xs text-left space-y-2 w-full">
-                          <div>
-                            <h4 className="font-semibold text-primary">Como Aprendi:</h4>
-                            <p className="text-muted-foreground leading-tight">{currentSkill.howILearned}</p>
+                      <div className="absolute inset-0 p-6 flex flex-col text-center animate-fade-in">
+                        {/* Header (non-scrollable) */}
+                        <div className="flex-shrink-0 w-full">
+                          <i className={`${currentSkill.icon} text-5xl gradient-text`}></i>
+                          <h2 className="text-2xl font-bold mt-1 text-card-foreground">{currentSkill.name}</h2>
+                          <p className="text-sm font-medium text-muted-foreground mb-2">
+                            {currentSkill.level} • {currentSkill.time}
+                          </p>
+                          <div className="w-full bg-border rounded-full h-2 mb-3">
+                            <div className="h-2 rounded-full bg-gradient-to-r from-primary to-accent" style={{ width: `${currentSkill.proficiency}%` }}></div>
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-primary">Onde Usei:</h4>
-                            <div className="flex flex-wrap gap-1 mt-1">
-                              {currentSkill.whereIUsed.slice(0, 3).map(proj => <span key={proj} className="text-[10px] bg-secondary px-2 py-0.5 rounded-full">{proj}</span>)}
-                            </div>
+                        </div>
+
+                        {/* Scrollable Content */}
+                        <div className="flex-grow overflow-y-auto text-left pr-2 -mr-4 custom-scrollbar">
+                          <div className="space-y-3">
+                            {/* About */}
+                            {currentSkill.about && (
+                              <div>
+                                <h4 className="font-semibold text-primary text-xs mb-1 uppercase">Sobre</h4>
+                                <p className="text-muted-foreground leading-tight text-[11px]">{currentSkill.about}</p>
+                              </div>
+                            )}
+
+                            {/* Achievements */}
+                            {currentSkill.achievements && currentSkill.achievements.length > 0 && (
+                              <div>
+                                <h4 className="font-semibold text-primary text-xs mb-1 uppercase">Conquistas Notáveis</h4>
+                                <ul className="space-y-1.5">
+                                  {currentSkill.achievements.map((ach: any, index: number) => (
+                                    <li key={index} className="text-[11px] leading-tight">
+                                      <strong className="font-medium text-card-foreground block">{ach.titulo}</strong>
+                                      <span className="text-muted-foreground">{ach.descricao}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {/* Projects */}
+                            {currentSkill.projects && currentSkill.projects.filter((p: any) => p && p.link).length > 0 && (
+                              <div>
+                                <h4 className="font-semibold text-primary text-xs mb-1 uppercase">Projetos Relevantes</h4>
+                                <div className="flex flex-wrap gap-1.5 mt-1">
+                                  {currentSkill.projects.filter((p: any) => p && p.link).map((proj: any) => (
+                                    <a
+                                      key={proj.alias}
+                                      href={!proj.link.startsWith('http') ? `https://${proj.link}` : proj.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="text-[10px] bg-secondary px-2 py-0.5 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                                    >
+                                      {proj.alias}
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
