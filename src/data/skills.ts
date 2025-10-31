@@ -8,10 +8,22 @@ export const skills = [
         time: "+2 anos",
         tags: ["frontend", "framework", "web", "javascript"],
         about: "React é minha principal ferramenta para construir interfaces web modernas, rápidas e escaláveis. Tenho vasta experiência na criação de componentes reutilizáveis, gerenciamento de estado complexo e otimização de performance, sempre buscando as melhores práticas do ecossistema.",
-        projects: [,
+        projects: [
             {
                 "alias": "Timeline",
                 "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Life Simple",
+                "link": "lifesimple.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
             }
         ],
         achievements: [
@@ -99,7 +111,24 @@ export const skills = [
         time: "2+ anos",
         tags: ["ia", "llm", "dados"],
         about: "Sou um entusiasta da Engenharia de Prompt, utilizando-a para otimizar a interação com modelos de linguagem e gerar resultados mais precisos e relevantes. Minha experiência abrange desde a criação de prompts básicos até a aplicação de técnicas avançadas para extrair o máximo potencial das IAs generativas.",
-        projects: [],
+        projects: [
+            {
+                "alias": "Timeline",
+                "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Life Simple",
+                "link": "lifesimple.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
+            }
+        ],
         achievements: [
             {
                 titulo: "Compreensão de Modelos de Linguagem (LLMs)",
@@ -329,7 +358,20 @@ export const skills = [
         time: "2+ anos",
         tags: ["backend", "web", "linguagem"],
         about: "Utilizo PHP para desenvolver o backend de aplicações web, especialmente em ambientes de hospedagem compartilhada. Tenho experiência na criação de APIs RESTful e na integração com bancos de dados MySQL, focando em código seguro e de fácil manutenção.",
-        projects: [],
+        projects: [
+            {
+                "alias": "Timeline",
+                "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            }
+        ],
         achievements: [
             {
                 titulo: "Desenvolvimento de APIs RESTful",
@@ -407,7 +449,20 @@ export const skills = [
         time: "3+ anos",
         tags: ["banco de dados", "sql", "backend"],
         about: "Tenho sólida experiência com MySQL, desde a modelagem de dados e criação de esquemas eficientes até a escrita de consultas SQL complexas. Sou capaz de administrar bancos de dados, otimizar queries para performance e garantir a integridade e segurança dos dados.",
-        projects: [],
+        projects: [
+            {
+                "alias": "Timeline",
+                "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            }
+        ],
         achievements: [
             {
                 titulo: "Modelagem de Dados",
@@ -641,7 +696,24 @@ export const skills = [
         time: "1+ anos",
         tags: ["frontend", "css", "framework", "design"],
         about: "Adotei o Tailwind CSS como meu principal framework para estilização, valorizando a agilidade e a consistência que ele proporciona. Sou proficiente na criação de interfaces responsivas e customizadas, utilizando seu sistema de classes utilitárias para construir design systems e prototipar rapidamente.",
-        projects: [],
+        projects: [
+            {
+                "alias": "Timeline",
+                "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Life Simple",
+                "link": "lifesimple.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
+            }
+        ],
         achievements: [
             {
                 titulo: "Desenvolvimento Rápido de UI",
@@ -719,7 +791,24 @@ export const skills = [
         time: "1+ anos",
         tags: ["linguagem", "javascript", "frontend", "backend"],
         about: "Adoto TypeScript em todos os meus projetos JavaScript para garantir um código mais robusto, legível e de fácil manutenção. Tenho ampla experiência na criação de tipos complexos, interfaces e generics, aproveitando a tipagem estática para prevenir bugs e melhorar a colaboração em equipe.",
-        projects: [],
+        projects: [
+            {
+                "alias": "Timeline",
+                "link": "timeline.fwh.is"
+            },
+            {
+                "alias": "Life Simple",
+                "link": "lifesimple.fwh.is"
+            },
+            {
+                "alias": "Mind Map",
+                "link": "mind-map.fwh.is"
+            },
+            {
+                "alias": "Agile Fit",
+                "link": "agile-fit.fwh.is"
+            }
+        ],
         achievements: [
             {
                 titulo: "Tipagem Estática",
