@@ -56,7 +56,12 @@ const Projects = () => {
                     <img src={project.image} alt={project.name} className='group-hover:scale-110 transition-transform duration-300 ease-in-out object-cover w-full h-full object-top' />
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">
+                    <span
+                      className={`inline-block px-3 py-1 backdrop-blur-sm rounded-full text-sm font-medium ${project.backgroundType === 'light'
+                        ? "bg-black/10 text-gray-900" // Versão escura (para fundos claros)
+                        : "bg-white/20 text-white"    // Versão clara/original (para fundos escuros)
+                        }`}
+                    >
                       {project.type}
                     </span>
                   </div>

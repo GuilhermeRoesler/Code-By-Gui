@@ -35,7 +35,7 @@ const AllProjects = () => {
                   <div className="absolute bottom-4 left-4 right-4">
                     <span
                       className={`inline-block px-3 py-1 backdrop-blur-sm rounded-full text-sm font-medium ${project.backgroundType === 'light'
-                        ? "bg-black/20 text-gray-900" // Versão escura (para fundos claros)
+                        ? "bg-black/10 text-gray-900" // Versão escura (para fundos claros)
                         : "bg-white/20 text-white"    // Versão clara/original (para fundos escuros)
                         }`}
                     >
