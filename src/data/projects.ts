@@ -35,6 +35,16 @@ export const projects = [
         backgroundType: 'dark',
     },
     {
+        name: "Knight's Quest",
+        type: "Jogo",
+        impact: "Um jogo de plataformas 2D em pixel art feito no Godot 4.4, onde um cavaleiro recolhe moedas e enfrenta inimigos.",
+        repo: "https://github.com/GuilhermeRoesler/KnightsQuest",
+        link: null,
+        tech: ["Godot Engine 4.4", "GDScript", "Forward Plus Renderer", "Pixel Art", "SVG", "WAV", "MP3"],
+        image: new URL('@/assets/img/projects/knights_quest.png', import.meta.url).href,
+        backgroundType: 'dark',
+    },
+    {
         name: "Medi Care",
         type: "Aplicação Web",
         impact: "MediCare System é uma aplicação web para gerir clínicas médicas com pacientes, consultas, médicos e pagamentos centralizados.",
